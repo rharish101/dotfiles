@@ -1,0 +1,78 @@
+[submodule "bash/.bash/themes/agnoster-bash"]
+	path = bash/.bash/themes/agnoster-bash
+	url = https://github.com/speedenator/agnoster-bash
+[submodule "gtk/.themes/Fantome-Blue"]
+	path = gtk/.themes/Fantome-Blue
+	url = https://github.com/rharish101/Fantome-Blue
+[submodule "vim/.vim/bundle/ale"]
+	path = vim/.vim/bundle/ale
+	url = https://github.com/w0rp/ale
+[submodule "vim/.vim/bundle/fastfold"]
+	path = vim/.vim/bundle/fastfold
+	url = https://github.com/konfekt/fastfold
+[submodule "vim/.vim/bundle/indentline"]
+	path = vim/.vim/bundle/indentline
+	url = https://github.com/yggdroot/indentline
+[submodule "vim/.vim/bundle/nerdcommenter"]
+	path = vim/.vim/bundle/nerdcommenter
+	url = https://github.com/ddollar/nerdcommenter
+[submodule "vim/.vim/bundle/nerdtree"]
+	path = vim/.vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree
+[submodule "vim/.vim/bundle/nerdtree-git-plugin"]
+	path = vim/.vim/bundle/nerdtree-git-plugin
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin
+[submodule "vim/.vim/bundle/rename.vim"]
+	path = vim/.vim/bundle/rename.vim
+	url = https://github.com/danro/rename.vim
+[submodule "vim/.vim/bundle/tabular"]
+	path = vim/.vim/bundle/tabular
+	url = https://github.com/godlygeek/tabular
+[submodule "vim/.vim/bundle/tagbar"]
+	path = vim/.vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar
+[submodule "vim/.vim/bundle/undotree"]
+	path = vim/.vim/bundle/undotree
+	url = https://github.com/mbbill/undotree
+[submodule "vim/.vim/bundle/vim-better-whitespace"]
+	path = vim/.vim/bundle/vim-better-whitespace
+	url = https://github.com/ntpeters/vim-better-whitespace
+[submodule "vim/.vim/bundle/vim-buftabline"]
+	path = vim/.vim/bundle/vim-buftabline
+	url = https://github.com/ap/vim-buftabline
+[submodule "vim/.vim/bundle/vimcaps"]
+	path = vim/.vim/bundle/vimcaps
+	url = https://github.com/suxpert/vimcaps
+[submodule "vim/.vim/bundle/vim-delete-hidden-buffers"]
+	path = vim/.vim/bundle/vim-delete-hidden-buffers
+	url = https://github.com/arithran/vim-delete-hidden-buffers
+[submodule "vim/.vim/bundle/vim-devicons"]
+	path = vim/.vim/bundle/vim-devicons
+	url = https://github.com/ryanoasis/vim-devicons
+[submodule "vim/.vim/bundle/vim-fugitive"]
+	path = vim/.vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "vim/.vim/bundle/vim-instant-markdown"]
+	path = vim/.vim/bundle/vim-instant-markdown
+	url = https://github.com/suan/vim-instant-markdown
+[submodule "vim/.vim/bundle/vim-latex-live-preview"]
+	path = vim/.vim/bundle/vim-latex-live-preview
+	url = https://github.com/xuhdev/vim-latex-live-preview
+[submodule "vim/.vim/bundle/vim-python-pep8-indent"]
+	path = vim/.vim/bundle/vim-python-pep8-indent
+	url = https://github.com/Vimjas/vim-python-pep8-indent
+[submodule "vim/.vim/bundle/vim-shebang"]
+	path = vim/.vim/bundle/vim-shebang
+	url = https://github.com/sbdchd/vim-shebang
+[submodule "vim/.vim/bundle/vim-smooth-scroll"]
+	path = vim/.vim/bundle/vim-smooth-scroll
+	url = https://github.com/terryma/vim-smooth-scroll
+[submodule "vim/.vim/bundle/vim-togglecursor"]
+	path = vim/.vim/bundle/vim-togglecursor
+	url = https://github.com/jszakmeister/vim-togglecursor
+[submodule "vim/.vim/bundle/vim-visual-increment"]
+	path = vim/.vim/bundle/vim-visual-increment
+	url = https://github.com/triglav/vim-visual-increment
+[submodule "vim/.vim/bundle/youcompleteme"]
+	path = vim/.vim/bundle/youcompleteme
+	url = https://github.com/valloric/youcompleteme

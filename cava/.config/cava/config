@@ -1,0 +1,205 @@
+## Configuration file for CAVA. Default values are commented out. Use either ';' or '#' for commenting.
+
+
+[general]
+
+# Smoothing mode. Can be 'normal', 'scientific' or 'waves'. DEPRECATED as of 0.6.0
+mode = waves
+
+# Accepts only non-negative values.
+framerate = 60
+
+# 'autosens' will attempt to decrease sensitivity if the bars peak. 1 = on, 0 = off
+# new as of 0.6.0 autosens of low values (dynamic range)
+# 'overshoot' allows bars to overshoot (in % of terminal height) without initiating autosens. DEPRECATED as of 0.6.0
+autosens = 1
+overshoot = 0
+
+# Manual sensitivity in %. Autosens must be turned off for this to take effect.
+# 200 means double height. Accepts only non-negative values.
+; sensitivity = 100
+
+# The number of bars (0-200). 0 sets it to auto (fill up console).
+# Bars' width and space between bars in number of characters.
+# These options DO NOT apply if you're using 'sdl' or 'x' modes.
+; bars = 0
+bar_width = 3
+; bar_spacing = 1
+
+# Lower and higher cutoff frequencies for lowest and highest bars
+# the bandwidth of the visualizer.
+# Note: there is a minimum total bandwidth of 43Mhz x number of bars.
+# Cava will automatically increase the higher cutoff if a too low band is specified.
+; lower_cutoff_freq = 50
+; higher_cutoff_freq = 10000
+
+
+
+[window]
+
+# Bars' width and space between bars in pixels.
+# Doesn't apply to terminal or serial modes.
+bar_width = 15
+; bar_spacing = 4
+
+# Window width and height
+width = 1280
+height = 100
+
+# Fullscreen toggle (1 = on, 0 = off)
+; fullscreen = 0
+
+# Enables or disables window borders (1 = on, 0 = off)
+border = 0
+
+# Window transparency toggle (works under X ONLY) (same applies)
+transparency = 1
+
+# Keeps the window under any other (works under X ONLY) (again, same applies)
+keep_below = 1
+
+# Set window properties like WM_CLASS.
+set_win_props = 1
+
+# This allows for the window to be positioned a bit easier
+# by putting the window to the part of the screen, which are:
+# top_left, top, top_right, left, center, right, bottom_left,
+# bottom, bottom_right and none if you don't want automatic positioning
+alignment = top
+
+# Additionally we can move the window from the already set
+# part of the screen (units are in pixels)
+; x_padding = 0
+y_padding = 1000
+
+
+
+[input]
+
+# Audio capturing method. Possible methods are: 'pulse', 'alsa' or 'fifo'.
+# Defaults to 'pulse', 'alsa' or 'fifo', in that order, dependent on what support cava was built with.
+#
+# All input methods uses the same config variable 'source'
+# to define where it should get the audio.
+#
+# For pulseaudio 'source' will be the source. Default: 'auto', which uses the monitor source of the default sink
+# (all pulseaudio sinks(outputs) have 'monitor' sources(inputs) associated with them).
+#
+# For alsa 'source' will be the capture device.
+# For fifo 'source' will be the path to fifo-file.
+method = pulse
+; source = auto
+
+; method = alsa
+; source = hw:Loopback,1
+
+; method = fifo
+; source = /tmp/mpd.fifo
+
+
+
+[output]
+
+# Ouput method. Can be 'ncurses', 'noncurses', 'raw', 'sdl' or 'x'.
+# 'noncurses' is for systems that does not suport ncurses.
+# 'raw' is a 16 bit data stream of the bar heights that can be used to send to other applications.
+# 'raw' defaults to 200 bars, which can be adjusted in the 'bars' option above.
+# 'sdl' is for a graphical window using OpenGL
+# 'x' is for a graphical window using XRender (usually faster, unsupported in wayland however)
+method = x
+
+# Additionally with Xlib, you can enable OpenGL mode to make full use of your hardware.
+opengl = 1
+
+# Visual channels. Can be 'stereo' or 'mono'.
+# 'stereo' mirrors both channels with low frequencies in center.
+# 'mono' averages both channels and outputs left to right lowest to highest frequencies.
+; channels = stereo
+
+# Raw output target. A fifo will be created if target does not exist.
+; raw_target = /dev/stdout
+
+# Raw data format. Can be 'binary' or 'ascii'.
+; data_format = binary
+
+# Binary bit format, can be '8bit' (0-255) or '16bit' (0-65530).
+; bit_format = 16bit
+
+# Ascii max value. In 'ascii' mode range will run from 0 to value specified here
+; ascii_max_range = 1000
+
+# Ascii delimiters. In ascii format each bar and frame is separated by a delimiters.
+# Use decimal value in ascii table (i.e. 59 = ';' and 10 = '\n' (line feed)).
+; bar_delimiter = 59
+; frame_delimiter = 10
+
+
+
+[color]
+
+# Colors can be one of seven predefined: black, blue, cyan, green, magenta, red, white, yellow.
+# Or defined by hex code '#xxxxxx' (hex code must be within ''). User defined colors requires a
+# terminal that can change color definitions such as Gnome-terminal or rxvt.
+# Or in case you're running in 'x' you could use the default option
+; background = black
+foreground = '#3b84de'
+
+# Only works in X mode, and is REALLY BUGGY.
+foreground_opacity = 1.0
+
+# Gradient mode, only hex defined colors are supported, background must also be defined in hex
+# or remain commented out. 1 = on, 0 = off. Warning: for certain terminal emulators cava will
+# not able to restore color definitions on exit, simply restart your terminal to restore colors.
+# This option now works in graphical modes too
+; gradient = 0
+; gradient_color_1 = '#5294e2'
+; gradient_color_2 = '#3e4350'
+
+
+
+[smoothing]
+
+# Percentage value for integral smoothing. Takes values from 0 - 100.
+# Higher values means smoother, but less precise. 0 to disable.
+integral = 80
+
+# Disables or enables the so-called "Monstercat smoothing" with or without "waves". Set to 0 to disable.
+; monstercat = 1
+; waves = 0;
+
+# Alternate monstercat smoothing algorithm
+; monstercat_alternative = 0
+
+# Set gravity percentage for "drop off". Higher values means bars will drop faster.
+# Accepts only non-negative values. 50 means half gravity, 200 means double. Set to 0 to disable "drop off".
+gravity = 300
+
+
+# In bar height, bars that would have been lower that this will not be drawn.
+; ignore = 0
+
+# Because fftw doesn't have any logarithmic data sorting (or that I'm not aware of)
+# I made my "logartimic bar sorter", which is litterally a for loop doing magic.
+# Before you ask why didn't I just do log function instead. I lack knoweledge in how they work, that's why.
+# Use only if you know what are you doing.
+; fake_log = 1.0
+
+
+[shadow]
+# Fake shadow effect (works under X only)
+# Warning shadows may not be larger than bars, or it will cause issues.
+size = 3
+# Valid shadow format is #aarrggbb
+color = "#bb000000"
+
+
+[eq]
+
+# This one is tricky. You can have as much keys as you want.
+# Remember to uncomment more then one key! More keys = more precision.
+# Look at readme.md on github for further explanations and examples.
+; 1 = 1 # bass
+; 2 = 1
+; 3 = 1 # midtone
+; 4 = 1
+; 5 = 1 # treble

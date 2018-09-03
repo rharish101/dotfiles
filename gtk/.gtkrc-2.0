@@ -1,0 +1,52 @@
+#style "default" {
+    #engine "pixmap" {
+        #image {
+        #function = HANDLE
+        #overlay_file = "handle-h.png"
+        #overlay_stretch = FALSE
+        #orientation = HORIZONTAL
+        #}
+
+        #image {
+        #function = HANDLE
+        #overlay_file = "handle-v.png"
+        #overlay_stretch = FALSE
+        #orientation = VERTICAL
+        #}
+    #}
+#}
+style"xfcepanelhandles"{
+    engine"pixmap"{
+        image{
+            function=HANDLE
+            detail="handlebox"
+            overlay_file=".handle-v.png"
+            overlay_stretch=FALSE
+            orientation=VERTICAL
+            }
+        image{
+            function=HANDLE
+            detail="handlebox"
+            overlay_file=".handle-h.png"
+            orientation=HORIZONTAL
+            overlay_stretch=FALSE
+        }
+    }
+}
+widget"*PanelItembar*"style"xfcepanelhandles"
+
+style "xfce-panel-window-style"
+{
+    # Time in miliseconds before the panel will unhide on an enter event
+    # original value: 225
+    XfcePanelWindow::popup-delay = 225
+
+    # Time in miliseconds before the panel will hide on a leave event
+    # original value: 350
+    XfcePanelWindow::popdown-delay = 500
+
+    # Size of autohide window in pixels
+    # original value: 3
+    XfcePanelWindow::autohide-size = 3
+}
+class "XfcePanelWindow" style "xfce-panel-window-style"

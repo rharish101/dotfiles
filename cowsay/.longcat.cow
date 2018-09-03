@@ -1,0 +1,16 @@
+# Long Cat
+$the_cow = <<EOC;
+  $thoughts
+   $thoughts                                 
+     .ﾊ,,ﾊ
+     ( ﾟωﾟ)
+     |つ  つ
+     |    |
+     |    |
+     |    |
+     |    |
+     |    |
+     |    |
+     |    |
+     U "" U
+EOC

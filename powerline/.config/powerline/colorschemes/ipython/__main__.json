@@ -1,0 +1,8 @@
+{
+	"groups": {
+		"prompt":       "information:additional",
+		"prompt_out":   "output:additional",
+		"prompt_count": "information:highlighted",
+		"prompt_count_out": "output:highlighted"
+	}
+}
