@@ -76,3 +76,6 @@
 [submodule "vim/.vim/bundle/youcompleteme"]
 	path = vim/.vim/bundle/youcompleteme
 	url = https://github.com/valloric/youcompleteme
+[submodule "tmux/.tmux-themepack"]
+	path = tmux/.tmux-themepack
+	url = https://github.com/jimeh/tmux-themepack
