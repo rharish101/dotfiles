@@ -43,6 +43,7 @@
 [submodule "vim/.vim/bundle/vimcaps"]
 	path = vim/.vim/bundle/vimcaps
 	url = https://github.com/suxpert/vimcaps
+	ignore = dirty
 [submodule "vim/.vim/bundle/vim-delete-hidden-buffers"]
 	path = vim/.vim/bundle/vim-delete-hidden-buffers
 	url = https://github.com/arithran/vim-delete-hidden-buffers
@@ -64,6 +65,7 @@
 [submodule "vim/.vim/bundle/vim-shebang"]
 	path = vim/.vim/bundle/vim-shebang
 	url = https://github.com/sbdchd/vim-shebang
+	ignore = dirty
 [submodule "vim/.vim/bundle/vim-smooth-scroll"]
 	path = vim/.vim/bundle/vim-smooth-scroll
 	url = https://github.com/terryma/vim-smooth-scroll
@@ -73,6 +75,7 @@
 [submodule "vim/.vim/bundle/vim-visual-increment"]
 	path = vim/.vim/bundle/vim-visual-increment
 	url = https://github.com/triglav/vim-visual-increment
+	ignore = dirty
 [submodule "vim/.vim/bundle/youcompleteme"]
 	path = vim/.vim/bundle/youcompleteme
 	url = https://github.com/valloric/youcompleteme
