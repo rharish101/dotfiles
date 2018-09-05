@@ -201,9 +201,31 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/opt/cuda/lib64
 # set an ad-hoc GUI timer
 timer()
 {
-    local N=$1; shift
-    ((sleep $N && zenity --info --icon-name="appointment-soon" --title="Time's Up" --text="${*:-BING}" & cvlc --play-and-exit /usr/share/sounds/Borealis/Kopete_notify.ogg) & ) &>/dev/null
-    echo "Timer set for $N"
+    local target=$1; shift
+    if [[ -z $target ]]; then
+        echo "Usage: timer time"
+    else
+        ((sleep $target && zenity --info --icon-name="appointment-soon" --title="Time's Up" --text="${*:-BING}" & cvlc --play-and-exit /usr/share/sounds/Borealis/Kopete_notify.ogg) & ) &>/dev/null
+        echo "Timer set for: $target"
+    fi
+}
+# set an ad-hoc GUI alarm
+alarm()
+{
+    local target=$1; shift
+    if [[ -z $target ]]; then
+        echo "Usage: alarm time"
+    else
+        N=$(date -d "$target" +"%s")
+        now=$(date +"%s")
+        difference=$((N-now))
+        if (( $difference < 0 )); then
+            echo "Cannot set alarm for the past"
+        else
+            ((sleep $difference && zenity --info --icon-name="appointment-soon" --title="Time's Up" --text="${*:-BING}" & cvlc --play-and-exit /usr/share/sounds/Borealis/Kopete_notify.ogg) & ) &>/dev/null
+            echo "Alarm set for: $(date -d $target)"
+        fi
+    fi
 }
 
 # X11 clipboard support
