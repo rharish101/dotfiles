@@ -120,8 +120,6 @@ man()
 }
 alias sudo="sudo "
 alias restart="reboot"
-alias mvg="mvg -g"
-alias cpg="cpg -g"
 alias yo="longcat Yo!"
 alias why="longcat 'Why not?'"
 alias cmatrix="cmatrix -bs"
