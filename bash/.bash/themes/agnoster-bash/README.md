@@ -1,5 +1,6 @@
 # agnoster-bash
-Agnoster Theme for Bash
+Agnoster Theme for Bash.
+Adapted from speedenator's [repository](https://github.com/speedenator/agnoster-bash).
 
 agnoster's Theme - https://gist.github.com/3712874
 A Powerline-inspired theme for BASH
