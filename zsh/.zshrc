@@ -144,9 +144,7 @@ alias connect-gemos="telnet localhost 1234"
 kernel-gemos ()
 {
     cp $1 /mnt/Data/gem5/gemos/binaries
-    start-gemos
-    sleep 2
-    connect-gemos
+    start-gemos && sleep 2 && connect-gemos
 }
 
 #optirun aliases

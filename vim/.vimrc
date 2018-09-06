@@ -4,9 +4,9 @@ endif
 set nocompatible
 call pathogen#helptags()
 call pathogen#infect()
-let mapleader=","   " map leader changed to comma
-" set showcmd         " show current command, including leader key
-set noruler         " hide the position of cursor in the buffer
+let mapleader="," " map leader changed to comma
+set noruler       " hide the position of cursor in the buffer
+set laststatus=0  " hide the statusline
 nmap <silent> \ev :e $MYVIMRC<CR>
 nmap <silent> \sv :so $MYVIMRC<CR>
 nmap <F8> :TagbarToggle<CR>
