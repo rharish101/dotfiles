@@ -79,3 +79,6 @@
 [submodule "tmux/.tmux-themepack"]
 	path = tmux/.tmux-themepack
 	url = https://github.com/jimeh/tmux-themepack
+[submodule "vim/.vim/bundle/auto-pairs"]
+	path = vim/.vim/bundle/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs
