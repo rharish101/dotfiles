@@ -188,7 +188,7 @@ gravity = 300
 [shadow]
 # Fake shadow effect (works under X only)
 # Warning shadows may not be larger than bars, or it will cause issues.
-size = 3
+size = 5
 # Valid shadow format is #aarrggbb
 color = "#bb000000"
 
