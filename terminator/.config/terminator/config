@@ -37,7 +37,7 @@
     audible_bell = True
     background_color = "#2f343f"
     cursor_color = "#d3dae3"
-    font = Roboto Mono Light for Powerline Bold 13
+    font = RobotoMono Nerd Font Bold 13
     foreground_color = "#d3dae3"
     palette = "#2f343f:#be3841:#4e9a06:#c4a000:#3b84de:#75507b:#06989a:#d3dae3:#505666:#fc4138:#73d216:#fce94f:#5294e2:#ad7fa8:#34e2e2:#d3dae3"
     scrollback_infinite = True
