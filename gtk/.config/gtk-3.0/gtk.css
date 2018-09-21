@@ -2,6 +2,6 @@
 	-gtk-icon-style: regular;
 }
 VteTerminal, vte-terminal {
-  padding: 0px 10px 10px 10px;
-  -VteTerminal-inner-border: 0px 10px 10px 10px;
+  padding: 0px 15px 15px 15px;
+  -VteTerminal-inner-border: 0px 15px 15px 15px;
 }
