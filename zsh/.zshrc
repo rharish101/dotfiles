@@ -166,7 +166,7 @@ export LS_COLORS
 export PS2=$'\e[1;34m...  \e[0m'
 export QT_QPA_PLATFORMTHEME=qgnomeplatform
 export VGL_READBACK=pbo     # increase bumblebee performance
-export NLTK_DATA="/mnt/Data/Computer Science/Machine-Learning/nltk_data"
+export NLTK_DATA="/mnt/Data/Datasets/nltk_data"
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
