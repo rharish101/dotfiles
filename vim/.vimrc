@@ -74,6 +74,7 @@ set undodir=/home/rharish/.vim/undodir " Undo save directory
 set updatetime=1000                    " Swap update time
 let g:instant_markdown_autostart = 0   " Don't start instant markdown preview on start
 let g:NERDSpaceDelims = 1              " Delimit comments by one space
+command BufDelete bp | bd #            " Delete buffer
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
 
