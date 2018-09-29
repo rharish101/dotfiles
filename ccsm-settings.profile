@@ -110,10 +110,10 @@ s0_workarounds = true
 s0_mode = 2
 s0_multioutput_mode = 0
 s0_force_placement_match = 
-s0_position_matches = title=Whisker Menu;class=Lollypop;class=Ccsm;(class=Orage) & title=Orage;class=Spotify;
-s0_position_x_values = -32768;444;465;1522;188;
-s0_position_y_values = -32768;98;121;694;81;
-s0_position_constrain_workarea = false;false;false;false;false;
+s0_position_matches = class=Lollypop;class=Ccsm;(class=Orage) & title=Orage;class=Spotify;
+s0_position_x_values = 444;465;1522;188;
+s0_position_y_values = 98;121;694;81;
+s0_position_constrain_workarea = false;false;false;false;
 s0_mode_matches = ;
 s0_mode_modes = 0;
 s0_viewport_matches = 
