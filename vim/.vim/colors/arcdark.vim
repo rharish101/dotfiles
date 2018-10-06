@@ -66,7 +66,7 @@ highlight! PreProc                guifg=#fc4138  guibg=NONE     gui=NONE       c
 highlight! Comment                guifg=#505666  guibg=NONE     gui=NONE       ctermfg=8     ctermbg=NONE  cterm=NONE
 highlight! Function               guifg=#3b84de  guibg=NONE     gui=NONE       ctermfg=4     ctermbg=NONE  cterm=NONE
 highlight! SpecialKey             guifg=#c4a000  guibg=NONE     gui=NONE       ctermfg=3     ctermbg=NONE  cterm=NONE
-highlight! CursorLine             guifg=NONE     guibg=#2f343c  gui=NONE       ctermfg=NONE  ctermbg=14    cterm=NONE
+highlight! CursorLine             guifg=NONE     guibg=#505666  gui=NONE       ctermfg=NONE  ctermbg=8     cterm=NONE
 highlight! CursorColumn           guifg=NONE     guibg=#2f343f  gui=NONE       ctermfg=NONE  ctermbg=0     cterm=NONE
 highlight! LineNr                 guifg=#505666  guibg=NONE     gui=NONE       ctermfg=8     ctermbg=NONE  cterm=NONE
 highlight! Underlined             guifg=#75507b  guibg=NONE     gui=NONE       ctermfg=5     ctermbg=NONE  cterm=NONE
