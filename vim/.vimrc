@@ -39,10 +39,12 @@ au BufNewFile,BufRead *.py
   \ set autoindent |
   \ set fileformat=unix |
 " for others
-au BufNewFile,BufRead *.php,*.js,*.html,*.css,*.md,*.json,*.vimrc
+au BufNewFile,BufRead *.php,*.js,*.ts,*.html,*.css,*.md,*.json,*.vimrc
   \ set tabstop=2 |
   \ set softtabstop=2 |
   \ set shiftwidth=2 |
+au BufNewFile,BufRead *.ts
+  \ set filetype=javascript |
 " UK English spell check for tex files
 au FileType tex
   \ setlocal spell spelllang=en_gb
