@@ -136,6 +136,7 @@ alias off-nvidia="sudo rmmod nvidia_uvm; sudo rmmod nvidia; sudo tee /proc/acpi/
 alias black="black --line-length=79"
 alias xelatex="xelatex -shell-escape"
 alias mysql="mysql -p"
+alias imgdiff="/mnt/Data/Programs/Python/imgdiff.py"
 
 #aliases for gemos (CS330A)
 alias start-gemos="docker run -dit --name gemos --rm=true -p 1234:3456 -v /mnt/Data/gem5:/root/gem5 -e M5_PATH=\"/root/gem5/gemos\" -e GEM5_LOC=\"/root/gem5\" gem5"
