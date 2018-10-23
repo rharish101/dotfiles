@@ -137,6 +137,7 @@ alias black="black --line-length=79"
 alias xelatex="xelatex -shell-escape"
 alias mysql="mysql -p"
 alias imgdiff="/mnt/Data/Programs/Python/imgdiff.py"
+alias dup-img-rm="/mnt/Data/Programs/Python/dup-img-rm.py"
 
 #aliases for gemos (CS330A)
 alias start-gemos="docker run -dit --name gemos --rm=true -p 1234:3456 -v /mnt/Data/gem5:/root/gem5 -e M5_PATH=\"/root/gem5/gemos\" -e GEM5_LOC=\"/root/gem5\" gem5"
@@ -168,6 +169,8 @@ export PS2=$'\e[1;34m...  \e[0m'
 export QT_QPA_PLATFORMTHEME=qgnomeplatform
 export VGL_READBACK=pbo     # increase bumblebee performance
 export NLTK_DATA="/mnt/Data/Datasets/nltk_data"
+export WINEDLLOVERRIDES="mscoree=d;mshtml=d"
+export WINEPREFIX="/home/rharish/.wine"
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
