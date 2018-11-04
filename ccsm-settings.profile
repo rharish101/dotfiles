@@ -154,7 +154,7 @@ s0_window_opacity = 0.300000
 s0_window_part_size = 20
 
 [core]
-s0_active_plugins = core;crashhandler;composite;opengl;decor;compiztoolbox;text;imgsvg;extrawm;imgpng;put;place;imgjpeg;fadedesktop;mousepoll;move;grid;wall;mag;regex;snap;commands;resize;winrules;resizeinfo;animation;workarounds;expo;fade;staticswitcher;scale;addhelper;scaleaddon;
+s0_active_plugins = core;crashhandler;composite;opengl;decor;compiztoolbox;text;imgsvg;extrawm;imgpng;put;place;workspacenames;imgjpeg;fadedesktop;mousepoll;move;grid;wall;mag;regex;snap;commands;resize;winrules;resizeinfo;animation;workarounds;expo;fade;staticswitcher;scale;addhelper;scaleaddon;
 s0_audible_bell = false
 s0_ignore_hints_when_maximized = true
 s0_hide_skip_taskbar_windows = true
@@ -724,7 +724,7 @@ s0_fill_color = #3e588e4f
 s0_disable_blend = false
 
 [wall]
-s0_show_switcher = true
+s0_show_switcher = false
 s0_miniscreen = false
 s0_preview_timeout = 0.400000
 s0_preview_scale = 100
@@ -870,7 +870,7 @@ s0_attraction_distance = 10
 [mblur]
 s0_initiate_key = <Control>F12
 s0_mode = 0
-s0_strength = 20.000000
+s0_strength = 0.100000
 s0_on_transformed_screen = false
 
 [showmouse]
@@ -1140,7 +1140,7 @@ s0_show_region = true
 s0_snap_key = <Shift>
 s0_snap_inverted = false
 s0_shiver = false
-s0_friction = 3.000000
+s0_friction = 10.000000
 s0_spring_k = 10.000000
 s0_grid_resolution = 8
 s0_min_grid_size = 8
