@@ -168,6 +168,7 @@ export LS_COLORS
 export PS2=$'\e[1;34m...  \e[0m'
 export QT_QPA_PLATFORMTHEME=qgnomeplatform
 export VGL_READBACK=pbo     # increase bumblebee performance
+export PRIMUS_SYNC=1        # primus fix for compositing window managers
 export NLTK_DATA="/mnt/Data/Datasets/nltk_data"
 export WINEDLLOVERRIDES="mscoree=d;mshtml=d"
 export WINEPREFIX="/home/rharish/.wine"

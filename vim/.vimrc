@@ -49,6 +49,14 @@ au BufNewFile,BufRead *.ts
 au FileType tex
   \ setlocal spell spelllang=en_gb
 
+" command and function for changing indentation level for tabs
+function SetIndent(indent)
+  let &shiftwidth=a:indent
+  execute ":IndentLinesDisable"
+  execute ":IndentLinesEnable"
+endfunction
+command -nargs=1 SetIndent call SetIndent(<f-args>)
+
 " remove extra whitespace
 highlight BadWhitespace ctermbg=red guibg=red
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
@@ -93,10 +101,10 @@ let g:strip_whitespace_on_save=1                   " strip trailing whitespace o
 let g:livepreview_engine = 'xelatex -shell-escape' " default pdf engine for latex-preview
 let g:ycm_seed_identifiers_with_syntax = 1         " ycm suggests built-ins
 
-noremap <silent> <C-U> :call smooth_scroll#up(&scroll, 30, 2)<CR>
-noremap <silent> <C-D> :call smooth_scroll#down(&scroll, 30, 2)<CR>
-noremap <silent> <C-B> :call smooth_scroll#up(&scroll*2, 30, 4)<CR>
-noremap <silent> <C-F> :call smooth_scroll#down(&scroll*2, 30, 4)<CR>
+" noremap <silent> <C-U> :call smooth_scroll#up(&scroll, 30, 2)<CR>
+" noremap <silent> <C-D> :call smooth_scroll#down(&scroll, 30, 2)<CR>
+" noremap <silent> <C-B> :call smooth_scroll#up(&scroll*2, 30, 4)<CR>
+" noremap <silent> <C-F> :call smooth_scroll#down(&scroll*2, 30, 4)<CR>
 
 let g:indentLine_showFirstIndentLevel = 1                      " show first indent level
 let g:indentLine_first_char = '▏'                              " character for indent lines

@@ -82,3 +82,6 @@
 [submodule "vim/.vim/bundle/auto-pairs"]
 	path = vim/.vim/bundle/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs
+[submodule "vim/.vim/bundle/accelerated-smooth-scroll"]
+	path = vim/.vim/bundle/accelerated-smooth-scroll
+	url = https://github.com/yonchu/accelerated-smooth-scroll
