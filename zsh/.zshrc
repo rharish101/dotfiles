@@ -123,6 +123,7 @@ alias restart="reboot"
 alias yo="longcat Yo!"
 alias why="longcat 'Why not?'"
 alias cmatrix="cmatrix -bs"
+#alias mtp-mount="simple-mtpfs ~/Galaxy\ S5"
 alias mount-mtp="/mnt/Data/Programs/Bash/mtp_mount.sh"
 alias umount-mtp="fusermount -u /home/rharish/mtp; rm -r /home/rharish/mtp"
 alias mp3gaingui="xdg-open /home/rharish/MP3Gain/MP3GainGUI.exe > /dev/null 2>&1"
@@ -162,9 +163,7 @@ alias nvidia-settings="optirun -b none nvidia-settings -c :8"
 alias nvidia-smi="optirun --no-xorg nvidia-smi"
 alias nvidia-xconfig="optirun --no-xorg nvidia-xconfig"
 
-LS_COLORS=$LS_COLORS:'ow=01;34:ex=32:' ;
-export LS_COLORS
-#alias mtp-mount="simple-mtpfs ~/Galaxy\ S5"
+export LS_COLORS="$LS_COLORS:ow=01;34:ex=32:"
 export PS2=$'\e[1;34m...  \e[0m'
 export QT_QPA_PLATFORMTHEME=qgnomeplatform
 export VGL_READBACK=pbo     # increase bumblebee performance

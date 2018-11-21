@@ -101,11 +101,6 @@ let g:strip_whitespace_on_save=1                   " strip trailing whitespace o
 let g:livepreview_engine = 'xelatex -shell-escape' " default pdf engine for latex-preview
 let g:ycm_seed_identifiers_with_syntax = 1         " ycm suggests built-ins
 
-" noremap <silent> <C-U> :call smooth_scroll#up(&scroll, 30, 2)<CR>
-" noremap <silent> <C-D> :call smooth_scroll#down(&scroll, 30, 2)<CR>
-" noremap <silent> <C-B> :call smooth_scroll#up(&scroll*2, 30, 4)<CR>
-" noremap <silent> <C-F> :call smooth_scroll#down(&scroll*2, 30, 4)<CR>
-
 let g:indentLine_showFirstIndentLevel = 1                      " show first indent level
 let g:indentLine_first_char = '▏'                              " character for indent lines
 let g:indentLine_char = '▏'                                    " character for indent lines
@@ -142,6 +137,7 @@ EOF
 
 " shebang defs
 let g:shebang#shebangs = {
+  \ 'python' : '#!/usr/bin/env python3',
   \ 'awk': '#!/usr/bin/awk -f',
   \ 'php': '',
   \ 'sh' : '#!/usr/bin/zsh',
