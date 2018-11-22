@@ -1149,7 +1149,7 @@ s0_focus_effect = 0
 s0_map_window_match = Splash | DropdownMenu | PopupMenu | Tooltip | Notification | Combo | Dnd | Unknown
 s0_focus_window_match = 
 s0_grab_window_match = 
-s0_move_window_match = Toolbar | Menu | Utility | Dialog | Normal | Unknown
+s0_move_window_match = 
 s0_maximize_effect = true
 
 [scaleaddon]
@@ -1186,7 +1186,7 @@ s0_inactive_shadow_y_offset = 1
 s0_command = exec /usr/bin/gtk-window-decorator --metacity-theme Arc-Dark --replace
 s0_mipmap = false
 s0_decoration_match = any
-s0_shadow_match = any
+s0_shadow_match = (any) & !(class=Wrapper-2.0)
 
 [titleinfo]
 s0_show_remote_machine = true
