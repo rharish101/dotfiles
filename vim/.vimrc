@@ -47,7 +47,8 @@ au BufNewFile,BufRead *.ts
   \ set filetype=javascript |
 " UK English spell check for tex files
 au FileType tex
-  \ setlocal spell spelllang=en_gb
+  \ setlocal spell spelllang=en_gb |
+  \ set filetype=tex
 
 " command and function for changing indentation level for tabs
 function SetIndent(indent)

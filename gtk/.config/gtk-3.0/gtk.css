@@ -5,3 +5,28 @@ VteTerminal, vte-terminal {
   padding: 0px 15px 15px 15px;
   -VteTerminal-inner-border: 0px 15px 15px 15px;
 }
+.terminator-terminal-window>notebook>header {
+	background-color: #2f343f;
+}
+#whiskermenu-window>frame>stack>box>stack>box>scrolledwindow>viewport* {
+  padding: 2px;
+}
+#whiskermenu-window>frame>stack>box>stack>box>stack>scrolledwindow* {
+  font-size: 21px;
+  padding: 2px;
+}
+#whiskermenu-window>frame>stack>box>box>label {
+  font-size: 20px;
+}
+#whiskermenu-window>frame>* {
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-top-color: rgba(0,0,0,0.4);
+  border-right-color: rgba(0,0,0,0.4);
+}
+window.background.chromium {
+  background-color: #404552;
+}
+.terminator-terminal-window paned>separator {
+	background-image: linear-gradient(#505666,#505666)
+}

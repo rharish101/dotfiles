@@ -8,9 +8,12 @@
   cycle_prev = <Primary><Shift>Tab
   go_down = <Primary><Shift>j
   go_left = <Primary><Shift>h
+  go_prev = <Primary><Shift>p
   go_right = <Primary><Shift>l
   go_up = <Primary><Shift>k
   group_all_toggle = <Shift><Super>g
+  next_tab = <Shift><Alt>n
+  prev_tab = <Shift><Alt>p
 [layouts]
   [[default]]
     [[[child1]]]
