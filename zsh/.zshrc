@@ -73,14 +73,6 @@ export ARCHFLAGS="-arch x86_64"
 # ssh
 export SSH_KEY_PATH="~/.ssh/"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 longcat()
 {
     if [[ $1 == "" ]]; then
@@ -99,11 +91,6 @@ longcat()
     fi
 }
 longcat
-alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
-# alias python='python2'
-# alias pip='pip2'
-# alias ipython='ipython2'
-alias ls='ls --color=auto'
 export EDITOR=vim
 setopt extended_glob
 source /usr/share/doc/pkgfile/command-not-found.bash
@@ -118,40 +105,45 @@ man()
     LESS_TERMCAP_us=$'\e[01;32m' \
     command man "$@"
 }
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+# alias python='python2'
+# alias pip='pip2'
+# alias ipython='ipython2'
+alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
+alias ls='ls --color=auto'
 alias sudo="sudo "
 alias restart="reboot"
 alias yo="longcat Yo!"
 alias why="longcat 'Why not?'"
 alias cmatrix="cmatrix -bs"
+alias mysql="mysql -p"
+alias mp3gaingui="xdg-open /home/rharish/MP3Gain/MP3GainGUI.exe > /dev/null 2>&1"
+alias black="black --line-length=79"
+alias xelatex="xelatex -shell-escape"
 #alias mtp-mount="simple-mtpfs ~/Galaxy\ S5"
 alias mount-mtp="/mnt/Data/Programs/Bash/mtp_mount.sh"
 alias umount-mtp="fusermount -u /home/rharish/mtp; rm -r /home/rharish/mtp"
-alias mp3gaingui="xdg-open /home/rharish/MP3Gain/MP3GainGUI.exe > /dev/null 2>&1"
+
+# Custom scripts
 alias check-bitrate="/mnt/Data/Programs/Bash/check-bitrate.sh"
 alias capitalize-mp3="/mnt/Data/Programs/Bash/capitalize-mp3.sh"
 alias concatenate-mp3="/mnt/Data/Programs/Bash/concatenate-mp3.sh"
 alias compress-video="/mnt/Data/Programs/Bash/compress-video.sh"
 alias gpu-avail="/mnt/Data/Programs/Bash/gpu_avail.sh"
-alias on-nvidia="sudo tee /proc/acpi/bbswitch <<< ON"
-alias off-nvidia="sudo rmmod nvidia_uvm; sudo rmmod nvidia; sudo tee /proc/acpi/bbswitch <<< OFF"
-alias black="black --line-length=79"
-alias xelatex="xelatex -shell-escape"
-alias mysql="mysql -p"
 alias imgdiff="/mnt/Data/Programs/Python/imgdiff.py"
 alias dup-img-rm="/mnt/Data/Programs/Python/dup-img-rm.py"
 
-#aliases for gemos (CS330A)
-alias start-gemos="docker run -dit --name gemos --rm=true -p 1234:3456 -v /mnt/Data/gem5:/root/gem5 -e M5_PATH=\"/root/gem5/gemos\" -e GEM5_LOC=\"/root/gem5\" gem5"
-alias stop-gemos="docker kill gemos"
-alias connect-gemos="telnet localhost 1234"
-# alias kernel-gemos="cp -t /mnt/Data/gem5/gemos/binaries/"
-kernel-gemos ()
-{
-    cp $1 /mnt/Data/gem5/gemos/binaries
-    start-gemos && sleep 2 && connect-gemos
-}
-
-#optirun aliases
+# Bumblebee aliases
+alias on-nvidia="sudo tee /proc/acpi/bbswitch <<< ON"
+alias off-nvidia="sudo rmmod nvidia_uvm; sudo rmmod nvidia; sudo tee /proc/acpi/bbswitch <<< OFF"
 alias nvtop='optirun --no-xorg nvtop'
 alias nvidia-bug-report.sh="optirun --no-xorg nvidia-bug-report.sh"
 alias nvidia-cuda-mps-control="optirun --no-xorg nvidia-cuda-mps-control"
