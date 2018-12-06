@@ -75,6 +75,9 @@ Simply use Stow on all the folders in this repository (except for the screenshot
   <br>
 
   ![vim-2](./screenshots/vim-2.png)
+  <br>
+
+  ![vim-3](./screenshots/vim-3.png)
 
 * **IPython + Powerline**  
 (WIP)
