@@ -34,33 +34,29 @@ Simply use Stow on all the folders in this repository (except for the screenshot
 ![desktop](./screenshots/desktop.png)
 
 ### **Individual Software** (WIP)
-* **R**
-  ![r](./screenshots/r.png)
-
-* **CAVA (requires devilspie2)**  
-  ![cava](./screenshots/cava.png)
-
-* **Cowsay (with fortune and lolcat)**  
-  ![cowsay](./screenshots/cowsay.png)
+* **GTK Setup**  
+  Check out the [repository](https://github.com/rharish101/Fantome-Blue) for screenshots of Fantome-Blue.
 
 * **Dockbarx (plugin for Xfce panel)**  
   ![dockbarx](./screenshots/dockbarx.png)
 
-* **GTK Setup**  
-  Check out the [repository](https://github.com/rharish101/Fantome-Blue) for screenshots of Fantome-Blue.
+* **CAVA (requires devilspie2)**  
+  ![cava](./screenshots/cava.png)
 
-* **IPython + Powerline**
-
-* **Jupyter Notebook**  
-  ![jupyter-1](./screenshots/jupyter-1.png)  
+* **Wallpaper Scripts**  
+  ![wallpaper-scripts](./screenshots/scripts.gif)  
   <br>
 
-  ![jupyter-2](./screenshots/jupyter-2.png)
+  Wallpaper blurs when the active/focused window is not the desktop; and wallpaper can be smoothly changed every X seconds.  
+  Wallpaper changing script adapted from [xfce-wallpaper-transition](https://github.com/c4tz/xfce-wallpaper-transition)
 
 * **Plank**  
   ![plank](./screenshots/plank.png)
 
 * **Terminator**
+  * Cowsay (with fortune and lolcat)  
+    ![cowsay](./screenshots/cowsay.png)
+
   * Zsh  
     ![zsh-1](./screenshots/zsh-1.png)
     <br>
@@ -73,18 +69,22 @@ Simply use Stow on all the folders in this repository (except for the screenshot
 
     ![bash-2](./screenshots/bash-2.png)
 
-* **Tmux**
-  ![tmux](./screenshots/tmux.png)
-
 * **Vim**
   ![vim-1](./screenshots/vim-1.png)  
   <br>
 
   ![vim-2](./screenshots/vim-2.png)
 
-* **Wallpaper Scripts**  
-  ![wallpaper-scripts](./screenshots/scripts.gif)  
+* **IPython + Powerline**
+
+* **Jupyter Notebook**  
+  ![jupyter-1](./screenshots/jupyter-1.png)  
   <br>
 
-  Wallpaper blurs when the active/focused window is not the desktop; and wallpaper can be smoothly changed every X seconds.  
-  Wallpaper changing script adapted from [xfce-wallpaper-transition](https://github.com/c4tz/xfce-wallpaper-transition)
+  ![jupyter-2](./screenshots/jupyter-2.png)
+
+* **Tmux**
+  ![tmux](./screenshots/tmux.png)
+
+* **R**
+  ![r](./screenshots/r.png)
