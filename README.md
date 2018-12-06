@@ -5,6 +5,7 @@ I use GNU Stow to manage my dotfiles (for a tutorial, [click here]( https://alex
 Simply use Stow on all the folders in this repository (except for the screenshots folder).
 
 ## Requirements
+* GNU Stow
 * Xfce4
 * Compiz
 * The [Fantome-Blue](https://github.com/rharish101/Fantome-Blue) GTK theme (my custom version of [Fantome](https://github.com/addy-dclxvi/gtk-theme-collections))
@@ -75,7 +76,8 @@ Simply use Stow on all the folders in this repository (except for the screenshot
 
   ![vim-2](./screenshots/vim-2.png)
 
-* **IPython + Powerline**
+* **IPython + Powerline**  
+(WIP)
 
 * **Jupyter Notebook**  
   ![jupyter-1](./screenshots/jupyter-1.png)  
