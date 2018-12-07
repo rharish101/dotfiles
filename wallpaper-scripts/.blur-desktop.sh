@@ -115,10 +115,13 @@ blur_monitor ()
     monitor=$1
     img=`xfconf-query --channel xfce4-desktop --property "/backdrop/screen0/monitor${monitor}/workspace0/last-image"`
     wallp=`echo $img | rev | cut -d / -f 1 | rev`
-    if [ ! -f "${blur_path}/Level_1/${wallp}" ]
-    then
-        make_blurred $img
-    fi
+    for i in `seq 1 3`; do
+        if [ ! -f "${blur_path}/Level_${i}/${wallp}" ]
+        then
+            make_blurred $img
+            break
+        fi
+    done
     xfconf-query --channel xfce4-desktop --property "/backdrop/screen0/monitor${monitor}/workspace0/last-image" --set "${blur_path}/Level_1/${wallp}"
     sleep 0.1
     xfconf-query --channel xfce4-desktop --property "/backdrop/screen0/monitor${monitor}/workspace0/last-image" --set "${blur_path}/Level_2/${wallp}"

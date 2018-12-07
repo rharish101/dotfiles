@@ -9,6 +9,8 @@ Simply use Stow on all the folders in this repository (except for the screenshot
 * Xfce4
 * Compiz 0.9
 * The [Fantome-Blue](https://github.com/rharish101/Fantome-Blue) GTK theme (my custom version of [Fantome](https://github.com/addy-dclxvi/gtk-theme-collections))
+* Arc-X-D icon theme
+  * Paper icon theme (as a fallback)
 * Dockbarx plugin for Xfce panel
 * Cava GUI (a.k.a. [GAVA](https://github.com/nikp123/gava))
   * devilspie2
