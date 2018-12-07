@@ -11,7 +11,6 @@ Simply use Stow on all the folders in this repository (except for the screenshot
 * The [Fantome-Blue](https://github.com/rharish101/Fantome-Blue) GTK theme (my custom version of [Fantome](https://github.com/addy-dclxvi/gtk-theme-collections))
 * Dockbarx plugin for Xfce panel
 * Cava GUI (a.k.a. [GAVA](https://github.com/nikp123/gava))
-* My wallpaper scripts (WIP; hacky code as of now)
 * Plank
 * i3lock-color
   * xss-lock (optional; for locking on screen blank)
@@ -23,6 +22,7 @@ Simply use Stow on all the folders in this repository (except for the screenshot
     * oh-my-zsh
 
 #### Optional
+* My wallpaper scripts (warning: hacky code)
 * Vim (probably should be required :stuck_out_tongue:)
 * IPython
   * Powerline
@@ -32,8 +32,9 @@ Simply use Stow on all the folders in this repository (except for the screenshot
   * The [colorout](https://github.com/jalvesaq/colorout) package
 
 ## Instructions
-* **Wallpaper Scripts** (WIP)  
+* **Wallpaper Scripts**  
   The script ".blur-desktop.sh" blurs the wallpaper when the active/focused window is not the desktop.
+  *INFO*: When sending a SIGTSTP to the blurring process, it will unblur the wallpaper and loop until it gets SIGCONT.
   The script ".wallpaper.py" enables the wallpaper to be smoothly changed every X seconds.
   <br>
 
@@ -79,9 +80,6 @@ Simply use Stow on all the folders in this repository (except for the screenshot
 * **CAVA (requires devilspie2)**  
   ![cava](./screenshots/cava.png)
 
-* **Wallpaper Scripts**  
-  ![wallpaper-scripts](./screenshots/scripts.gif)  
-
 * **Plank**  
   ![plank](./screenshots/plank.png)
 
@@ -103,6 +101,9 @@ Simply use Stow on all the folders in this repository (except for the screenshot
     <br>
 
     ![bash-2](./screenshots/bash-2.png)
+
+* **Wallpaper Scripts**  
+  ![wallpaper-scripts](./screenshots/scripts.gif)  
 
 * **Vim**  
   ![vim-1](./screenshots/vim-1.png)
