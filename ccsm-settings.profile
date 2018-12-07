@@ -1183,7 +1183,7 @@ s0_inactive_shadow_opacity = 0.600000
 s0_inactive_shadow_color = #00000080
 s0_inactive_shadow_x_offset = 1
 s0_inactive_shadow_y_offset = 1
-s0_command = exec /usr/bin/gtk-window-decorator --metacity-theme Arc-Dark --replace
+s0_command = exec /usr/bin/gtk-window-decorator --metacity-theme Fantome-Blue --replace
 s0_mipmap = false
 s0_decoration_match = any
 s0_shadow_match = (any) & !(class=Wrapper-2.0)
