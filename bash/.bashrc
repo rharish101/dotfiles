@@ -36,20 +36,20 @@ LS_COLORS=$LS_COLORS:'ow=01;34:ex=0;32:' ;
 export EDITOR=vim
 # For Tensorflow with MKL
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/opt/cuda/lib64
-export PATH="$PATH:/home/rharish/Arcanist/arcanist/bin/"
+export PATH="$PATH:$HOME/Arcanist/arcanist/bin/"
 complete -cf sudo
 alias cmatrix="cmatrix -bs"
 alias octave="octave --no-gui"
 # alias python='python2'
 # alias pip='pip2'
 #alias ipython="ipython2"
-alias mount-mtp="/home/rharish/.mtp_mount.sh"
-alias umount-mtp="fusermount -u /home/rharish/Galaxy\ S5"
-alias mp3gaingui="xdg-open /home/rharish/MP3Gain/MP3GainGUI.exe > /dev/null 2>&1"
-alias tagscanner="xdg-open /home/rharish/TagScan-old/Tagscan.exe > /dev/null 2>&1"
-alias check-bitrate="/home/rharish/.check-bitrate.sh"
-alias capitalize-mp3="/home/rharish/.capitalize-mp3.sh"
-alias compress-video="/home/rharish/.compress-video.sh"
+alias mount-mtp="$HOME/.mtp_mount.sh"
+alias umount-mtp="fusermount -u $HOME/Galaxy\ S5"
+alias mp3gaingui="xdg-open $HOME/MP3Gain/MP3GainGUI.exe > /dev/null 2>&1"
+alias tagscanner="xdg-open $HOME/TagScan-old/Tagscan.exe > /dev/null 2>&1"
+alias check-bitrate="$HOME/.check-bitrate.sh"
+alias capitalize-mp3="$HOME/.capitalize-mp3.sh"
+alias compress-video="$HOME/.compress-video.sh"
 alias gpu-avail="/mnt/Data/Programs/Bash/gpu_avail.sh"
 alias on-nvidia="sudo tee /proc/acpi/bbswitch <<< ON"
 alias off-nvidia="sudo rmmod nvidia_uvm; sudo rmmod nvidia; sudo tee /proc/acpi/bbswitch <<< OFF"

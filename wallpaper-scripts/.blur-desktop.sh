@@ -1,7 +1,7 @@
 #!/usr/bin/zsh
-
 wall_path="/home/rharish/Pictures/Wallpapers/Normal"
-blur_path="/home/rharish/Pictures/Wallpapers/Blurred"
+blur_path="$HOME/.blurred_wallpapers/"
+status_file="/tmp/.wall_blur"
 
 make_blurred ()
 {
@@ -11,6 +11,17 @@ make_blurred ()
     then
         cp $img $wall_path
     fi
+    if [ ! -d $blur_path ]
+    then
+        mkdir -p $blur_path
+    fi
+    for i in `seq 1 3`
+    do
+        if [ ! -d "${blur_path}/Level_$i" ]
+        then
+            mkdir -p "${blur_path}/Level_$i"
+        fi
+    done
     convert $img -channel RGBA -blur 0x3 -quality 100 "${blur_path}/Level_1/${wallp}"
     convert $img -channel RGBA -blur 0x6 -quality 100 "${blur_path}/Level_2/${wallp}"
     convert $img -channel RGBA -blur 0x9 -quality 100 "${blur_path}/Level_3/${wallp}"
@@ -76,9 +87,13 @@ blur_desktop ()
 
 IFS=$'\n'
 blur=false
-status_file="/home/rharish/.wall_blur"
 while true
 do
+    if [ ! -f $status_file ]
+    then
+        touch $status_file
+    fi
+
     blur_process()
     {
         while [[ `cat $status_file | head -1` == 'transition' ]]

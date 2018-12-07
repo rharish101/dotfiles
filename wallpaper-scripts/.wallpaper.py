@@ -262,7 +262,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-S",
         "--status-file",
-        default="/home/rharish/.wall_blur",
+        default="/tmp/.wall_blur",
         metavar=("StatusFile"),
         help="Path to the status file for wallpaper blurring",
         type=str,

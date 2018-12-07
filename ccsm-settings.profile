@@ -138,7 +138,7 @@ s0_title_wave = true
 s0_initiate_key = <Control>F11
 s0_firststart = true
 s0_background = 
-s0_logo = /home/rharish/.local/share/backgrounds/i3locker-background.png
+s0_logo = splash_logo.png
 s0_fade_time = 0.250000
 s0_display_time = 0.200000
 s0_saturation = 50.000000
@@ -370,11 +370,11 @@ s0_toggle_key = <Alt><Super>r
 s0_intensity = 20
 
 [wallpaper]
-s0_bg_image = /mnt/OS/Users/Harish/Pictures/Bugatti Chiron/Chiron01.jpg;/mnt/OS/Users/Harish/Pictures/Bugatti Chiron/Chiron02.jpg;/mnt/OS/Users/Harish/Pictures/Bugatti Chiron/Chiron03.jpg;/mnt/OS/Users/Harish/Pictures/Bugatti Chiron/Chiron04.jpg;/mnt/OS/Users/Harish/Pictures/Bugatti Chiron/Chiron05.jpg;/mnt/OS/Users/Harish/Pictures/Bugatti Chiron/Chiron06.jpg;/mnt/OS/Users/Harish/Pictures/Bugatti Chiron/Chiron07.jpg;/mnt/OS/Users/Harish/Pictures/Bugatti Chiron/Chiron08.jpg;/mnt/OS/Users/Harish/Pictures/Bugatti Chiron/Chiron09.jpg;/mnt/OS/Users/Harish/Pictures/Bugatti Chiron/Chiron10.jpg;/mnt/OS/Users/Harish/Pictures/Bugatti Chiron/Chiron11.jpg;/home/rharish/Data/Google Drive/Bugatti Chiron/bg-01.jpg;/home/rharish/Data/Google Drive/Bugatti Chiron/bg-03.jpg;/home/rharish/Data/Google Drive/Bugatti Chiron/bg-04.jpg;/home/rharish/Data/Google Drive/Bugatti Chiron/bg-07.jpg;/home/rharish/Data/Google Drive/Bugatti Chiron/bg-08.jpg;/home/rharish/Data/Google Drive/Bugatti Chiron/bg-09.jpg;/home/rharish/Data/Google Dri;
-s0_bg_image_pos = 0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;
-s0_bg_fill_type = 0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;
-s0_bg_color1 = #000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;
-s0_bg_color2 = #000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;
+s0_bg_image = 
+s0_bg_image_pos = 0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;
+s0_bg_fill_type = 0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;
+s0_bg_color1 = #000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;
+s0_bg_color2 = #000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;#000000ff;
 s0_cycle_wallpapers = true
 s0_cycle_timeout = 10.000000
 s0_fade_duration = 1.000000

@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+"""Toggle the state of CAVA GUI (aka GAVA)."""
 import os
 from subprocess import Popen, PIPE
 from time import sleep
@@ -17,6 +18,8 @@ parser.add_argument(
 )
 args = parser.parse_args()
 
+home_dir = os.path.expanduser("~")
+
 pgrep = Popen(["pgrep", "cava"], stdout=PIPE)
 pid_list = list(map(int, pgrep.stdout.read().strip().split()))
 if len(pid_list) > 0 and args.force != "start":
@@ -32,7 +35,7 @@ if len(pid_list) > 0 and args.force != "start":
             "--app-name='CAVA visualizer'",
             "CAVA",
             "CAVA stopped",
-            "--icon=/home/rharish/.local/share/icons/cava.png",
+            "--icon=" + home_dir + "/.local/share/icons/cava.png",
         ]
     )
 elif len(pid_list) == 0 and args.force != "stop":
@@ -71,7 +74,7 @@ elif len(pid_list) == 0 and args.force != "stop":
                 "--app-name='CAVA visualizer'",
                 "CAVA",
                 "CAVA started",
-                "--icon=/home/rharish/.local/share/icons/cava.png",
+                "--icon=" + home_dir + "/.local/share/icons/cava.png",
             ]
         )
     else:
@@ -81,7 +84,7 @@ elif len(pid_list) == 0 and args.force != "stop":
                 "--app-name='CAVA visualizer'",
                 "CAVA",
                 "Error encountered",
-                "--icon=/home/rharish/.local/share/icons/cava.png",
+                "--icon=" + home_dir + "/.local/share/icons/cava.png",
             ]
         )
         pgrep = Popen(["pgrep", "devilspie2"], stdout=PIPE)

@@ -125,12 +125,12 @@ alias yo="longcat Yo!"
 alias why="longcat 'Why not?'"
 alias cmatrix="cmatrix -bs"
 alias mysql="mysql -p"
-alias mp3gaingui="xdg-open /home/rharish/MP3Gain/MP3GainGUI.exe > /dev/null 2>&1"
+alias mp3gaingui="xdg-open $HOME/MP3Gain/MP3GainGUI.exe > /dev/null 2>&1"
 alias black="black --line-length=79"
 alias xelatex="xelatex -shell-escape"
 #alias mtp-mount="simple-mtpfs ~/Galaxy\ S5"
 alias mount-mtp="/mnt/Data/Programs/Bash/mtp_mount.sh"
-alias umount-mtp="fusermount -u /home/rharish/mtp; rm -r /home/rharish/mtp"
+alias umount-mtp="fusermount -u $HOME/mtp; rm -r $HOME/mtp"
 
 # Custom scripts
 alias check-bitrate="/mnt/Data/Programs/Bash/check-bitrate.sh"
@@ -162,7 +162,7 @@ export VGL_READBACK=pbo     # increase bumblebee performance
 export PRIMUS_SYNC=1        # primus fix for compositing window managers
 export NLTK_DATA="/mnt/Data/Datasets/nltk_data"
 export WINEDLLOVERRIDES="mscoree=d;mshtml=d"
-export WINEPREFIX="/home/rharish/.wine"
+export WINEPREFIX="$HOME/.wine"
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then

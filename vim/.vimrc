@@ -81,8 +81,8 @@ set visualbell                         " don't beep
 set noerrorbells                       " don't beep
 set nrformats=alpha                    " create letter sequences
 set undofile                           " Maintain undo history between sessions
-set undodir=/home/rharish/.vim/undodir " Undo save directory
 set updatetime=1000                    " Swap update time
+let &undodir = $HOME . '/.vim/undodir' " Undo save directory
 let g:instant_markdown_autostart = 0   " Don't start instant markdown preview on start
 let g:NERDSpaceDelims = 1              " Delimit comments by one space
 command BufDelete bp | bd #            " Delete buffer

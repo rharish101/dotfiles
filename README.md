@@ -11,8 +11,13 @@ Simply use Stow on all the folders in this repository (except for the screenshot
 * The [Fantome-Blue](https://github.com/rharish101/Fantome-Blue) GTK theme (my custom version of [Fantome](https://github.com/addy-dclxvi/gtk-theme-collections))
 * Dockbarx plugin for Xfce panel
 * Cava GUI (a.k.a. [GAVA](https://github.com/nikp123/gava))
-* My wallpaper scripts (WIP; hacky code as of now)
+* My wallpaper scripts (WIP; hacky code as of now):  
+  Wallpaper blurs when the active/focused window is not the desktop; and wallpaper can be smoothly changed every X seconds.
+  Wallpaper changing script adapted from [xfce-wallpaper-transition](https://github.com/c4tz/xfce-wallpaper-transition).
 * Plank
+* i3lock-color:  
+  Uses [i3lock-multimonitor](https://github.com/ShikherVerma/i3lock-multimonitor) for multi-monitor support.
+  Replace the `image` variable in the `.i3locker.sh` script with your preferred image.
 * Roboto Font
 * Terminator
   * Cowsay
@@ -46,13 +51,12 @@ Simply use Stow on all the folders in this repository (except for the screenshot
 
 * **Wallpaper Scripts**  
   ![wallpaper-scripts](./screenshots/scripts.gif)  
-  <br>
-
-  Wallpaper blurs when the active/focused window is not the desktop; and wallpaper can be smoothly changed every X seconds.  
-  Wallpaper changing script adapted from [xfce-wallpaper-transition](https://github.com/c4tz/xfce-wallpaper-transition)
 
 * **Plank**  
   ![plank](./screenshots/plank.png)
+
+* **i3lock**  
+  ![i3lock](./screenshots/i3lock.png)
 
 * **Terminator**
   * Cowsay (with fortune and lolcat)  
