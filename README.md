@@ -7,17 +7,14 @@ Simply use Stow on all the folders in this repository (except for the screenshot
 ## Requirements
 * GNU Stow
 * Xfce4
-* Compiz
+* Compiz 0.9
 * The [Fantome-Blue](https://github.com/rharish101/Fantome-Blue) GTK theme (my custom version of [Fantome](https://github.com/addy-dclxvi/gtk-theme-collections))
 * Dockbarx plugin for Xfce panel
 * Cava GUI (a.k.a. [GAVA](https://github.com/nikp123/gava))
-* My wallpaper scripts (WIP; hacky code as of now):  
-  Wallpaper blurs when the active/focused window is not the desktop; and wallpaper can be smoothly changed every X seconds.
-  Wallpaper changing script adapted from [xfce-wallpaper-transition](https://github.com/c4tz/xfce-wallpaper-transition).
+* My wallpaper scripts (WIP; hacky code as of now)
 * Plank
-* i3lock-color:  
-  Uses [i3lock-multimonitor](https://github.com/ShikherVerma/i3lock-multimonitor) for multi-monitor support.
-  Replace the `image` variable in the `.i3locker.sh` script with your preferred image.
+* i3lock-color
+  * xss-lock (optional; for locking on screen blank)
 * Roboto Font
 * Terminator
   * Cowsay
@@ -33,6 +30,36 @@ Simply use Stow on all the folders in this repository (except for the screenshot
 * Tmux
 * R
   * The [colorout](https://github.com/jalvesaq/colorout) package
+
+## Instructions
+* **Wallpaper Scripts** (WIP)  
+  The script ".blur-desktop.sh" blurs the wallpaper when the active/focused window is not the desktop.
+  The script ".wallpaper.py" enables the wallpaper to be smoothly changed every X seconds.
+  <br>
+
+  The wallpaper changing script is adapted from [xfce-wallpaper-transition](https://github.com/c4tz/xfce-wallpaper-transition).
+  <br>
+
+  How to use:
+  * .blur-desktop.sh:
+    * Replace the variable `wall_path` with the path to the directory containing the wallpapers
+    * Run the script as `~/.blur-desktop.sh`
+  * .wallpaper.py:
+    * Run `~/.wallpaper.py -h` to get the list of available commandline arguments.
+    * Run the script with the necessary arguments.
+    * You can change the argument defaults in the script itself.
+  <br>
+
+* **i3lock-color**  
+  This uses [i3lock-multimonitor](https://github.com/ShikherVerma/i3lock-multimonitor) for multi-monitor support.
+  Replace the `image` variable in the `.i3locker.sh` script with your preferred image.
+  Then run the script as `~/.i3locker.sh` to use it.
+  <br>
+
+  You can also setup xss-lock so that i3lock is called whenever the screen blanks as follows:
+  ```
+  xss-lock ~/.i3locker.sh
+  ```
 
 ## Screenshots
 
@@ -74,8 +101,8 @@ Simply use Stow on all the folders in this repository (except for the screenshot
 
     ![bash-2](./screenshots/bash-2.png)
 
-* **Vim**
-  ![vim-1](./screenshots/vim-1.png)  
+* **Vim**  
+  ![vim-1](./screenshots/vim-1.png)
   <br>
 
   ![vim-2](./screenshots/vim-2.png)
@@ -92,8 +119,8 @@ Simply use Stow on all the folders in this repository (except for the screenshot
 
   ![jupyter-2](./screenshots/jupyter-2.png)
 
-* **Tmux**
+* **Tmux**  
   ![tmux](./screenshots/tmux.png)
 
-* **R**
+* **R**  
   ![r](./screenshots/r.png)

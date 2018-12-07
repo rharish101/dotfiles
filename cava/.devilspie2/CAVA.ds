@@ -1,7 +1,0 @@
-(if
-(matches (window_class) "URxvt")
-(begin
-    (undecorate)
-    (wintype "dock")
-)
-)
