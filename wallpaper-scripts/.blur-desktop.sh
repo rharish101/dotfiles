@@ -1,7 +1,55 @@
 #!/usr/bin/zsh
-wall_path="/home/rharish/Pictures/Wallpapers/Normal"
+
+# Do getopts stuff
+# https://stackoverflow.com/a/29754866/7905483
+
+! getopt --test > /dev/null
+if [[ ${pipestatus[1]} -ne 4 ]]; then
+    echo "I’m sorry, `getopt --test` failed in this environment."
+    exit 1
+fi
+
+OPTIONS=w:b:
+LONGOPTS=wall-dir:,blur-dir:
+
+# -use ! and pipestatus to get exit code with errexit set
+# -temporarily store output to be able to check for errors
+# -activate quoting/enhanced mode (e.g. by writing out “--options”)
+# -pass arguments only via   -- "$@"   to separate them correctly
+! PARSED=$(getopt --options=$OPTIONS --longoptions=$LONGOPTS --name "$0" -- "$@")
+if [[ ${pipestatus[1]} -ne 0 ]]; then
+    # e.g. return value is 1
+    #  then getopt has complained about wrong arguments to stdout
+    exit 2
+fi
+# read getopt’s output this way to handle the quoting right:
+eval set -- "$PARSED"
+
+wall_path="/home/rharish/Pictures/Wallpapers"
 blur_path="$HOME/.blurred_wallpapers/"
-status_file="/tmp/.wall_blur"
+# now enjoy the options in order and nicely split until we see --
+while true; do
+    case "$1" in
+        -w|--wall-dir)
+            wall_path="$2"
+            shift 2
+            ;;
+        -b|--blur-dir)
+            blur_path="$2"
+            shift 2
+            ;;
+        --)
+            shift
+            break
+            ;;
+        *)
+            echo "Programming error"
+            exit 3
+            ;;
+    esac
+done
+
+# Script starts!!!
 
 make_blurred ()
 {
@@ -87,6 +135,7 @@ blur_desktop ()
 
 IFS=$'\n'
 blur=false
+status_file="/tmp/.wall_blur"
 while true
 do
     if [ ! -f $status_file ]
