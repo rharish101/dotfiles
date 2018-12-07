@@ -11,6 +11,7 @@ Simply use Stow on all the folders in this repository (except for the screenshot
 * The [Fantome-Blue](https://github.com/rharish101/Fantome-Blue) GTK theme (my custom version of [Fantome](https://github.com/addy-dclxvi/gtk-theme-collections))
 * Dockbarx plugin for Xfce panel
 * Cava GUI (a.k.a. [GAVA](https://github.com/nikp123/gava))
+  * devilspie2
 * Plank
 * i3lock-color
   * xss-lock (optional; for locking on screen blank)
@@ -21,7 +22,7 @@ Simply use Stow on all the folders in this repository (except for the screenshot
   * Zsh
     * oh-my-zsh
 
-#### Optional
+### Optional
 * My wallpaper scripts (warning: hacky code)
 * Vim (probably should be required :stuck_out_tongue:)
 * IPython
@@ -70,14 +71,14 @@ Simply use Stow on all the folders in this repository (except for the screenshot
 ### **Current Desktop**
 ![desktop](./screenshots/desktop.png)
 
-### **Individual Software** (WIP)
+### **Individual Software**
 * **GTK Setup**  
   Check out the [repository](https://github.com/rharish101/Fantome-Blue) for screenshots of Fantome-Blue.
 
 * **Dockbarx (plugin for Xfce panel)**  
   ![dockbarx](./screenshots/dockbarx.png)
 
-* **CAVA (requires devilspie2)**  
+* **GAVA**  
   ![cava](./screenshots/cava.png)
 
 * **Plank**  
