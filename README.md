@@ -42,8 +42,9 @@ Simply use Stow on all the folders in this repository (except for the screenshot
 
   How to use:
   * .blur-desktop.sh:
-    * Replace the variable `wall_path` with the path to the directory containing the wallpapers
-    * Run the script as `~/.blur-desktop.sh`
+    * Run `~/.blur-desktop.sh -h` to get the list of available commandline arguments.
+    * Run the script with the necessary arguments.
+    * You can change the argument defaults in the script itself.
   * .wallpaper.py:
     * Run `~/.wallpaper.py -h` to get the list of available commandline arguments.
     * Run the script with the necessary arguments.
@@ -52,8 +53,10 @@ Simply use Stow on all the folders in this repository (except for the screenshot
 
 * **i3lock-color**  
   This uses [i3lock-multimonitor](https://github.com/ShikherVerma/i3lock-multimonitor) for multi-monitor support.
-  Replace the `image` variable in the `.i3locker.sh` script with your preferred image.
-  Then run the script as `~/.i3locker.sh` to use it.
+  How to use:
+    * Run `~/.i3locker.sh -h` to get the list of available commandline arguments.
+    * Run the script with the necessary arguments.
+    * You can change the argument defaults in the script itself.
   <br>
 
   You can also setup xss-lock so that i3lock is called whenever the screen blanks as follows:
