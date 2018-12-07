@@ -28,7 +28,7 @@ eval set -- "$PARSED"
 do_help=false
 disable_help=false
 wall_path="/home/rharish/Pictures/Wallpapers"
-blur_path="$HOME/.blurred_wallpapers/"
+blur_path="$HOME/.blurred_wallpapers"
 
 usage="Usage: `basename $0` [-h] [-w WallpaperDir] [-b BlurredWallDir]
     \rBlur the wallpaper when the desktop is not focused.
@@ -169,23 +169,12 @@ blur_desktop ()
 
 IFS=$'\n'
 blur=false
-status_file="/tmp/.wall_blur"
 while true
 do
-    if [ ! -f $status_file ]
-    then
-        touch $status_file
-    fi
-
     blur_process()
     {
-        while [[ `cat $status_file | head -1` == 'transition' ]]
-        do
-            sleep 0.5
-        done
         blur_desktop false
         blur=false
-        echo -e "static\nclear\nclear" > $status_file
 
         while true
         do
@@ -207,25 +196,14 @@ do
     else
         curr_monitor=1
     fi
-
-    if [[ `cat $status_file | head -1` == 'transition' ]]
-    then
-        continue
-    elif [[ $focus_name == '"Desktop"' ]] && [ $blur = true ]
+    if [[ $focus_name == '"Desktop"' ]] && [ $blur = true ]
     then
         blur_desktop false
         blur=false
-        echo -e "static\nclear\nclear" > $status_file
     elif [[ $focus_name != '"Desktop"' ]] && ([ $blur = false ] || [[ $prev_monitor != $curr_monitor ]])
     then
         blur_desktop true $curr_monitor
         blur=true
-        if (( $curr_monitor == 0 ))
-        then
-            echo -e "static\nblur\nclear" > $status_file
-        else
-            echo -e "static\nclear\nblur" > $status_file
-        fi
     fi
 
     sleep 0.5

@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Script to do smooth wallpaper transitions in Xfce4."""
 import argparse
 import atexit
 import os
@@ -14,14 +15,7 @@ from Xlib.display import Display
 
 class WallpaperTransition:
     def __init__(
-        self,
-        imageFolder,
-        blurFolder,
-        timeout,
-        duration,
-        fps,
-        backupPic,
-        statusFile,
+        self, imageFolder, blurFolder, timeout, duration, fps, backupPic
     ):
         self.monitors = self.getMonitorList()
         self.imageFolder = imageFolder
@@ -29,7 +23,6 @@ class WallpaperTransition:
         self.timeout = timeout
         self.duration = duration
         self.fps = fps
-        self.statusFile = statusFile
 
         if backupPic:
             self.backupPic = backupPic
@@ -184,20 +177,22 @@ class WallpaperTransition:
 
     def loop(self):
         while 1:
-            status_file = open(self.statusFile, "r+")
-            status = status_file.read().split("\n")[1:-1]
-            status_file.seek(0)
-            status_file.write("transition\n" + "\n".join(status) + "\n")
-            status_file.truncate()
-            status_file.close()
+            pgrep = subprocess.Popen(
+                ["pgrep", "blur-desktop"], stdout=subprocess.PIPE
+            )
+            pid_list = list(map(int, pgrep.stdout.read().strip().split()))
 
-            if len(status) < 2:
-                status.append("clear")
+            if len(pid_list) > 0:
+                for pid in pid_list:
+                    os.kill(pid, 19)
 
             array = []
             self.monitors = self.getMonitorList()
             for id in self.monitors:
-                if status[id] == "blur":
+                curr = self.getWallpaper(id)
+                print(self.blurFolder)
+                print(curr)
+                if self.blurFolder is not None and self.blurFolder in curr:
                     array.append((id, self.blurFolder))
                 else:
                     array.append((id, self.imageFolder))
@@ -205,11 +200,9 @@ class WallpaperTransition:
             pool = ThreadPool(len(self.monitors))
             pool.starmap(self.bgTransition, array)
 
-            status_file = open(self.statusFile, "r+")
-            status_file.seek(0)
-            status_file.write("static\n" + "\n".join(status) + "\n")
-            status_file.truncate()
-            status_file.close()
+            if len(pid_list) > 0:
+                for pid in pid_list:
+                    os.kill(pid, 18)
 
             time.sleep(self.timeout)
 
@@ -231,7 +224,7 @@ if __name__ == "__main__":
         # default=os.getcwd(),
         default="/home/rharish/.blurred_wallpapers/Level_3",
         metavar=("BlurDir"),
-        help="The directory of the blurred backgrounds you want to loop through",
+        help="The directory of the blurred backgrounds",
         type=str,
     )
     parser.add_argument(
@@ -248,7 +241,8 @@ if __name__ == "__main__":
         nargs=2,
         default=[1, 60],
         metavar=("DURATION FPS"),
-        help="Defines how long a transition is and with how much FPS it shall be done",
+        help="Defines how long a transition is and with how much FPS it "
+        "shall be done",
         type=int,
     )
     parser.add_argument(
@@ -259,14 +253,6 @@ if __name__ == "__main__":
         help="The backup picture to revert to, if the program crashes",
         type=str,
     )
-    parser.add_argument(
-        "-S",
-        "--status-file",
-        default="/tmp/.wall_blur",
-        metavar=("StatusFile"),
-        help="Path to the status file for wallpaper blurring",
-        type=str,
-    )
 
     args = vars(parser.parse_args())
 
@@ -274,6 +260,8 @@ if __name__ == "__main__":
         dir = args["dir"]
     if "blur_dir" in args:
         blur_dir = args["blur_dir"]
+    else:
+        blur_dir = None
     if "timeout" in args:
         timeout = args["timeout"]
     if "transition" in args:
@@ -281,12 +269,10 @@ if __name__ == "__main__":
         fps = args["transition"][1]
     if "backup" in args:
         backupPic = args["backup"]
-    if "status_file" in args:
-        status_file = args["status_file"]
 
-    if dir and blur_dir and timeout and duration and fps and status_file:
+    if dir and blur_dir and timeout and duration and fps:
         wt = WallpaperTransition(
-            dir, blur_dir, timeout, duration, fps, backupPic, status_file
+            dir, blur_dir, timeout, duration, fps, backupPic
         )
         wt.loop()
     else:
