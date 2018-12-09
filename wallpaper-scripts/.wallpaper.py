@@ -190,8 +190,6 @@ class WallpaperTransition:
             self.monitors = self.getMonitorList()
             for id in self.monitors:
                 curr = self.getWallpaper(id)
-                print(self.blurFolder)
-                print(curr)
                 if self.blurFolder is not None and self.blurFolder in curr:
                     array.append((id, self.blurFolder))
                 else:

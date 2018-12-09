@@ -179,11 +179,12 @@ do
         blur_desktop false
         blur=false
 
-        while true
-        do
-            trap break CONT
-            sleep 1
-        done
+        # Sleep till this gets SIGCONT
+        pid=
+        trap '[[ $pid ]] && kill "$pid"' CONT
+        sleep infinity & pid=$!
+        wait
+        pid=
     }
     trap blur_process TSTP
 
