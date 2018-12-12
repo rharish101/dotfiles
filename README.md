@@ -16,6 +16,7 @@ Simply use Stow on all the folders in this repository (except for the screenshot
   * devilspie2
 * Plank
 * i3lock-color
+  * eog (optional; used in combination with Compiz as a hack for a fade-in/fade-out effect)
   * xss-lock (optional; for locking on screen blank)
 * Roboto Font
 * Terminator

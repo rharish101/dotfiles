@@ -104,6 +104,10 @@ dpms_set()
 
 dpms_unlocked=$(xset q | grep "Standby" | awk '{print $2, $4, $6}')
 num_monitors=`xrandr --query | grep " connected" | wc -l`
+
+# Check if eog is installed; eog is used with compiz for fade-in/fade-out
+which eog > /dev/null || eog=:
+
 eog -f -g $image --class="i3lock" &
 if [[ $num_monitors == 2 ]]
 then
