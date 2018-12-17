@@ -212,9 +212,9 @@ s0_no_minimize_match = name=Cava
 s0_no_maximize_match = name=Cava
 s0_no_close_match = 
 s0_no_focus_match = name=Cava
-s0_size_matches = 
-s0_size_width_values = 
-s0_size_height_values = 
+s0_size_matches = class=Desmume;
+s0_size_width_values = 627;
+s0_size_height_values = 993;
 
 [opacify]
 s0_toggle_key = <Super>o

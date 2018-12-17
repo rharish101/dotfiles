@@ -43,6 +43,13 @@ Simply use Stow on all the folders in this repository (except for the screenshot
   * The [colorout](https://github.com/jalvesaq/colorout) package
 
 ## Instructions
+* **Compiz**  
+  To load the file "ccsm-settings.profile":
+  1. Open Compiz Settings (CCSM)
+  2. Go to Preferences > Profile & Backend
+  3. Under Profile, click "Import"
+  4. Select the profile "ccsm-settings.profile"
+
 * **Wallpaper Scripts**  
   The script ".blur-desktop.sh" blurs the wallpaper when the active/focused window is not the desktop.
   *INFO*: When sending a SIGTSTP to the blurring process, it will unblur the wallpaper and loop until it gets SIGCONT.

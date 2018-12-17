@@ -45,10 +45,11 @@ au BufNewFile,BufRead *.php,*.js,*.ts,*.html,*.css,*.scss,*.md,*.json,*.vimrc
   \ set shiftwidth=2 |
 au BufNewFile,BufRead *.ts
   \ set filetype=javascript |
+au BufNewFile,BufRead *.tex
+  \ set filetype=tex
 " UK English spell check for tex files
 au FileType tex
   \ setlocal spell spelllang=en_gb |
-  \ set filetype=tex
 
 " command and function for changing indentation level for tabs
 function SetIndent(indent)
