@@ -146,7 +146,7 @@ let g:shebang#shebangs = {
   \ }
 
 if &t_Co >= 256 || has("gui_running")
-  colorscheme arcdark
+  colorscheme gogh
 endif
 if &t_Co > 2 || has("gui_running")
   " switch syntax highlighting on, when the terminal has colors
