@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Toggle the state of CAVA GUI (aka GAVA)."""
+"""Toggle the state of CAVA GUI (aka XAVA)."""
 import os
 from subprocess import Popen, PIPE
 from time import sleep
@@ -32,9 +32,9 @@ if len(pid_list) > 0 and args.force != "start":
     Popen(
         [
             "notify-send",
-            "--app-name='CAVA visualizer'",
-            "CAVA",
-            "CAVA stopped",
+            "--app-name='XAVA visualizer'",
+            "XAVA",
+            "XAVA stopped",
             "--icon=" + home_dir + "/.local/share/icons/cava.png",
         ]
     )
@@ -54,10 +54,10 @@ elif len(pid_list) == 0 and args.force != "stop":
         wids = [
             line.split()[0]
             for line in out.decode("ASCII").split("\n")
-            if "CAVA" in line
+            if "XAVA" in line
         ]
         print(wids)
-        Popen(["xdotool", "set_window", "--name", "CAVA1", wids[-1]])
+        Popen(["xdotool", "set_window", "--name", "XAVA1", wids[-1]])
 
     devilspie = Popen("devilspie2")
     sleep(0.4)
@@ -71,9 +71,9 @@ elif len(pid_list) == 0 and args.force != "stop":
         Popen(
             [
                 "notify-send",
-                "--app-name='CAVA visualizer'",
-                "CAVA",
-                "CAVA started",
+                "--app-name='XAVA visualizer'",
+                "XAVA",
+                "XAVA started",
                 "--icon=" + home_dir + "/.local/share/icons/cava.png",
             ]
         )
@@ -81,8 +81,8 @@ elif len(pid_list) == 0 and args.force != "stop":
         Popen(
             [
                 "notify-send",
-                "--app-name='CAVA visualizer'",
-                "CAVA",
+                "--app-name='XAVA visualizer'",
+                "XAVA",
                 "Error encountered",
                 "--icon=" + home_dir + "/.local/share/icons/cava.png",
             ]
