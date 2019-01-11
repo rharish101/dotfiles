@@ -32,7 +32,16 @@
     cursor_color = "#d3dae3"
     font = RobotoMono Nerd Font Bold 13
     foreground_color = "#d3dae3"
-    palette = "#2f343f:#be3841:#4e9a06:#c4a000:#3b84de:#75507b:#06989a:#d3dae3:#505666:#fc4138:#73d216:#fce94f:#5294e2:#ad7fa8:#34e2e2:#d3dae3"
+    palette = "#2f343f:#c0392b:#27ae60:#f39c12:#2980b9:#8e44ad:#16a085:#bdc3c7:#505666:#e74c3c:#2ecc71:#f1c40f:#3498db:#9b59b6:#2aa198:#d3dae3"
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+  [[Ambiance]]
+    audible_bell = True
+    background_color = "#2e3436"
+    cursor_color = "#aaaaaa"
+    font = RobotoMono Nerd Font Bold 13
+    foreground_color = "#d3d7cf"
     scrollback_infinite = True
     scrollbar_position = hidden
     show_titlebar = False
@@ -43,15 +52,6 @@
     font = RobotoMono Nerd Font Bold 13
     foreground_color = "#d3dae3"
     palette = "#2f343f:#be3841:#4e9a06:#c4a000:#3b84de:#75507b:#06989a:#d3dae3:#505666:#fc4138:#73d216:#fce94f:#5294e2:#ad7fa8:#34e2e2:#d3dae3"
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    show_titlebar = False
-  [[Eye-Candy]]
-    audible_bell = True
-    background_color = "#2e3436"
-    cursor_color = "#aaaaaa"
-    font = RobotoMono Nerd Font Bold 13
-    foreground_color = "#d3d7cf"
     scrollback_infinite = True
     scrollbar_position = hidden
     show_titlebar = False
