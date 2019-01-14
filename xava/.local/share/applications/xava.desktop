@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Version=0.6.1
+Name=XAVA visualizer
+Comment=Toggle audio spectrum visualizer for Windows/macOS/Linux/BSD
+Exec=/home/rharish/.xava-toggle.py
+Icon=xava
+Terminal=false
+Categories=Audio;

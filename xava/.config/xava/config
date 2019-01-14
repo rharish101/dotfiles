@@ -23,8 +23,8 @@ overshoot = 0
 # Bars' width and space between bars in number of characters.
 # These options DO NOT apply if you're using 'sdl' or 'x' modes.
 ; bars = 0
-bar_width = 3
-; bar_spacing = 1
+bar_width = 13
+bar_spacing = 5
 
 # Lower and higher cutoff frequencies for lowest and highest bars
 # the bandwidth of the visualizer.
@@ -161,7 +161,7 @@ foreground_opacity = 1.0
 
 # Percentage value for integral smoothing. Takes values from 0 - 100.
 # Higher values means smoother, but less precise. 0 to disable.
-integral = 70
+integral = 60
 
 # Disables or enables the so-called "Monstercat smoothing" with or without "waves". Set to 0 to disable.
 ; monstercat = 1
