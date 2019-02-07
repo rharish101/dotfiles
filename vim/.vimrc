@@ -93,7 +93,7 @@ nnoremap <C-P> :bprev<CR>
 " Close NERDTree on closing all buffers
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-let g:ale_fixers={'python': ['black']}                          " Use black for fixing linting issues
+let g:ale_fixers={'python': ['black'], 'go': ['gofmt']}         " Set fixers for linting issues
 call ale#Set('python_black_options', '--fast --line-length=79') " Use black with line length limit of 79
 let g:ale_fix_on_save=1                                         " Fix files on save
 let g:ale_pattern_options = {'.*\.tex$': {'ale_enabled': 0}}    " Disable ALE for tex files
