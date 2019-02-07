@@ -105,6 +105,9 @@ Simply use Stow on all the folders in this repository (except for the screenshot
   ![i3lock](./screenshots/i3lock.png)
 
 * **Terminator**
+  * Colorscheme  
+    ![colorscheme](./screenshots/colorscheme.png)
+
   * Cowsay (with fortune and lolcat)  
     ![cowsay](./screenshots/cowsay.png)
 
