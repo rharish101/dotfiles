@@ -12,7 +12,7 @@ Simply use Stow on all the folders in this repository (except for the screenshot
 * Arc-X-D icon theme
   * Paper icon theme (as a fallback)
 * Dockbarx plugin for Xfce panel
-* Cava GUI (a.k.a. [GAVA](https://github.com/nikp123/gava))
+* Cava GUI (a.k.a. [XAVA](https://github.com/nikp123/xava))
   * devilspie2
 * Plank
 * i3lock-color
@@ -95,7 +95,7 @@ Simply use Stow on all the folders in this repository (except for the screenshot
 * **Dockbarx (plugin for Xfce panel)**  
   ![dockbarx](./screenshots/dockbarx.png)
 
-* **GAVA**  
+* **XAVA**  
   ![cava](./screenshots/cava.png)
 
 * **Plank**  
