@@ -155,7 +155,7 @@ alias nvidia-settings="optirun -b none nvidia-settings -c :8"
 alias nvidia-smi="optirun --no-xorg nvidia-smi"
 alias nvidia-xconfig="optirun --no-xorg nvidia-xconfig"
 
-export LS_COLORS="$LS_COLORS:ow=01;34:ex=32:"
+export LS_COLORS="$LS_COLORS:di=1;34:ln=1;36:so=1;35:pi=33:ex=32:bd=1;33:cd=1;33:su=0;41:sg=0;43:tw=0;44:ow=1;34"
 export PS2=$'\e[1;34m...  \e[0m'
 export QT_QPA_PLATFORMTHEME=qgnomeplatform
 export VGL_READBACK=pbo     # increase bumblebee performance
