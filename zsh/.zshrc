@@ -118,14 +118,13 @@ man()
 # alias pip='pip2'
 # alias ipython='ipython2'
 alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
-alias ls='ls --color=auto'
 alias sudo="sudo "
 alias restart="reboot"
 alias yo="longcat Yo!"
 alias why="longcat 'Why not?'"
 alias cmatrix="cmatrix -bs"
 alias mysql="mysql -p"
-alias mp3gaingui="xdg-open $HOME/MP3Gain/MP3GainGUI.exe > /dev/null 2>&1"
+alias mp3gaingui="xdg-open /mnt/Data/MP3Gain/MP3GainGUI.exe > /dev/null 2>&1"
 alias black="black --line-length=79"
 alias xelatex="xelatex -shell-escape"
 #alias mtp-mount="simple-mtpfs ~/Galaxy\ S5"
@@ -161,6 +160,7 @@ export QT_QPA_PLATFORMTHEME=qgnomeplatform
 export VGL_READBACK=pbo     # increase bumblebee performance
 export PRIMUS_SYNC=1        # primus fix for compositing window managers
 export NLTK_DATA="/mnt/Data/Datasets/nltk_data"
+
 export WINEDLLOVERRIDES="mscoree=d;mshtml=d"
 export WINEPREFIX="$HOME/.wine"
 
@@ -263,3 +263,12 @@ x11-clip-wrap-widgets paste  $paste_widgets
 bindkey '^[[Z' reverse-menu-complete
 
 export VIRTUAL_ENV_DISABLE_PROMPT=false
+
+# Use "trash-put" to trash in fff
+export FFF_TRASH_CMD="trash-put"
+# cd to directory on exit of fff
+old_fff=$(which fff)
+fff() {
+    $old_fff "$@"
+    cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
+}
