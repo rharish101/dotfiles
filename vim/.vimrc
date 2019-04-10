@@ -13,6 +13,14 @@ nmap <F8> :TagbarToggle<CR>
 autocmd FileType python setlocal completeopt-=preview
 filetype plugin on
 
+" Set very magic mode on by default
+nnoremap / /\v
+vnoremap / /\v
+cnoremap %s/ %smagic/
+cnoremap \>s/ \>smagic/
+nnoremap :g/ :g/\v
+nnoremap :g// :g//
+
 set encoding=utf-8
 set hidden
 set nowrap          " don't wrap lines
