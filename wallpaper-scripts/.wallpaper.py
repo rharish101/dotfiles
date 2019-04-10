@@ -18,6 +18,7 @@ class WallpaperTransition:
         self, imageFolder, blurFolder, timeout, duration, fps, backupPic
     ):
         self.monitors = self.getMonitorList()
+        self.monitorNames = self.getMonitorNames()
         self.imageFolder = imageFolder
         self.blurFolder = blurFolder
         self.timeout = timeout
@@ -28,6 +29,18 @@ class WallpaperTransition:
             self.backupPic = backupPic
             atexit.register(self.backup)
             signal.signal(signal.SIGTERM, self.signal_handler)
+
+    def getMonitorNames(self):
+        proc = subprocess.Popen(
+            ["xrandr", "--listmonitors"], stdout=subprocess.PIPE
+        )
+        out, err = proc.communicate()
+
+        names = {}
+        for line in out.decode("utf8").strip().split("\n")[1:]:
+            monitor_num = line.strip().split(":")[0]
+            names[monitor_num] = line.strip().split()[1][1:]
+        return names
 
     def getMonitorList(self):
         display = Display()
@@ -53,7 +66,7 @@ class WallpaperTransition:
             subprocess.check_output(
                 "xfconf-query --channel xfce4-desktop "
                 "--property /backdrop/screen0/monitor"
-                + str(monitorNumber)
+                + self.monitorNames[str(monitorNumber)]
                 + "/workspace0/last-image",
                 shell=True,
             )
@@ -65,7 +78,7 @@ class WallpaperTransition:
         subprocess.call(
             "xfconf-query --channel xfce4-desktop --property "
             "/backdrop/screen0/monitor"
-            + str(monitorNumber)
+            + self.monitorNames[str(monitorNumber)]
             + "/workspace0/last-image --set "
             + imagePath,
             shell=True,
@@ -76,7 +89,7 @@ class WallpaperTransition:
             subprocess.check_output(
                 "xfconf-query --channel xfce4-desktop "
                 "--property /backdrop/screen0/monitor"
-                + str(monitorNumber)
+                + self.monitorNames[str(monitorNumber)]
                 + "/workspace0/image"
                 "-style",
                 shell=True,

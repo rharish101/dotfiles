@@ -85,6 +85,15 @@ fi
 
 # Script starts!!!
 
+declare -A monitor_map
+old_ifs=$IFS
+IFS=$'\n'
+for line in $(xrandr --listmonitors | tail -n +2 | awk -F '[ :+]' '{print $2, $5}'); do
+    monitor_num=$(echo "$line" | cut -d ' ' -f 1)
+    monitor_map[$monitor_num]=$(echo "$line" | cut -d ' ' -f 2)
+done
+IFS=$old_ifs
+
 make_blurred ()
 {
     img=$1
@@ -112,7 +121,7 @@ make_blurred ()
 # Blur a single monitor
 blur_monitor ()
 {
-    monitor=$1
+    monitor="${monitor_map[$1]}"
     img=`xfconf-query --channel xfce4-desktop --property "/backdrop/screen0/monitor${monitor}/workspace0/last-image"`
     wallp=`echo $img | rev | cut -d / -f 1 | rev`
     for i in `seq 1 3`; do
@@ -132,7 +141,7 @@ blur_monitor ()
 # Unblur a single monitor
 unblur_monitor ()
 {
-    monitor=$1
+    monitor="${monitor_map[$1]}"
     img=`xfconf-query --channel xfce4-desktop --property "/backdrop/screen0/monitor${monitor}/workspace0/last-image"`
     wallp=`echo $img | rev | cut -d / -f 1 | rev`
     folder=`echo $img | rev | cut -d / -f 2 | rev`
