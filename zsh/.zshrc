@@ -121,7 +121,7 @@ alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
 alias sudo="sudo "
 alias restart="reboot"
 alias yo="longcat Yo!"
-alias why="longcat 'Why not?'"
+alias why="longcat 'Why not?';"
 alias cmatrix="cmatrix -bs"
 alias mysql="mysql -p"
 alias mp3gaingui="xdg-open /mnt/Data/MP3Gain/MP3GainGUI.exe > /dev/null 2>&1"
@@ -139,6 +139,7 @@ alias compress-video="/mnt/Data/Programs/Bash/compress-video.sh"
 alias gpu-avail="/mnt/Data/Programs/Bash/gpu_avail.sh"
 alias imgdiff="/mnt/Data/Programs/Python/imgdiff.py"
 alias dup-img-rm="/mnt/Data/Programs/Python/dup-img-rm.py"
+alias chromedriver="/mnt/Data/Programs/Python/chromedriver.py"
 
 # Bumblebee aliases
 alias on-nvidia="sudo tee /proc/acpi/bbswitch <<< ON"
@@ -219,6 +220,12 @@ alarm()
             echo "Alarm set for: $(date -d $target)"
         fi
     fi
+}
+
+function gpu-info() {
+    pushd "/mnt/Data/Programs/Python/gpu-usage-info" > /dev/null
+    ./gpu-info.py $@
+    popd > /dev/null
 }
 
 # X11 clipboard support
