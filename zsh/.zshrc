@@ -228,6 +228,14 @@ function gpu-info() {
     popd > /dev/null
 }
 
+function cseproj-info() {
+    hosts=()
+    for num in 145 146 147 148 149 150; do
+        hosts+=("cseproj${num}.cse.iitk.ac.in")
+    done
+    gpu-info $hosts
+}
+
 # X11 clipboard support
 function x11-clip-wrap-widgets() {
     # NB: Assume we are the first wrapper and that we only wrap native widgets
