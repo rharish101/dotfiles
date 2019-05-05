@@ -127,6 +127,7 @@ alias mysql="mysql -p"
 alias mp3gaingui="xdg-open /mnt/Data/MP3Gain/MP3GainGUI.exe > /dev/null 2>&1"
 alias black="black --line-length=79"
 alias xelatex="xelatex -shell-escape"
+alias latexmk="latexmk -pdf"
 #alias mtp-mount="simple-mtpfs ~/Galaxy\ S5"
 alias mount-mtp="/mnt/Data/Programs/Bash/mtp_mount.sh"
 alias umount-mtp="fusermount -u $HOME/mtp; rm -r $HOME/mtp"
@@ -206,7 +207,8 @@ timer()
 # set an ad-hoc GUI alarm
 alarm()
 {
-    local target=$1; shift
+    local target=$1
+    local message=${2:-BING}
     if [[ -z $target ]]; then
         echo "Usage: alarm time"
     else
@@ -216,19 +218,17 @@ alarm()
         if (( $difference < 0 )); then
             echo "Cannot set alarm for the past"
         else
-            ((sleep $difference && zenity --info --icon-name="appointment-soon" --title="Time's Up" --text="${*:-BING}" & cvlc --play-and-exit /usr/share/sounds/Borealis/Kopete_notify.ogg) & ) &>/dev/null
+            ((sleep $difference && zenity --info --icon-name="appointment-soon" --title="Time's Up" --text="$message" & cvlc --play-and-exit /usr/share/sounds/Borealis/Kopete_notify.ogg) & ) &>/dev/null
             echo "Alarm set for: $(date -d $target)"
         fi
     fi
 }
 
-function gpu-info() {
-    pushd "/mnt/Data/Programs/Python/gpu-usage-info" > /dev/null
-    ./gpu-info.py $@
-    popd > /dev/null
+gpu-info() {
+    (cd "/mnt/Data/Programs/Python/gpu-usage-info" && exec ./gpu-info.py $@)
 }
 
-function cseproj-info() {
+cseproj-info() {
     hosts=()
     for num in 145 146 147 148 149 150; do
         hosts+=("cseproj${num}.cse.iitk.ac.in")

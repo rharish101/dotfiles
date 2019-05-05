@@ -39,7 +39,7 @@ class WallpaperTransition:
         names = {}
         for line in out.decode("utf8").strip().split("\n")[1:]:
             monitor_num = line.strip().split(":")[0]
-            names[monitor_num] = line.strip().split()[1][1:]
+            names[monitor_num] = line.strip().split()[-1]
         return names
 
     def getMonitorList(self):
@@ -137,6 +137,8 @@ class WallpaperTransition:
                 )
             else:
                 img = img.resize(size, PIL.Image.ANTIALIAS)
+        elif wall_style == 3:
+            img = img.resize(size, PIL.Image.ANTIALIAS)
         else:
             img.thumbnail(size, PIL.Image.ANTIALIAS)
         img.convert("RGBA")

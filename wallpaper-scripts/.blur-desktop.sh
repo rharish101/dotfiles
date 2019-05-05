@@ -88,7 +88,7 @@ fi
 declare -A monitor_map
 old_ifs=$IFS
 IFS=$'\n'
-for line in $(xrandr --listmonitors | tail -n +2 | awk -F '[ :+]' '{print $2, $5}'); do
+for line in $(xrandr --listmonitors | tail -n +2 | awk -F '[ :+]' '{print $2, $10}'); do
     monitor_num=$(echo "$line" | cut -d ' ' -f 1)
     monitor_map[$monitor_num]=$(echo "$line" | cut -d ' ' -f 2)
 done

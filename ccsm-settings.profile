@@ -3,6 +3,7 @@ s0_opacity_increase_key = Disabled
 s0_opacity_increase_button = <Alt>Button4
 s0_opacity_decrease_key = Disabled
 s0_opacity_decrease_button = <Alt>Button5
+s0_default_opacity_spawn_value = 100
 s0_opacity_step = 5
 s0_opacity_matches = 
 s0_opacity_values = 90;
@@ -10,6 +11,7 @@ s0_brightness_increase_key = Disabled
 s0_brightness_increase_button = Disabled
 s0_brightness_decrease_key = Disabled
 s0_brightness_decrease_button = Disabled
+s0_default_brightness_spawn_value = 100
 s0_brightness_step = 5
 s0_brightness_matches = 
 s0_brightness_values = 0;
@@ -17,6 +19,7 @@ s0_saturation_increase_key = Disabled
 s0_saturation_increase_button = Disabled
 s0_saturation_decrease_key = Disabled
 s0_saturation_decrease_button = Disabled
+s0_default_saturation_spawn_value = 100
 s0_saturation_step = 5
 s0_saturation_matches = 
 s0_saturation_values = 90;
@@ -112,10 +115,10 @@ s0_multioutput_mode = 0
 s0_force_placement_match = 
 s0_position_matches = class=Lollypop;class=Ccsm;(class=Orage) & title=Orage;class=Spotify;
 s0_position_x_values = 444;465;1522;188;
-s0_position_y_values = 98;121;694;81;
+s0_position_y_values = 139;172;694;81;
 s0_position_constrain_workarea = false;false;false;false;
-s0_mode_matches = ;
-s0_mode_modes = 0;
+s0_mode_matches = 
+s0_mode_modes = 
 s0_viewport_matches = 
 s0_viewport_x_values = 
 s0_viewport_y_values = 
@@ -154,7 +157,7 @@ s0_window_opacity = 0.300000
 s0_window_part_size = 20
 
 [core]
-s0_active_plugins = core;crashhandler;composite;opengl;decor;compiztoolbox;text;imgsvg;extrawm;imgpng;put;place;workspacenames;imgjpeg;fadedesktop;mousepoll;move;grid;wall;mag;regex;snap;commands;resize;winrules;resizeinfo;animation;workarounds;expo;fade;staticswitcher;scale;addhelper;scaleaddon;
+s0_active_plugins = core;composite;crashhandler;opengl;compiztoolbox;decor;extrawm;fadedesktop;grid;imgjpeg;imgpng;imgsvg;mousepoll;move;place;put;regex;resize;resizeinfo;snap;text;wall;winrules;workspacenames;animation;commands;expo;fade;mag;scale;scaleaddon;staticswitcher;workarounds;addhelper;
 s0_audible_bell = false
 s0_ignore_hints_when_maximized = true
 s0_hide_skip_taskbar_windows = true
@@ -198,20 +201,20 @@ s0_hsize = 2
 s0_vsize = 2
 
 [winrules]
-s0_skiptaskbar_match = class=Zenity | name=Cava
-s0_skippager_match = class=Zenity | name=Cava
+s0_skiptaskbar_match = class=Zenity | class=XAVA
+s0_skippager_match = class=Zenity | class=XAVA
 s0_above_match = class=Zenity
-s0_below_match = name=Cava
-s0_sticky_match = name=Cava
+s0_below_match = class=XAVA
+s0_sticky_match = class=XAVA
 s0_fullscreen_match = 
 s0_maximize_match = 
 s0_no_argb_match = 
-s0_no_move_match = name=Cava
-s0_no_resize_match = name=Cava
-s0_no_minimize_match = name=Cava
-s0_no_maximize_match = name=Cava
+s0_no_move_match = class=XAVA
+s0_no_resize_match = class=XAVA
+s0_no_minimize_match = class=XAVA
+s0_no_maximize_match = class=XAVA
 s0_no_close_match = 
-s0_no_focus_match = name=Cava
+s0_no_focus_match = class=XAVA
 s0_size_matches = class=Desmume;
 s0_size_width_values = 627;
 s0_size_height_values = 993;
@@ -494,14 +497,6 @@ s0_skewer_gridy = 4
 s0_skewer_thickness = 0.000000
 s0_skewer_rotation = 0
 
-[kdecompat]
-s0_plasma_thumbnails = true
-s0_present_windows = true
-s0_window_blur = true
-s0_sliding_popups = true
-s0_slide_in_duration = 250
-s0_slide_out_duration = 250
-
 [mousepoll]
 s0_mouse_poll_interval = 10
 
@@ -516,6 +511,12 @@ s0_snapoff_distance = 100
 s0_snapback_semimaximized = true
 s0_snapback_distance = 20
 s0_lazy_positioning = false
+s0_mode = 0
+s0_increase_border_contrast = true
+s0_use_desktop_average_color = true
+s0_border_color = #fb8b009f
+s0_fill_color = #fb8b0019
+s0_blend = true
 
 [addhelper]
 s0_toggle_key = <Super>p
@@ -719,6 +720,7 @@ s0_snapoff_threshold = 20
 s0_draw_indicator = true
 s0_draw_stretched_window = false
 s0_animation_duration = 350
+s0_use_desktop_average_color = true
 s0_outline_color = #3e588d9f
 s0_fill_color = #3e588e4f
 s0_disable_blend = false
@@ -867,6 +869,15 @@ s0_edges_categories = 0;1;
 s0_resistance_distance = 10
 s0_attraction_distance = 10
 
+[colorfilter]
+s0_toggle_window_key = <Super>f
+s0_toggle_screen_key = <Super>d
+s0_switch_filter_key = <Control><Super>s
+s0_filters = negative;negative-lightness;negative-green;blueish-filter;sepia;grayscale;deuteranopia;protanopia;
+s0_filter_decorations = false
+s0_filter_match = any
+s0_exclude_match = type=Desktop
+
 [mblur]
 s0_initiate_key = <Control>F12
 s0_mode = 0
@@ -874,15 +885,16 @@ s0_strength = 0.100000
 s0_on_transformed_screen = false
 
 [showmouse]
+s0_activate_at_startup = false
 s0_initiate = <Super>k
 s0_initiate_button = Disabled
 s0_initiate_edge = 
-s0_guide_thickness = 0
+s0_guide_thickness = 12
 s0_guide_empty_radius = 20
 s0_guide_color = #ff000099
 s0_rotation_speed = 0.500000
 s0_radius = 100
-s0_emitters = 3
+s0_emitters = 0
 s0_num_particles = 500
 s0_size = 10.000000
 s0_slowdown = 1.000000
@@ -894,6 +906,7 @@ s0_random = false
 
 [neg]
 s0_window_toggle_key = <Super>n
+s0_activate_at_startup = false
 s0_screen_toggle_key = <Super>m
 s0_neg_match = any
 s0_exclude_match = type=Desktop
@@ -1080,8 +1093,11 @@ s0_initiate_key = <Alt>F8
 s0_mode = 0
 s0_resize_from_center = false
 s0_maximize_vertically = false
+s0_increase_border_contrast = true
+s0_use_desktop_average_color = true
 s0_border_color = #2f2f4f9f
 s0_fill_color = #2f2f4f4f
+s0_disable_blend = false
 s0_normal_match = 
 s0_outline_match = 
 s0_rectangle_match = 
@@ -1140,8 +1156,8 @@ s0_show_region = true
 s0_snap_key = <Shift>
 s0_snap_inverted = false
 s0_shiver = false
-s0_friction = 10.000000
-s0_spring_k = 10.000000
+s0_friction = 7.000000
+s0_spring_k = 8.000000
 s0_grid_resolution = 8
 s0_min_grid_size = 8
 s0_map_effect = 0
@@ -1149,7 +1165,7 @@ s0_focus_effect = 0
 s0_map_window_match = Splash | DropdownMenu | PopupMenu | Tooltip | Notification | Combo | Dnd | Unknown
 s0_focus_window_match = 
 s0_grab_window_match = 
-s0_move_window_match = 
+s0_move_window_match = Toolbar | Menu | Utility | Dialog | Normal | Unknown
 s0_maximize_effect = true
 
 [scaleaddon]
@@ -1447,8 +1463,9 @@ s0_zoom_out_key = Disabled
 s0_zoom_box_button = <Super>Button2
 s0_zoom_box_outline_color = #2f2f4f9f
 s0_zoom_box_fill_color = #2f2f2f4f
+s0_zoom_smoothing = 1
 s0_center_mouse_key = Disabled
-s0_spec_target_focus = true
+s0_spec_target_focus = false
 s0_zoom_specific_1 = 1.000000
 s0_zoom_specific_1_key = Disabled
 s0_zoom_specific_2 = 1.000000
