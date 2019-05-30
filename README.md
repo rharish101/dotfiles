@@ -2,7 +2,13 @@
 
 This is a repository containing all of my configurations of my current rice.
 I use GNU Stow to manage my dotfiles (for a tutorial, [click here]( https://alexpearce.me/2016/02/managing-dotfiles-with-stow/)).
-Simply use Stow on all the folders in this repository (except for the screenshots folder).
+Simply use Stow on all the folders in this repository (except for the screenshots and vim folder).
+
+For my vim setup, use Stow on the `config` folder inside the vim folder as follows:
+```
+cd vim
+stow -t ~ config
+```
 
 ## Requirements
 * GNU Stow
