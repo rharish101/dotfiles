@@ -32,11 +32,10 @@ alias cpg="cpg -g"
 alias yo="longcat Yo!"
 alias why="longcat 'Why not?'"
 alias ls='ls --color=auto'
-LS_COLORS=$LS_COLORS:'ow=01;34:ex=0;32:' ;
+export LS_COLORS="$LS_COLORS:di=1;34:ln=1;36:so=1;35:pi=33:ex=32:bd=1;33:cd=1;33:su=0;41:sg=0;43:tw=0;44:ow=1;34"
 export EDITOR=vim
 # For Tensorflow with MKL
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/opt/cuda/lib64
-export PATH="$PATH:$HOME/Arcanist/arcanist/bin/"
 complete -cf sudo
 alias cmatrix="cmatrix -bs"
 alias octave="octave --no-gui"
@@ -94,7 +93,5 @@ fi
 #esac
 export PS2='\[\e[1;34m\]...  \[\e[m\]'
 
-alias sudo="sudo "
 export HISTCONTROL=ignoredups
 shopt -s autocd
-alias cmatrix="cmatrix -bs"

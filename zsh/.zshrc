@@ -140,6 +140,7 @@ alias compress-video="/mnt/Data/Programs/Bash/compress-video.sh"
 alias gpu-avail="/mnt/Data/Programs/Bash/gpu_avail.sh"
 alias imgdiff="/mnt/Data/Programs/Python/imgdiff.py"
 alias dup-img-rm="/mnt/Data/Programs/Python/dup-img-rm.py"
+alias dhash="/mnt/Data/Programs/Python/dhash.py"
 alias chromedriver="/mnt/Data/Programs/Python/chromedriver.py"
 
 # Bumblebee aliases
