@@ -1,6 +1,6 @@
 [global_config]
   always_split_with_profile = True
-  title_font = RobotoMono Nerd Font Bold 13
+  title_font = RobotoMono Nerd Font 14
   title_hide_sizetext = True
   title_use_system_font = False
 [keybindings]
@@ -30,7 +30,7 @@
     audible_bell = True
     background_color = "#2f343f"
     cursor_color = "#d3dae3"
-    font = RobotoMono Nerd Font Bold 13
+    font = RobotoMono Nerd Font 14
     foreground_color = "#d3dae3"
     palette = "#2f343f:#c0392b:#27ae60:#f39c12:#2980b9:#8e44ad:#16a085:#bdc3c7:#505666:#e74c3c:#2ecc71:#f1c40f:#3498db:#9b59b6:#2aa198:#d3dae3"
     scrollback_infinite = True
