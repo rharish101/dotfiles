@@ -14,13 +14,8 @@ stow -t ~ config
 * GNU Stow
 * Xfce4
 * Compiz 0.9
-* The [Fantome-Blue](https://github.com/rharish101/Fantome-Blue) GTK theme (my custom version of [Fantome](https://github.com/addy-dclxvi/gtk-theme-collections))
-* Arc-X-D icon theme
-  * Paper icon theme (as a fallback)
-* Dockbarx plugin for Xfce panel
-* Cava GUI (a.k.a. [XAVA](https://github.com/nikp123/xava))
-  * devilspie2
-* Plank
+* The [Adapta-Nokto-Eta](https://github.com/adapta-project/adapta-gtk-theme) GTK theme
+* The [Paper](https://github.com/snwh/paper-icon-theme) icon theme
 * i3lock-color
   * eog (optional; used in combination with Compiz as a hack for a fade-in/fade-out effect)
   * xss-lock (optional; for locking on screen blank)
@@ -37,6 +32,8 @@ stow -t ~ config
 * My wallpaper scripts (warning: hacky code)
   * Pillow (PIL fork)
   * python-xlib
+* Cava GUI (a.k.a. [XAVA](https://github.com/nikp123/xava))
+  * devilspie2
 * Vim (probably should be required :stuck_out_tongue:)
 * IPython
   * Powerline
@@ -86,17 +83,8 @@ stow -t ~ config
 ![desktop](./screenshots/desktop.png)
 
 ### **Individual Software**
-* **GTK Setup**  
-  Check out the [repository](https://github.com/rharish101/Fantome-Blue) for screenshots of Fantome-Blue.
-
-* **Dockbarx (plugin for Xfce panel)**  
-  ![dockbarx](./screenshots/dockbarx.png)
-
 * **XAVA**  
   ![cava](./screenshots/cava.png)
-
-* **Plank**  
-  ![plank](./screenshots/plank.png)
 
 * **i3lock**  
   ![i3lock](./screenshots/i3lock.png)

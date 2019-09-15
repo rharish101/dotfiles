@@ -1,6 +1,3 @@
-[submodule "gtk/.themes/Fantome-Blue"]
-	path = gtk/.themes/Fantome-Blue
-	url = https://github.com/rharish101/Fantome-Blue
 [submodule "tmux/.tmux-themepack"]
 	path = tmux/.tmux-themepack
 	url = https://github.com/jimeh/tmux-themepack

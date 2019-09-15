@@ -1,15 +1,16 @@
 #pulseaudio-button>image {
 	-gtk-icon-style: regular;
+	-gtk-icon-transform: scale(0.6);
 }
 VteTerminal, vte-terminal {
   padding: 0px 15px 15px 15px;
   -VteTerminal-inner-border: 0px 15px 15px 15px;
 }
 .terminator-terminal-window>notebook>header {
-	background-color: #2f343f;
+	background-color: #222d32;
 }
 #whiskermenu-window>frame>stack>box>stack>box>scrolledwindow>viewport* {
-  padding: 2px;
+  padding: 3px 2px;
 }
 #whiskermenu-window>frame>stack>box>stack>box>stack>scrolledwindow* {
   font-size: 21px;
@@ -18,15 +19,9 @@ VteTerminal, vte-terminal {
 #whiskermenu-window>frame>stack>box>box>label {
   font-size: 20px;
 }
-#whiskermenu-window>frame>* {
-  border-top-width: 1px;
-  border-right-width: 1px;
-  border-top-color: rgba(0,0,0,0.4);
-  border-right-color: rgba(0,0,0,0.4);
-}
 window.background.chromium {
-  background-color: #404552;
+  background-color: #263238;
 }
 .terminator-terminal-window paned>separator {
-	background-image: linear-gradient(#505666,#505666)
+	background-image: linear-gradient(#586368,#586368);
 }
