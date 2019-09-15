@@ -37,9 +37,6 @@ stow -t ~ config
 * Vim (probably should be required :stuck_out_tongue:)
 * IPython
   * Powerline
-* Jupyter Notebook
-  * jupyter_contrib_nbextensions
-  * [jupyter-themes](https://github.com/dunovank/jupyter-themes)
 * Tmux
 * R
   * The [colorout](https://github.com/jalvesaq/colorout) package
@@ -122,12 +119,6 @@ stow -t ~ config
 
 * **IPython + Powerline**  
 (WIP)
-
-* **Jupyter Notebook**  
-  ![jupyter-1](./screenshots/jupyter-1.png)  
-  <br>
-
-  ![jupyter-2](./screenshots/jupyter-2.png)
 
 * **Tmux**  
   ![tmux](./screenshots/tmux.png)
