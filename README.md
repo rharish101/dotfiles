@@ -35,7 +35,6 @@ stow -t ~ config
 
 ### Optional
 * My wallpaper scripts (warning: hacky code)
-  * ImageMagick
   * Pillow (PIL fork)
   * python-xlib
 * Vim (probably should be required :stuck_out_tongue:)
@@ -57,23 +56,15 @@ stow -t ~ config
   4. Select the profile "ccsm-settings.profile"
 
 * **Wallpaper Scripts**  
-  The script ".blur-desktop.sh" blurs the wallpaper when the active/focused window is not the desktop.
-  *INFO*: When sending a SIGTSTP to the blurring process, it will unblur the wallpaper and loop until it gets SIGCONT.
+  The script ".blur-desktop.py" blurs the wallpaper when the active/focused window is not the desktop.
   The script ".wallpaper.py" enables the wallpaper to be smoothly changed every X seconds.
   <br>
 
   The wallpaper changing script is adapted from [xfce-wallpaper-transition](https://github.com/c4tz/xfce-wallpaper-transition).
   <br>
 
-  How to use:
-  * .blur-desktop.sh:
-    * Run `~/.blur-desktop.sh -h` to get the list of available commandline arguments.
-    * Run the script with the necessary arguments.
-    * You can change the argument defaults in the script itself.
-  * .wallpaper.py:
-    * Run `~/.wallpaper.py -h` to get the list of available commandline arguments.
-    * Run the script with the necessary arguments.
-    * You can change the argument defaults in the script itself.
+  Both the scripts use argparse to parse commandline arguments.
+  Simpy type `~/.blur-desktop.py -h` or `~/.wallpaper.py -h` to get the list of available commandline arguments.
   <br>
 
 * **i3lock-color**  

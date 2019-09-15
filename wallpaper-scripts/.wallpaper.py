@@ -2,7 +2,6 @@
 """Script to do smooth wallpaper transitions in Xfce4."""
 from PIL import Image
 from Xlib.display import Display
-from Xlib.ext import randr
 from random import choice
 import os
 import subprocess
@@ -70,8 +69,8 @@ class WallpaperTransition:
                 crtc, resources["config_timestamp"]
             )._data
             for output in monitor["outputs"]:  # is connected
-                info = randr.get_output_info(
-                    root, output, resources["config_timestamp"]
+                info = display.xrandr_get_output_info(
+                    output, resources["config_timestamp"]
                 )._data
                 monitors[info["name"]] = (monitor["width"], monitor["height"])
 
@@ -187,7 +186,11 @@ class WallpaperTransition:
     def bg_transition(self, monitor_id, image_folder):
         """Perform a transition into a randomly chosen wallpaper."""
         current = self.get_wallpaper(monitor_id)
-        available = os.listdir(image_folder)
+        available = [
+            item
+            for item in os.listdir(image_folder)
+            if os.path.isfile(os.path.join(image_folder, item))
+        ]
         # Avoid changing into itself
         available.remove(os.path.basename(current))
         new = os.path.join(image_folder, choice(available))
@@ -221,34 +224,45 @@ class WallpaperTransition:
     def backup(self):
         """Set the backup image on all connected monitors."""
         # Connected monitors may have changed
-        for monitor_id in self.get_monitors():
-            self.set_wallpaper(monitor_id, self.backup_pic)
+        self.monitors = self.get_monitors()
+
+        args = []
+        for monitor_id in self.monitors:
+            args.append((monitor_id, self.backup_pic))
+
+        with Pool(len(self.monitors)) as pool:
+            pool.starmap(self.set_wallpaper, args)
 
     def loop(self):
         """Loop and perform transitions."""
         while True:
-            pgrep = subprocess.check_output(["pgrep", "blur-desktop"])
-            pid_list = map(int, pgrep.strip().split())
+            try:
+                pgrep = subprocess.check_output(["pgrep", "blur-desktop"])
+            except subprocess.CalledProcessError:
+                # No blurring program running
+                pgrep = ""
+            # Converting map to list is necessary for persistence of PID values
+            pid_list = list(map(int, pgrep.strip().split()))
 
             for pid in pid_list:
                 os.kill(pid, SIGSTOP.value)
 
-            array = []
+            args = []
             self.monitors = self.get_monitors()
             for monitor_id in self.monitors:
-                curr = self.get_wallpaper(monitor_id)
+                curr = os.path.basename(self.get_wallpaper(monitor_id))
                 if self.blur_folder is not None and curr in os.listdir(
                     self.blur_folder
                 ):
-                    array.append((monitor_id, self.blur_folder))
+                    args.append((monitor_id, self.blur_folder))
                 else:
-                    array.append((monitor_id, self.image_folder))
+                    args.append((monitor_id, self.image_folder))
 
             with Pool(len(self.monitors)) as pool:
-                pool.starmap(self.bg_transition, array)
+                pool.starmap(self.bg_transition, args)
 
             for pid in pid_list:
-                os.kill(pid, SIGCONT.value)  # send SIGCONT
+                os.kill(pid, SIGCONT.value)
 
             sleep(self.timeout)
 
@@ -299,7 +313,7 @@ if __name__ == "__main__":
         help="duration of one transition (in seconds)",
     )
     parser.add_argument(
-        "--fps", type=int, default=60, help="FPS for the transition"
+        "--fps", type=int, default=30, help="FPS for the transition"
     )
     parser.add_argument(
         "--backup",
