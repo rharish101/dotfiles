@@ -75,7 +75,6 @@ stow -t ~ config
   ```
 
 ## Screenshots
-
 ### **Current Desktop**
 ![desktop](./screenshots/desktop.png)
 
