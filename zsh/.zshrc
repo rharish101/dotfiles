@@ -127,7 +127,7 @@ alias mysql="mysql -p"
 alias mp3gaingui="xdg-open /mnt/Data/MP3Gain/MP3GainGUI.exe > /dev/null 2>&1"
 alias black="black --line-length=79"
 alias xelatex="xelatex -shell-escape"
-alias latexmk="latexmk -pdf"
+alias latexmk="latexmk -pdf -shell-escape -xelatex"
 #alias mtp-mount="simple-mtpfs ~/Galaxy\ S5"
 alias mount-mtp="/mnt/Data/Programs/Bash/mtp_mount.sh"
 alias umount-mtp="fusermount -u $HOME/mtp; rm -r $HOME/mtp"
@@ -139,7 +139,7 @@ alias concatenate-mp3="/mnt/Data/Programs/Bash/concatenate-mp3.sh"
 alias compress-video="/mnt/Data/Programs/Bash/compress-video.sh"
 alias gpu-avail="/mnt/Data/Programs/Bash/gpu_avail.sh"
 alias imgdiff="/mnt/Data/Programs/Python/imgdiff.py"
-alias dup-img-rm="/mnt/Data/Programs/Python/dup-img-rm.py"
+alias dup-img-rm="/mnt/Data/Programs/Python/dup_img_rm.py"
 alias dhash="/mnt/Data/Programs/Python/dhash.py"
 alias chromedriver="/mnt/Data/Programs/Python/chromedriver.py"
 
@@ -163,7 +163,8 @@ export QT_QPA_PLATFORMTHEME=qgnomeplatform
 export VGL_READBACK=pbo     # increase bumblebee performance
 export PRIMUS_SYNC=1        # primus fix for compositing window managers
 export NLTK_DATA="/mnt/Data/Datasets/nltk_data"
-
+export UNCRUSTIFY_CONFIG="$HOME/.uncrustify"
+export TF_CPP_MIN_LOG_LEVEL="2"
 export WINEDLLOVERRIDES="mscoree=d;mshtml=d"
 export WINEPREFIX="$HOME/.wine"
 
