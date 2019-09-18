@@ -14,8 +14,9 @@ from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 class WallpaperBlur:
     """Class for performing wallpaper blur using Xfce."""
 
-    TIMEOUT = 0.5
-    MAX_BLUR = 5
+    TMP_FMT = "/tmp/{}_blur_{}.jpg"  # format for temp files for the blur
+    TIMEOUT = 0.5  # waiting period b/w checking whether to blur
+    MAX_BLUR = 5  # radius for max gaussian blur
 
     def __init__(self, image_folder, blur_folder, duration, fps):
         """Initialize the instance.
@@ -161,21 +162,20 @@ class WallpaperBlur:
 
         total_imgs = int(self.duration * self.fps)
         wait = self.duration / self.fps
-        TMP_FMT = "/tmp/{}_{}.jpg"
 
         for i in range(1, total_imgs + 1):
             Image.blend(bg, fg, i / total_imgs).save(
-                TMP_FMT.format(monitor_id, i)
+                self.TMP_FMT.format(monitor_id, i)
             )
 
         # FPS and duration is used for this
         for i in range(1, total_imgs + 1):
             sleep(wait)
-            self.set_wallpaper(monitor_id, TMP_FMT.format(monitor_id, i))
+            self.set_wallpaper(monitor_id, self.TMP_FMT.format(monitor_id, i))
         self.set_wallpaper(monitor_id, new)
 
         for i in range(1, total_imgs + 1):
-            os.remove(TMP_FMT.format(monitor_id, i))
+            os.remove(self.TMP_FMT.format(monitor_id, i))
 
     def unblur_all(self):
         """Unblur all connected monitors."""

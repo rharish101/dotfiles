@@ -15,6 +15,8 @@ from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 class WallpaperTransition:
     """Class for performing wallpaper transition using Xfce."""
 
+    TMP_FMT = "/tmp/{}_wall_{}.jpg"  # format for temp files for the transition
+
     def __init__(
         self,
         image_folder,
@@ -205,21 +207,20 @@ class WallpaperTransition:
 
         total_imgs = int(self.duration * self.fps)
         wait = self.duration / self.fps
-        TMP_FMT = "/tmp/{}_{}.jpg"
 
         for i in range(1, total_imgs + 1):
             Image.blend(bg, fg, i / total_imgs).save(
-                TMP_FMT.format(monitor_id, i)
+                self.TMP_FMT.format(monitor_id, i)
             )
 
         # FPS and duration is used for this
         for i in range(1, total_imgs + 1):
             sleep(wait)
-            self.set_wallpaper(monitor_id, TMP_FMT.format(monitor_id, i))
+            self.set_wallpaper(monitor_id, self.TMP_FMT.format(monitor_id, i))
         self.set_wallpaper(monitor_id, new)
 
         for i in range(1, total_imgs + 1):
-            os.remove(TMP_FMT.format(monitor_id, i))
+            os.remove(self.TMP_FMT.format(monitor_id, i))
 
     def backup(self):
         """Set the backup image on all connected monitors."""
