@@ -1,15 +1,16 @@
 #!/usr/bin/python3
 """Script to do smooth wallpaper transitions in Xfce4."""
-from PIL import Image
-from Xlib.display import Display
-from random import choice
 import os
 import subprocess
-from time import sleep
+from argparse import ArgumentDefaultsHelpFormatter, ArgumentParser
 from atexit import register
-from signal import signal, SIGTERM, SIGCONT, SIGSTOP
 from multiprocessing.dummy import Pool  # use threads instead of processes
-from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
+from random import choice
+from signal import SIGCONT, SIGSTOP, SIGTERM, signal
+from time import sleep
+
+from PIL import Image
+from Xlib.display import Display
 
 
 class WallpaperTransition:
@@ -18,19 +19,13 @@ class WallpaperTransition:
     TMP_FMT = "/tmp/{}_wall_{}.jpg"  # format for temp files for the transition
 
     def __init__(
-        self,
-        image_folder,
-        blur_folder,
-        timeout,
-        duration,
-        fps,
-        backup_pic=None,
+        self, img_dir, blur_dir, timeout, duration, fps, backup_pic=None
     ):
         """Initialize the instance.
 
         Args:
-            image_folder (str): Path to the folder containing the wallpapers
-            blur_folder (str): Path to the folder containing the blurred
+            img_dir (str): Path to the directory containing the wallpapers
+            blur_dir (str): Path to the directory containing the blurred
                 wallpapers
             timeout (int): The wait between two transitions
             duration (int): The duration of a transition
@@ -39,8 +34,8 @@ class WallpaperTransition:
                 script crashes
 
         """
-        self.image_folder = image_folder
-        self.blur_folder = blur_folder
+        self.img_dir = img_dir
+        self.blur_dir = blur_dir
         self.timeout = timeout
         self.duration = duration
         self.fps = fps
@@ -89,7 +84,7 @@ class WallpaperTransition:
         ]
         return subprocess.check_output(cmd).decode("utf-8").strip()
 
-    def set_wallpaper(self, monitor_id, image_path):
+    def set_wallpaper(self, monitor_id, img_path):
         """Set the current wallpaper for the given monitor."""
         subprocess.call(
             [
@@ -99,7 +94,7 @@ class WallpaperTransition:
                 "--property",
                 f"/backdrop/screen0/monitor{monitor_id}/workspace0/last-image",
                 "--set",
-                image_path,
+                img_path,
             ]
         )
 
@@ -126,7 +121,7 @@ class WallpaperTransition:
         return int(subprocess.check_output(cmd).decode("utf-8").strip())
 
     def process_image(self, img, target_size, wall_style=None):
-        """Modify the given image to the given size according to the wallpaper style.
+        """Modify the given image according to the wallpaper style.
 
         The style is one of:
             Centered: Image un-resized, placed at the center
@@ -171,7 +166,7 @@ class WallpaperTransition:
         else:  # Centered or Scaled
             if wall_style == 4:  # Scaled
                 # `thumbnail` preserves the aspect ratio, by downsizing the
-                # largest dimension to fit within the given size
+                # largest dimension to fit within the given size.
                 img.thumbnail(target_size, Image.ANTIALIAS)
 
             bg = Image.new(mode="RGBA", size=target_size, color=(0, 0, 0, 255))
@@ -181,21 +176,21 @@ class WallpaperTransition:
             img = bg
 
         # Alpha channel is required as this image might be merged with another
-        # RGBA image
-        img.convert("RGB")
+        # RGBA image.
+        img = img.convert("RGB")
         return img
 
-    def bg_transition(self, monitor_id, image_folder):
+    def bg_transition(self, monitor_id, img_dir):
         """Perform a transition into a randomly chosen wallpaper."""
         current = self.get_wallpaper(monitor_id)
         available = [
             item
-            for item in os.listdir(image_folder)
-            if os.path.isfile(os.path.join(image_folder, item))
+            for item in os.listdir(img_dir)
+            if os.path.isfile(os.path.join(img_dir, item))
         ]
         # Avoid changing into itself
         available.remove(os.path.basename(current))
-        new = os.path.join(image_folder, choice(available))
+        new = os.path.join(img_dir, choice(available))
 
         wall_style = self.get_wall_style(monitor_id)
         bg = self.process_image(
@@ -251,13 +246,13 @@ class WallpaperTransition:
             args = []
             self.monitors = self.get_monitors()
             for monitor_id in self.monitors:
-                curr = os.path.basename(self.get_wallpaper(monitor_id))
-                if self.blur_folder is not None and curr in os.listdir(
-                    self.blur_folder
-                ):
-                    args.append((monitor_id, self.blur_folder))
+                curr_dir = os.path.dirname(self.get_wallpaper(monitor_id))
+                if self.blur_dir is not None and os.path.abspath(
+                    curr_dir
+                ) == os.path.abspath(self.blur_dir):
+                    args.append((monitor_id, self.blur_dir))
                 else:
-                    args.append((monitor_id, self.image_folder))
+                    args.append((monitor_id, self.img_dir))
 
             with Pool(len(self.monitors)) as pool:
                 pool.starmap(self.bg_transition, args)

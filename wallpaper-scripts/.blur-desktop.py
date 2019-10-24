@@ -1,14 +1,15 @@
 #!/usr/bin/python3
 """Script to blur wallpaper on focus loss in Xfce4."""
-from PIL import Image, ImageFilter
-from Xlib.display import Display
 import os
 import subprocess
-from time import sleep
+from argparse import ArgumentDefaultsHelpFormatter, ArgumentParser
 from atexit import register
-from signal import signal, SIGTERM
 from multiprocessing.dummy import Pool  # use threads instead of processes
-from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
+from signal import SIGTERM, signal
+from time import sleep
+
+from PIL import Image, ImageFilter
+from Xlib.display import Display
 
 
 class WallpaperBlur:
@@ -18,24 +19,24 @@ class WallpaperBlur:
     TIMEOUT = 0.5  # waiting period b/w checking whether to blur
     MAX_BLUR = 5  # radius for max gaussian blur
 
-    def __init__(self, image_folder, blur_folder, duration, fps):
+    def __init__(self, img_dir, blur_dir, duration, fps):
         """Initialize the instance.
 
         Args:
-            image_folder (str): Path to the folder containing the wallpapers
-            blur_folder (str): Path to the folder containing the blurred
+            img_dir (str): Path to the folder containing the wallpapers
+            blur_dir (str): Path to the folder containing the blurred
                 wallpapers
             duration (int): The duration of a transition
             fps (int): The FPS for a transition
 
         """
-        self.image_folder = image_folder
-        self.blur_folder = blur_folder
+        self.img_dir = img_dir
+        self.blur_dir = blur_dir
         self.duration = duration
         self.fps = fps
 
-        if not os.path.exists(self.blur_folder):
-            os.makedirs(self.blur_folder)
+        if not os.path.exists(self.blur_dir):
+            os.makedirs(self.blur_dir)
 
         self.unblur_all = register(self.unblur_all)
         # `self.unblur_all` will automatically be called when `exit` is called
@@ -121,7 +122,7 @@ class WallpaperBlur:
         ]
         return subprocess.check_output(cmd).decode("utf-8").strip()
 
-    def set_wallpaper(self, monitor_id, image_path):
+    def set_wallpaper(self, monitor_id, img_path):
         """Set the current wallpaper for the given monitor."""
         subprocess.call(
             [
@@ -131,7 +132,7 @@ class WallpaperBlur:
                 "--property",
                 f"/backdrop/screen0/monitor{monitor_id}/workspace0/last-image",
                 "--set",
-                image_path,
+                img_path,
             ]
         )
 
@@ -148,14 +149,14 @@ class WallpaperBlur:
         bg = Image.open(current)
 
         if blur:
-            new = os.path.join(self.blur_folder, os.path.basename(current))
+            new = os.path.join(self.blur_dir, os.path.basename(current))
         else:
-            new = os.path.join(self.image_folder, os.path.basename(current))
+            new = os.path.join(self.img_dir, os.path.basename(current))
         if os.path.exists(new):
             fg = Image.open(new)
         elif blur:
             fg = bg.filter(ImageFilter.GaussianBlur(radius=self.MAX_BLUR))
-            fg.save(os.path.join(self.blur_folder, os.path.basename(current)))
+            fg.save(os.path.join(self.blur_dir, os.path.basename(current)))
         else:
             # Can't unblur an image, so exit
             return
