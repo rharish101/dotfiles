@@ -142,18 +142,18 @@ opengl = 1
 # terminal that can change color definitions such as Gnome-terminal or rxvt.
 # Or in case you're running in 'x' you could use the default option
 ; background = black
-foreground = '#3b84de'
+foreground = '#ffffff'
 
 # Only works in X mode, and is REALLY BUGGY.
-foreground_opacity = 1.0
+foreground_opacity = 0.8
 
 # Gradient mode, only hex defined colors are supported, background must also be defined in hex
 # or remain commented out. 1 = on, 0 = off. Warning: for certain terminal emulators cava will
 # not able to restore color definitions on exit, simply restart your terminal to restore colors.
 # This option now works in graphical modes too
 ; gradient = 0
-; gradient_color_1 = '#5294e2'
-; gradient_color_2 = '#3e4350'
+; gradient_color_1 = '#ffffff'
+; gradient_color_2 = '#ffffff'
 
 
 
@@ -188,7 +188,7 @@ gravity = 300
 [shadow]
 # Fake shadow effect (works under X only)
 # Warning shadows may not be larger than bars, or it will cause issues.
-size = 5
+size = 3
 # Valid shadow format is #aarrggbb
 color = "#bb000000"
 

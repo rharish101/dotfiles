@@ -1,93 +1,92 @@
 #!/usr/bin/env python
 """Toggle the state of XAVA."""
-import os
-from subprocess import Popen, PIPE
-from time import sleep
 import argparse
+import os
+from subprocess import CalledProcessError, Popen, check_call, check_output
+from time import sleep
 
-parser = argparse.ArgumentParser(
-    description="Toggle audio spectrum visualizer"
-)
-parser.add_argument(
-    "-f",
-    "--force",
-    metavar="",
-    type=str,
-    choices=["start", "stop"],
-    help="force xava to start or stop",
-)
-args = parser.parse_args()
+ICON = os.path.expanduser("~/.local/share/icons/xava.png")  # XAVA icon path
+DELAY = 0.5  # delay after calling process for polling status
 
-home_dir = os.path.expanduser("~")
 
-pgrep = Popen(["pgrep", "xava"], stdout=PIPE)
-pid_list = list(map(int, pgrep.stdout.read().strip().split()))
-if len(pid_list) > 0 and args.force != "start":
-    for pid in pid_list:
-        os.kill(pid, 15)
-    pgrep = Popen(["pgrep", "devilspie2"], stdout=PIPE)
-    devilspie_list = list(map(int, pgrep.stdout.read().strip().split()))
-    for pid in devilspie_list:
-        os.kill(pid, 15)
+def notify(msg):
+    """Send a XAVA notification with the given message."""
     Popen(
         [
             "notify-send",
-            "--app-name='XAVA visualizer'",
+            "--app-name",
+            "XAVA Visualizer",
+            "--icon",
+            ICON,
             "XAVA",
-            "XAVA stopped",
-            "--icon=" + home_dir + "/.local/share/icons/xava.png",
+            msg,
         ]
     )
-elif len(pid_list) == 0 and args.force != "stop":
-    xava = Popen(["xava"])
 
-    # For two monitor setup (NOT side-by-side setup)
-    proc = Popen(["xrandr", "--query"], stdout=PIPE)
-    out, err = proc.communicate()
-    monitors = len(
-        [0 for line in out.decode("ASCII").split("\n") if " connected" in line]
+
+def main(args):
+    """Run the main program.
+
+    Arguments:
+        args (`argparse.Namespace`): The object containing the commandline
+            arguments
+
+    """
+    try:
+        check_call(["pgrep", "xava"])
+
+    except CalledProcessError:  # no XAVA process running, so start
+        if args.force != "stop":
+            xava = Popen(["xava"])
+
+            # For two monitor setup (NOT side-by-side setup)
+            xrandr = check_output(["xrandr", "--query"]).decode("utf8")
+            monitors = 0
+            for line in xrandr.split("\n"):
+                # Whitespace is used to prevent matching "disconnected"
+                if " connected" in line:
+                    monitors += 1
+
+            if monitors == 2:
+                xava2 = Popen(["xava"])
+                wids = (
+                    check_output(["xdotool", "search", "--class", "XAVA"])
+                    .decode("utf8")
+                    .split("\n")
+                )
+                Popen(["xdotool", "set_window", "--name", "XAVA1", wids[-1]])
+
+            dvlsp = Popen(["devilspie2"])
+
+            sleep(DELAY)  # wait to avoid prematurly determining process state
+            if (
+                (xava.poll() is None)
+                and (monitors != 2 or xava2.poll() is None)
+                and (dvlsp.poll() is None)
+            ):
+                notify("XAVA started")
+            else:
+                notify("Error encountered")
+                # Clear all devilspie processes, as they are unnecessary
+                Popen(["pkill", "devilspie2"])
+
+    else:  # XAVA running, so stop
+        if args.force != "start":
+            Popen(["pkill", "xava"])
+            Popen(["pkill", "devilspie2"])
+            notify("XAVA stopped")
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="Toggle audio spectrum visualizer"
     )
-    if monitors == 2:
-        xava2 = Popen(["xava"])
-        pids = Popen(["xwininfo", "-root", "-tree"], stdout=PIPE)
-        out, err = pids.communicate()
-        wids = [
-            line.split()[0]
-            for line in out.decode("ASCII").split("\n")
-            if "XAVA" in line
-        ]
-        print(wids)
-        Popen(["xdotool", "set_window", "--name", "XAVA1", wids[-1]])
-
-    devilspie = Popen("devilspie2")
-    sleep(0.4)
-
-    # Send desktop notification
-    if (
-        (xava.poll() is None)
-        and (monitors != 2 or xava2.poll() is None)
-        and (devilspie.poll() is None)
-    ):
-        Popen(
-            [
-                "notify-send",
-                "--app-name='XAVA visualizer'",
-                "XAVA",
-                "XAVA started",
-                "--icon=" + home_dir + "/.local/share/icons/xava.png",
-            ]
-        )
-    else:
-        Popen(
-            [
-                "notify-send",
-                "--app-name='XAVA visualizer'",
-                "XAVA",
-                "Error encountered",
-                "--icon=" + home_dir + "/.local/share/icons/xava.png",
-            ]
-        )
-        pgrep = Popen(["pgrep", "devilspie2"], stdout=PIPE)
-        devilspie_list = list(map(int, pgrep.stdout.read().strip().split()))
-        for pid in devilspie_list:
-            os.kill(pid, 15)
+    parser.add_argument(
+        "-f",
+        "--force",
+        metavar="",
+        type=str,
+        choices=["start", "stop"],
+        help="force xava to start or stop",
+    )
+    main(parser.parse_args())
