@@ -128,9 +128,7 @@ alias mp3gaingui="xdg-open /mnt/Data/MP3Gain/MP3GainGUI.exe > /dev/null 2>&1"
 alias black="black --line-length=79"
 alias xelatex="xelatex -shell-escape"
 alias latexmk="latexmk -pdf -shell-escape -xelatex"
-#alias mtp-mount="simple-mtpfs ~/Galaxy\ S5"
-alias mount-mtp="/mnt/Data/Programs/Bash/mtp_mount.sh"
-alias umount-mtp="fusermount -u $HOME/mtp; rm -r $HOME/mtp"
+alias ghc="ghc -dynamic"
 
 # Custom scripts
 alias check-bitrate="/mnt/Data/Programs/Bash/check-bitrate.sh"
@@ -142,6 +140,8 @@ alias imgdiff="/mnt/Data/Programs/Python/imgdiff.py"
 alias dup-img-rm="/mnt/Data/Programs/Python/dup_img_rm.py"
 alias dhash="/mnt/Data/Programs/Python/dhash.py"
 alias chromedriver="/mnt/Data/Programs/Python/chromedriver.py"
+alias mount-mtp="/mnt/Data/Programs/Bash/mtp_mount.sh"
+alias umount-mtp="fusermount -u $HOME/mtp; rm -r $HOME/mtp"
 
 # Bumblebee aliases
 alias on-nvidia="sudo tee /proc/acpi/bbswitch <<< ON"
@@ -227,7 +227,7 @@ alarm()
 }
 
 gpu-info() {
-    (cd "/mnt/Data/Programs/Python/gpu-usage-info" && exec ./gpu-info.py $@)
+    (cd "/mnt/Data/Programs/Python/gpu-usage-info" && exec ./gpu_info.py $@)
 }
 
 cseproj-info() {
