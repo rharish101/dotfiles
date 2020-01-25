@@ -113,12 +113,12 @@ s0_workarounds = true
 s0_mode = 2
 s0_multioutput_mode = 0
 s0_force_placement_match = 
-s0_position_matches = class=Lollypop;class=Ccsm;(class=Orage) & title=Orage;class=Spotify;
-s0_position_x_values = 444;465;1522;188;
-s0_position_y_values = 139;172;694;81;
-s0_position_constrain_workarea = false;false;false;false;
-s0_mode_matches = 
-s0_mode_modes = 
+s0_position_matches = 
+s0_position_x_values = 
+s0_position_y_values = 
+s0_position_constrain_workarea = 
+s0_mode_matches = class=Spotify;class=Lollypop;class=Ccsm;
+s0_mode_modes = 1;1;1;
 s0_viewport_matches = 
 s0_viewport_x_values = 
 s0_viewport_y_values = 
@@ -175,7 +175,7 @@ s0_autoraise_delay = 1000
 s0_focus_desktop = true
 s0_focus_prevention_level = 0
 s0_focus_prevention_match = any
-s0_close_window_key = <Alt>F4
+s0_close_window_key = <Shift><Alt>F4
 s0_close_window_button = Disabled
 s0_raise_window_key = Disabled
 s0_raise_window_button = <Control>Button6
@@ -362,8 +362,8 @@ s0_highlight_rect_hidden = 2
 s0_highlight_color = #00000096
 s0_highlight_border_color = #000000c8
 s0_highlight_border_inlay_color = #c8c8c800
-s0_use_background_color = true
-s0_background_color = #00000064
+s0_use_background_color = false
+s0_background_color = #333333d9
 
 [imgjpeg]
 s0_quality = 80
@@ -683,8 +683,8 @@ s0_aiglx_fragment_fix = false
 s0_fglrx_xgl_fix = false
 s0_force_glx_sync = false
 s0_no_wait_for_video_sync = false
-s0_initial_damage_complete_redraw = false
-s0_force_swap_buffers = false
+s0_initial_damage_complete_redraw = true
+s0_force_swap_buffers = true
 s0_sticky_alldesktops = false
 s0_alldesktop_sticky_match = any
 
@@ -1202,7 +1202,7 @@ s0_inactive_shadow_y_offset = 1
 s0_command = exec /usr/bin/gtk-window-decorator --metacity-theme Adapta-No-Title --replace
 s0_mipmap = false
 s0_decoration_match = any
-s0_shadow_match = (any) & !(class=Wrapper-2.0)
+s0_shadow_match = any
 
 [titleinfo]
 s0_show_remote_machine = true
