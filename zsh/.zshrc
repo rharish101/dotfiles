@@ -137,11 +137,11 @@ alias concatenate-mp3="/mnt/Data/Programs/Bash/concatenate-mp3.sh"
 alias compress-video="/mnt/Data/Programs/Bash/compress-video.sh"
 alias gpu-avail="/mnt/Data/Programs/Bash/gpu_avail.sh"
 alias imgdiff="/mnt/Data/Programs/Python/imgdiff.py"
-alias dup-img-rm="optirun -b none /mnt/Data/Programs/Python/dup_img_rm.py"
+alias dup-img-rm="/mnt/Data/Programs/Python/dup_img_rm.py"
 alias dhash="/mnt/Data/Programs/Python/dhash.py"
 alias chromedriver="/mnt/Data/Programs/Python/chromedriver.py"
 alias mount-mtp="/mnt/Data/Programs/Bash/mtp_mount.sh"
-alias umount-mtp="fusermount -u $HOME/mtp; rm -r $HOME/mtp"
+alias umount-mtp="fusermount -u $HOME/mtp && rmdir $HOME/mtp"
 
 # Bumblebee aliases
 alias on-nvidia="sudo tee /proc/acpi/bbswitch <<< ON"
