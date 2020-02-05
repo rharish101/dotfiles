@@ -27,6 +27,8 @@ stow -t ~ config
   * Roboto Mono NerdFont
 * Zsh
   * oh-my-zsh
+  * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) (as a custom oh-my-zsh plugin)
+  * [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) (as a custom oh-my-zsh plugin)
 
 ### Optional
 * My wallpaper scripts (warning: hacky code)

@@ -7,7 +7,7 @@ ZSH=/usr/share/oh-my-zsh/
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="agnoster-mod"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -51,27 +51,97 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting archlinux history-substring-search vi-mode ssh-agent python)
+plugins=(zsh-autosuggestions zsh-syntax-highlighting vi-mode ssh-agent colored-man-pages)
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-export LANG=en_IN.UTF-8
+# export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim'
-fi
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+export EDITOR='vim'
 
 # Compilation flags
-export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch x86_64"
 
-# ssh
-export SSH_KEY_PATH="~/.ssh/"
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
+alias sudo="sudo "
+alias restart="reboot"
+alias cmatrix="cmatrix -bs"
+alias black="black --line-length=79"
+alias xelatex="xelatex -shell-escape"
+alias latexmk="latexmk -pdf -shell-escape -xelatex"
+
+# Custom scripts
+alias check-bitrate="/mnt/Data/Programs/Bash/check-bitrate.sh"
+alias capitalize-mp3="/mnt/Data/Programs/Bash/capitalize-mp3.sh"
+alias concatenate-mp3="/mnt/Data/Programs/Bash/concatenate-mp3.sh"
+alias compress-video="/mnt/Data/Programs/Bash/compress-video.sh"
+alias gpu-avail="/mnt/Data/Programs/Bash/gpu_avail.sh"
+alias imgdiff="/mnt/Data/Programs/Python/imgdiff.py"
+alias dup-img-rm="/mnt/Data/Programs/Python/dup_img_rm.py"
+alias dhash="/mnt/Data/Programs/Python/dhash.py"
+alias chromedriver="/mnt/Data/Programs/Python/chromedriver.py"
+alias mount-mtp="/mnt/Data/Programs/Bash/mtp_mount.sh"
+alias umount-mtp="fusermount -u $HOME/mtp && rmdir $HOME/mtp"
+
+# Bumblebee aliases
+alias nvtop='optirun --no-xorg nvtop'
+alias nvidia-bug-report.sh="optirun --no-xorg nvidia-bug-report.sh"
+alias nvidia-cuda-mps-control="optirun --no-xorg nvidia-cuda-mps-control"
+alias nvidia-cuda-mps-server="optirun --no-xorg nvidia-cuda-mps-server"
+alias nvidia-debugdump="optirun --no-xorg nvidia-debugdump"
+alias nvidia-modprobe="optirun --no-xorg nvidia-modprobe"
+alias nvidia-persistenced="optirun --no-xorg nvidia-persistenced"
+alias nvidia-settings="optirun -b none nvidia-settings -c :8"
+alias nvidia-smi="optirun --no-xorg nvidia-smi"
+alias nvidia-xconfig="optirun --no-xorg nvidia-xconfig"
+
+export LS_COLORS="$LS_COLORS:di=1;34:ln=1;36:so=1;35:pi=33:ex=32:bd=1;33:cd=1;33:su=0;41:sg=0;43:tw=0;44:ow=1;34"
+export PS2=$'\e[1;34m...  \e[0m'
+export QT_QPA_PLATFORMTHEME=qgnomeplatform
+export VGL_READBACK=pbo # increase bumblebee performance
+export PRIMUS_SYNC=1 # primus fix for compositing window managers
+export NLTK_DATA="/mnt/Data/Datasets/nltk_data"
+export UNCRUSTIFY_CONFIG="$HOME/.uncrustify"
+export WINEPREFIX="$HOME/.wine"
+export WINEDLLOVERRIDES="mscoree=d;mshtml=d"  # don't bug about mono and gecko
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/cuda/lib64  # include CUDA
+export VIRTUAL_ENV_DISABLE_PROMPT=false  # force themeing of virtual envs
+export FFF_TRASH_CMD="trash-put" # Use `trash-put` to trash in fff
+
+# Settings for zsh history
+unsetopt LIST_AMBIGUOUS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+unsetopt SHARE_HISTORY
+
+setopt extended_glob
+
+bindkey '^ ' autosuggest-accept
+bindkey -M vicmd 'k' up-line-or-search
+bindkey -M vicmd 'j' down-line-or-search
+
+# ==========================================================
+# ==================== CUSTOM FUNCTIONS ====================
+# ==========================================================
 
 longcat()
 {
@@ -90,112 +160,11 @@ longcat()
         cowsay -f ~/.longcat.cow -W 79 $str | lolcat -t
     fi
 }
-longcat
-export EDITOR=vim
-setopt extended_glob
-source /usr/share/doc/pkgfile/command-not-found.bash
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-man()
-{
-    LESS_TERMCAP_md=$'\e[01;31m' \
-    LESS_TERMCAP_me=$'\e[0m' \
-    LESS_TERMCAP_se=$'\e[0m' \
-    LESS_TERMCAP_so=$'\e[01;44;33m' \
-    LESS_TERMCAP_ue=$'\e[0m' \
-    LESS_TERMCAP_us=$'\e[01;32m' \
-    command man "$@"
-}
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-# alias python='python2'
-# alias pip='pip2'
-# alias ipython='ipython2'
-alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
-alias sudo="sudo "
-alias restart="reboot"
 alias yo="longcat Yo!"
 alias why="longcat 'Why not?';"
-alias cmatrix="cmatrix -bs"
-alias mysql="mysql -p"
-alias mp3gaingui="xdg-open /mnt/Data/MP3Gain/MP3GainGUI.exe > /dev/null 2>&1"
-alias black="black --line-length=79"
-alias xelatex="xelatex -shell-escape"
-alias latexmk="latexmk -pdf -shell-escape -xelatex"
-alias ghc="ghc -dynamic"
+longcat
 
-# Custom scripts
-alias check-bitrate="/mnt/Data/Programs/Bash/check-bitrate.sh"
-alias capitalize-mp3="/mnt/Data/Programs/Bash/capitalize-mp3.sh"
-alias concatenate-mp3="/mnt/Data/Programs/Bash/concatenate-mp3.sh"
-alias compress-video="/mnt/Data/Programs/Bash/compress-video.sh"
-alias gpu-avail="/mnt/Data/Programs/Bash/gpu_avail.sh"
-alias imgdiff="/mnt/Data/Programs/Python/imgdiff.py"
-alias dup-img-rm="/mnt/Data/Programs/Python/dup_img_rm.py"
-alias dhash="/mnt/Data/Programs/Python/dhash.py"
-alias chromedriver="/mnt/Data/Programs/Python/chromedriver.py"
-alias mount-mtp="/mnt/Data/Programs/Bash/mtp_mount.sh"
-alias umount-mtp="fusermount -u $HOME/mtp && rmdir $HOME/mtp"
-
-# Bumblebee aliases
-alias on-nvidia="sudo tee /proc/acpi/bbswitch <<< ON"
-alias off-nvidia="sudo rmmod nvidia_uvm; sudo rmmod nvidia; sudo tee /proc/acpi/bbswitch <<< OFF"
-alias nvtop='optirun --no-xorg nvtop'
-alias nvidia-bug-report.sh="optirun --no-xorg nvidia-bug-report.sh"
-alias nvidia-cuda-mps-control="optirun --no-xorg nvidia-cuda-mps-control"
-alias nvidia-cuda-mps-server="optirun --no-xorg nvidia-cuda-mps-server"
-alias nvidia-debugdump="optirun --no-xorg nvidia-debugdump"
-alias nvidia-modprobe="optirun --no-xorg nvidia-modprobe"
-alias nvidia-persistenced="optirun --no-xorg nvidia-persistenced"
-alias nvidia-settings="optirun -b none nvidia-settings -c :8"
-alias nvidia-smi="optirun --no-xorg nvidia-smi"
-alias nvidia-xconfig="optirun --no-xorg nvidia-xconfig"
-
-export LS_COLORS="$LS_COLORS:di=1;34:ln=1;36:so=1;35:pi=33:ex=32:bd=1;33:cd=1;33:su=0;41:sg=0;43:tw=0;44:ow=1;34"
-export PS2=$'\e[1;34m...  \e[0m'
-export QT_QPA_PLATFORMTHEME=qgnomeplatform
-export VGL_READBACK=pbo     # increase bumblebee performance
-export PRIMUS_SYNC=1        # primus fix for compositing window managers
-export NLTK_DATA="/mnt/Data/Datasets/nltk_data"
-export UNCRUSTIFY_CONFIG="$HOME/.uncrustify"
-export TF_CPP_MIN_LOG_LEVEL="2"
-export WINEDLLOVERRIDES="mscoree=d;mshtml=d"
-export WINEPREFIX="$HOME/.wine"
-
-ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
-if [[ ! -d $ZSH_CACHE_DIR ]]; then
-  mkdir $ZSH_CACHE_DIR
-fi
-
-source $ZSH/oh-my-zsh.sh
-
-ZSH_HIGHLIGHT_STYLES[path]=none
-unsetopt LIST_AMBIGUOUS
-setopt HIST_FIND_NO_DUPS
-setopt HIST_IGNORE_ALL_DUPS
-unsetopt SHARE_HISTORY
-# DISABLE_AUTO_TITLE="true"
-# precmd ()
-# {
-#     if [[ $(print -Pn "\e]0;%x\a") != 'zsh' ]]
-#     then
-#         print -Pn "\e]0;%x\a"
-#     fi
-# }
-# chpwd () {print -Pn "\e]0;%1d\a"}
-export ZSH_THEME_TERM_TITLE_IDLE="%1d"
-# dconf write /org/gnome/terminal/legacy/profiles:/:cb008e84-0e36-4cc8-85e1-4bbab63f3beb/scrollbar-policy "'never'"
-
-# For Tensorflow with MKL
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/opt/cuda/lib64
-
-# set an ad-hoc GUI timer
+# Set an ad-hoc GUI timer
 timer()
 {
     local target=$1; shift
@@ -206,7 +175,8 @@ timer()
         echo "Timer set for: $target"
     fi
 }
-# set an ad-hoc GUI alarm
+
+# Set an ad-hoc GUI alarm
 alarm()
 {
     local target=$1
@@ -274,15 +244,10 @@ local paste_widgets=(
     vi-put-{before,after}
 )
 
-# NB: can atm. only wrap native widgets
+# NOTE: can atm. only wrap native widgets
 x11-clip-wrap-widgets copy $copy_widgets
 x11-clip-wrap-widgets paste  $paste_widgets
-bindkey '^[[Z' reverse-menu-complete
 
-export VIRTUAL_ENV_DISABLE_PROMPT=false
-
-# Use "trash-put" to trash in fff
-export FFF_TRASH_CMD="trash-put"
 # cd to directory on exit of fff
 old_fff=$(which fff)
 fff() {
