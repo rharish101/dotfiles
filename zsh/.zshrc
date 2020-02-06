@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
- export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
@@ -51,7 +51,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions zsh-syntax-highlighting vi-mode ssh-agent colored-man-pages)
+plugins=(vi-mode ssh-agent colored-man-pages)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -126,6 +126,10 @@ export WINEDLLOVERRIDES="mscoree=d;mshtml=d"  # don't bug about mono and gecko
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/cuda/lib64  # include CUDA
 export VIRTUAL_ENV_DISABLE_PROMPT=false  # force themeing of virtual envs
 export FFF_TRASH_CMD="trash-put" # Use `trash-put` to trash in fff
+
+# Enable zsh plugins
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Settings for zsh history
 unsetopt LIST_AMBIGUOUS
