@@ -537,7 +537,7 @@ s0_slow_animations_key = Disabled
 s0_detect_refresh_rate = true
 s0_refresh_rate = 60
 s0_unredirect_fullscreen_windows = true
-s0_unredirect_match = (any) & !(class=Totem) & !(class=MPlayer) & !(class=vlc) & !(class=Plugin-container) & !(class=QtQmlViewer) & !(class=Firefox) & !(class=google-chrome) & !(class=google-chrome-unstable) & !(class=chromium-browser)
+s0_unredirect_match = (any) & !(class=Totem) & !(class=MPlayer) & !(class=vlc) & !(class=Plugin-container) & !(class=QtQmlViewer) & !(class=Firefox) & !(class=google-chrome) & !(class=google-chrome-unstable) & !(class=chromium-browser) & !(class=Google-chrome)
 s0_force_independent_output_painting = false
 
 [annotate]
