@@ -139,9 +139,10 @@ unsetopt SHARE_HISTORY
 
 setopt extended_glob
 
-bindkey '^ ' autosuggest-accept
-bindkey -M vicmd 'k' up-line-or-search
-bindkey -M vicmd 'j' down-line-or-search
+bindkey '^ ' autosuggest-accept # ctrl-space for autosuggestion completion
+bindkey -M vicmd 'k' up-line-or-search # k in vi-mode for cycling up matching commands
+bindkey -M vicmd 'j' down-line-or-search # j in vi-mode for cycling down matching commands
+bindkey '^[[Z' reverse-menu-complete # shift-tab for previous selection / reverse of tab
 
 # ==========================================================
 # ==================== CUSTOM FUNCTIONS ====================
