@@ -51,7 +51,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(vi-mode ssh-agent colored-man-pages)
+plugins=(vi-mode ssh-agent colored-man-pages history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -96,7 +96,7 @@ alias concatenate-mp3="/mnt/Data/Programs/Bash/concatenate-mp3.sh"
 alias compress-video="/mnt/Data/Programs/Bash/compress-video.sh"
 alias gpu-avail="/mnt/Data/Programs/Bash/gpu_avail.sh"
 alias imgdiff="/mnt/Data/Programs/Python/imgdiff.py"
-alias dup-img-rm="/mnt/Data/Programs/Python/dup_img_rm.py"
+alias dup-img-rm="TF_CPP_MIN_LOG_LEVEL=3 /mnt/Data/Programs/Python/dup_img_rm.py"
 alias dhash="/mnt/Data/Programs/Python/dhash.py"
 alias chromedriver="/mnt/Data/Programs/Python/chromedriver.py"
 alias mount-mtp="/mnt/Data/Programs/Bash/mtp_mount.sh"
@@ -140,8 +140,8 @@ unsetopt SHARE_HISTORY
 setopt extended_glob
 
 bindkey '^ ' autosuggest-accept # ctrl-space for autosuggestion completion
-bindkey -M vicmd 'k' up-line-or-search # k in vi-mode for cycling up matching commands
-bindkey -M vicmd 'j' down-line-or-search # j in vi-mode for cycling down matching commands
+bindkey -M vicmd 'k' history-substring-search-up # k in vi-mode for cycling up matching commands
+bindkey -M vicmd 'j' history-substring-search-down # j in vi-mode for cycling down matching commands
 bindkey '^[[Z' reverse-menu-complete # shift-tab for previous selection / reverse of tab
 
 # ==========================================================
