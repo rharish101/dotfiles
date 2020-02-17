@@ -45,11 +45,18 @@ stow -t ~ config
 
 ## Instructions
 * **Compiz**  
-  To load the file "ccsm-settings.profile":
-  1. Open Compiz Settings (CCSM)
-  2. Go to Preferences > Profile & Backend
-  3. Under Profile, click "Import"
-  4. Select the profile "ccsm-settings.profile"
+  1. Load the file "ccsm-settings.profile":
+    1. Open Compiz Settings (CCSM)
+    2. Go to Preferences > Profile & Backend
+    3. Under Profile, click "Import"
+    4. Select the profile "ccsm-settings.profile" from the "compiz" directory
+  2. Run the provided script to fix issues with Compiz and Xfce:
+    0. Ensure Xfce is installed
+    1. Go to the "compiz" directory
+    2. Run the script:
+      ```sh
+      ./compiz-xfce-setup.sh
+      ```
 
 * **Wallpaper Scripts**  
   The script ".blur-desktop.py" blurs the wallpaper when the active/focused window is not the desktop.
