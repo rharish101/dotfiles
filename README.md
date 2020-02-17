@@ -14,8 +14,10 @@ stow -t ~ config
 * GNU Stow
 * Xfce4
 * Compiz 0.9
-* The [Adapta-Nokto-Eta](https://github.com/adapta-project/adapta-gtk-theme) GTK theme
-* The [Paper](https://github.com/snwh/paper-icon-theme) icon theme
+* The [Plata-Noir-Compact](https://gitlab.com/tista500/plata-theme) GTK theme
+* The [Papirus-Dark](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) icon theme
+  * The [papirus-folders](https://github.com/PapirusDevelopmentTeam/papirus-folders) tool
+* The Breeze Light cursor theme
 * i3lock-color
   * eog (optional; used in combination with Compiz as a hack for a fade-in/fade-out effect)
   * xss-lock (optional; for locking on screen blank)
@@ -58,6 +60,12 @@ stow -t ~ config
       ./compiz-xfce-setup.sh
       ```
 
+* **Papirus Folder**
+  Run the following command to set the folder colors of the Papirus-Dark theme to match the Plata GTK theme's colorscheme:
+  ```sh
+  papirus-folders -C indigo --theme Papirus-Dark
+  ```
+
 * **Wallpaper Scripts**  
   The script ".blur-desktop.py" blurs the wallpaper when the active/focused window is not the desktop.
   The script ".wallpaper.py" enables the wallpaper to be smoothly changed every X seconds.
@@ -83,7 +91,7 @@ stow -t ~ config
   xss-lock ~/.i3locker.sh
   ```
 
-## Screenshots
+## Screenshots (Outdated)
 ### **Current Desktop**
 ![desktop](./screenshots/desktop.png)
 

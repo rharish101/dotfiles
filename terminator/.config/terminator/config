@@ -22,7 +22,7 @@
       type = Terminal
     [[[window0]]]
       parent = ""
-      size = 960, 476
+      size = 960, 472
       type = Window
 [plugins]
 [profiles]
@@ -57,11 +57,11 @@
     show_titlebar = False
   [[Gogh]]
     audible_bell = True
-    background_color = "#222d32"
+    background_color = "#080808"
     cursor_color = "#d3dae3"
     font = RobotoMono Nerd Font 14
     foreground_color = "#d3dae3"
-    palette = "#222d32:#c0392b:#27ae60:#f39c12:#2980b9:#8e44ad:#16a085:#bdc3c7:#586368:#e74c3c:#2ecc71:#f1c40f:#3498db:#9b59b6:#2aa198:#d3dae3"
+    palette = "#080808:#c0392b:#27ae60:#f39c12:#2980b9:#8e44ad:#16a085:#bdc3c7:#586368:#e74c3c:#2ecc71:#f1c40f:#3498db:#9b59b6:#2aa198:#d3dae3"
     scrollback_infinite = True
     scrollbar_position = hidden
     show_titlebar = False
