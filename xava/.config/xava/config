@@ -43,8 +43,8 @@ bar_width = 15
 ; bar_spacing = 4
 
 # Window width and height
-width = 1280
-height = 100
+width = 800
+height = 80
 
 # Fullscreen toggle (1 = on, 0 = off)
 ; fullscreen = 0
@@ -65,7 +65,7 @@ set_win_props = 1
 # by putting the window to the part of the screen, which are:
 # top_left, top, top_right, left, center, right, bottom_left,
 # bottom, bottom_right and none if you don't want automatic positioning
-alignment = top
+alignment = none
 
 # Additionally we can move the window from the already set
 # part of the screen (units are in pixels)
