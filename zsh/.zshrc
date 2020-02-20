@@ -46,6 +46,7 @@ DISABLE_AUTO_UPDATE="true"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM=~/.oh-my-zsh/custom/
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -114,17 +115,16 @@ alias nvidia-settings="optirun -b none nvidia-settings -c :8"
 alias nvidia-smi="optirun --no-xorg nvidia-smi"
 alias nvidia-xconfig="optirun --no-xorg nvidia-xconfig"
 
+# Environment variables
 export LS_COLORS="$LS_COLORS:di=1;34:ln=1;36:so=1;35:pi=33:ex=32:bd=1;33:cd=1;33:su=0;41:sg=0;43:tw=0;44:ow=1;34"
 export PS2=$'\e[1;34m...  \e[0m'
-export QT_QPA_PLATFORMTHEME=qgnomeplatform
+export VIRTUAL_ENV_DISABLE_PROMPT=false # force themeing of virtual envs
 export VGL_READBACK=pbo # increase bumblebee performance
 export PRIMUS_SYNC=1 # primus fix for compositing window managers
-export NLTK_DATA="/mnt/Data/Datasets/nltk_data"
 export UNCRUSTIFY_CONFIG="$HOME/.uncrustify"
 export WINEPREFIX="$HOME/.wine"
-export WINEDLLOVERRIDES="mscoree=d;mshtml=d"  # don't bug about mono and gecko
+export WINEDLLOVERRIDES="mscoree=d;mshtml=d" # don't bug about mono and gecko
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/cuda/lib64  # include CUDA
-export VIRTUAL_ENV_DISABLE_PROMPT=false  # force themeing of virtual envs
 export FFF_TRASH_CMD="trash-put" # Use `trash-put` to trash in fff
 
 # Enable zsh plugins
@@ -139,6 +139,7 @@ unsetopt SHARE_HISTORY
 
 setopt extended_glob
 
+# Custom keybindings
 bindkey '^ ' autosuggest-accept # ctrl-space for autosuggestion completion
 bindkey -M vicmd 'k' history-substring-search-up # k in vi-mode for cycling up matching commands
 bindkey -M vicmd 'j' history-substring-search-down # j in vi-mode for cycling down matching commands
@@ -207,7 +208,7 @@ gpu-info() {
 
 cseproj-info() {
     hosts=()
-    for num in 145 146 147 148 149 150; do
+    for num in 145 146 147 148 149 150 152; do
         hosts+=("cseproj${num}.cse.iitk.ac.in")
     done
     gpu-info $hosts
