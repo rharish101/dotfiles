@@ -1,15 +1,29 @@
 #!/usr/bin/python3
 """Script to blur wallpaper on focus loss in Xfce4."""
+import atexit
 import os
 import subprocess
 from argparse import ArgumentDefaultsHelpFormatter, ArgumentParser
-from atexit import register
 from multiprocessing.dummy import Pool  # use threads instead of processes
 from signal import SIGTERM, signal
 from time import sleep
 
 from PIL import Image, ImageFilter
 from Xlib.display import Display
+
+
+def get_cmd_output(cmd):
+    """Get the output of the given subprocess command.
+
+    Args:
+        cmd (list): The command as a list
+
+    Returns:
+        str: The output of the command
+
+    """
+    process = subprocess.run(cmd, check=True, stdout=subprocess.PIPE)
+    return process.stdout.decode("utf-8").strip()
 
 
 class WallpaperBlur:
@@ -35,10 +49,13 @@ class WallpaperBlur:
         self.duration = duration
         self.fps = fps
 
+        # This is only set in cases when wallpaper is being blurred.
+        self.wallpapers = {}
+
         if not os.path.exists(self.blur_dir):
             os.makedirs(self.blur_dir)
 
-        self.unblur_all = register(self.unblur_all)
+        self.unblur_all = atexit.register(self.unblur_all)
         # `self.unblur_all` will automatically be called when `exit` is called
         signal(SIGTERM, lambda s, f: exit())
 
@@ -80,16 +97,8 @@ class WallpaperBlur:
 
         If the focus is on the desktop, then None is returned.
         """
-        win_id = (
-            subprocess.check_output(["xdotool", "getactivewindow"])
-            .decode("utf-8")
-            .strip()
-        )
-        win_info = (
-            subprocess.check_output(["xwininfo", "-id", win_id])
-            .decode("utf-8")
-            .strip()
-        )
+        win_id = get_cmd_output(["xdotool", "getactivewindow"])
+        win_info = get_cmd_output(["xwininfo", "-id", win_id])
 
         lines = win_info.split("\n")
         # Splitting and joining is done as the window name may contain
@@ -113,28 +122,37 @@ class WallpaperBlur:
 
     def get_wallpaper(self, monitor_id):
         """Get the path to the current wallpaper of the given monitor."""
+        # When the script is killed during a blur operation, querying xfconf
+        # will return the temp file for the wallpaper, instead of the original.
+        # Hence, use the wallpapers attribute, which is set for this monitor
+        # only during a blur operation.
+        if monitor_id in self.wallpapers:
+            return self.wallpapers[monitor_id]
+        else:
+            cmd = [
+                "xfconf-query",
+                "--channel",
+                "xfce4-desktop",
+                "--property",
+                f"/backdrop/screen0/monitor{monitor_id}/workspace0/last-image",
+            ]
+            return get_cmd_output(cmd)
+
+    def set_wallpaper(self, monitor_id, img_path):
+        """Set the current wallpaper for the given monitor."""
         cmd = [
             "xfconf-query",
             "--channel",
             "xfce4-desktop",
             "--property",
             f"/backdrop/screen0/monitor{monitor_id}/workspace0/last-image",
+            "--set",
+            img_path,
         ]
-        return subprocess.check_output(cmd).decode("utf-8").strip()
-
-    def set_wallpaper(self, monitor_id, img_path):
-        """Set the current wallpaper for the given monitor."""
-        subprocess.call(
-            [
-                "xfconf-query",
-                "--channel",
-                "xfce4-desktop",
-                "--property",
-                f"/backdrop/screen0/monitor{monitor_id}/workspace0/last-image",
-                "--set",
-                img_path,
-            ]
-        )
+        # Checking is not done, because even if this command fails once, this
+        # function is called multiple times, thereby "masking-out" the failure
+        # of once invocation.
+        subprocess.run(cmd)
 
     def bg_blur(self, monitor_id, blur):
         """Blur the wallpaper for the given monitor only and unblur the rest.
@@ -147,6 +165,10 @@ class WallpaperBlur:
         """
         current = self.get_wallpaper(monitor_id)
         bg = Image.open(current)
+
+        # Store info of the original wallpaper. This is used when the script is
+        # to be terminated during this blur operation.
+        self.wallpapers[monitor_id] = current
 
         if blur:
             new = os.path.join(self.blur_dir, os.path.basename(current))
@@ -174,6 +196,11 @@ class WallpaperBlur:
             sleep(wait)
             self.set_wallpaper(monitor_id, self.TMP_FMT.format(monitor_id, i))
         self.set_wallpaper(monitor_id, new)
+
+        # Original wallpaper has changed, so unsetting this forces querying of
+        # xfconf when trying to get the wallpaper. This is done as the user may
+        # manually change the wallpaper in the period when the script waits.
+        del self.wallpapers[monitor_id]
 
         for i in range(1, total_imgs + 1):
             os.remove(self.TMP_FMT.format(monitor_id, i))
