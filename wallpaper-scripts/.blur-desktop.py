@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Script to blur wallpaper on focus loss in Xfce4."""
-import atexit
 import os
 import subprocess
 from argparse import ArgumentDefaultsHelpFormatter, ArgumentParser
@@ -55,9 +54,15 @@ class WallpaperBlur:
         if not os.path.exists(self.blur_dir):
             os.makedirs(self.blur_dir)
 
-        self.unblur_all = atexit.register(self.unblur_all)
-        # `self.unblur_all` will automatically be called when `exit` is called
-        signal(SIGTERM, lambda s, f: exit())
+    def __del__(self):
+        """Unblur all connected monitors on exit."""
+        # Connected monitors may have changed
+        self.monitors = self.get_monitors()
+        with Pool(len(self.monitors)) as pool:
+            pool.starmap(
+                self.bg_blur,
+                [(monitor_id, False) for monitor_id in self.monitors],
+            )
 
     def get_monitors(self):
         """Get information on the connected monitors.
@@ -205,16 +210,6 @@ class WallpaperBlur:
         for i in range(1, total_imgs + 1):
             os.remove(self.TMP_FMT.format(monitor_id, i))
 
-    def unblur_all(self):
-        """Unblur all connected monitors."""
-        # Connected monitors may have changed
-        self.monitors = self.get_monitors()
-        with Pool(len(self.monitors)) as pool:
-            pool.starmap(
-                self.bg_blur,
-                [(monitor_id, False) for monitor_id in self.monitors],
-            )
-
     def loop(self):
         """Loop and perform blurs when required."""
         blurred_monitor = None
@@ -243,6 +238,9 @@ def main(args):
             arguments
 
     """
+    # Gracefully exit by unblurring everything on SIGTERM
+    signal(SIGTERM, lambda _, __: exit())
+
     wt = WallpaperBlur(args.img_dir, args.blur_dir, args.duration, args.fps)
     wt.loop()
 
