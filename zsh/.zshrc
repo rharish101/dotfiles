@@ -149,26 +149,10 @@ bindkey '^[[Z' reverse-menu-complete # shift-tab for previous selection / revers
 # ==================== CUSTOM FUNCTIONS ====================
 # ==========================================================
 
-longcat()
-{
-    if [[ $1 == "" ]]; then
-        cowsay -f ~/.longcat.cow -W 79 $(fortune -as) | lolcat -t
-    else
-        str=""
-        while [[ $1 != "" ]]; do
-            if [[ $str == "" ]]; then
-                str="${str}$1"
-            else
-                str="${str} $1"
-            fi
-            shift
-        done
-        cowsay -f ~/.longcat.cow -W 79 $str | lolcat -t
-    fi
-}
-alias yo="longcat Yo!"
-alias why="longcat 'Why not?';"
-longcat
+greet() { cowsay -f tux -W 72 "${@:-$(fortune -as)}" | lolcat -t }
+alias yo="greet Yo!"
+alias why="greet 'Why not?';"
+greet
 
 # Set an ad-hoc GUI timer
 timer()
@@ -190,7 +174,7 @@ alarm()
     if [[ -z $target ]]; then
         echo "Usage: alarm time"
     else
-        N=$(date -d "$target" +"%s")
+        N=$(date -d $target +"%s")
         now=$(date +"%s")
         difference=$((N-now))
         if (( $difference < 0 )); then
@@ -202,11 +186,15 @@ alarm()
     fi
 }
 
-gpu-info() {
-    (cd "/mnt/Data/Programs/Python/gpu-usage-info" && exec ./gpu_info.py $@)
+gpu-info()
+{
+    pushd "/mnt/Data/Programs/Python/gpu-usage-info" > /dev/null
+    exec ./gpu_info.py $@
+    popd > /dev/null
 }
 
-cseproj-info() {
+cseproj-info()
+{
     hosts=()
     for num in 145 146 147 148 149 150 152; do
         hosts+=("cseproj${num}.cse.iitk.ac.in")
@@ -256,7 +244,8 @@ x11-clip-wrap-widgets paste  $paste_widgets
 
 # cd to directory on exit of fff
 old_fff=$(which fff)
-fff() {
+fff()
+{
     $old_fff "$@"
     cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
 }
