@@ -11,7 +11,7 @@
 <!-- meaningfull constants -->
 
 <constant name="C_title_focused" value="#080808" />
-<constant name="C_title_unfocused" value="#080808" />
+<constant name="C_title_unfocused" value="#1d1d1d" />
 <constant name="D_icons_unfocused_offset" value="0" /> <!-- offset of the unfocused icons -->
 
 <!-- geometries -->
