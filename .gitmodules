@@ -1,6 +1,3 @@
-[submodule "tmux/.tmux-themepack"]
-	path = tmux/.tmux-themepack
-	url = https://github.com/jimeh/tmux-themepack
 [submodule "vim/.vim"]
 	path = vim
 	url = https://github.com/rharish101/vim-config
