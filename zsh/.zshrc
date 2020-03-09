@@ -157,33 +157,41 @@ greet
 # Set an ad-hoc GUI timer
 timer()
 {
-    local target=$1; shift
-    if [[ -z $target ]]; then
-        echo "Usage: timer time"
-    else
-        ((sleep $target && zenity --info --icon-name="appointment-soon" --title="Time's Up" --text="${*:-BING}" & cvlc --play-and-exit /usr/share/sounds/Borealis/Kopete_notify.ogg) & ) &>/dev/null
-        echo "Timer set for: $target"
+    local target="$1"
+    local message="${2:-BING}"
+
+    if [ -z "$target" ]; then
+        echo "Usage: timer TIME [MESSAGE]"
     fi
+
+    echo "Setting timer for: $target"
+    sleep "$target" || return -1
+    zenity --info --icon-name="appointment-soon" --title="Time's Up" --text="$message"
+    cvlc --play-and-exit /usr/share/sounds/Borealis/Kopete_notify.ogg &> /dev/null
 }
 
 # Set an ad-hoc GUI alarm
 alarm()
 {
-    local target=$1
-    local message=${2:-BING}
-    if [[ -z $target ]]; then
-        echo "Usage: alarm time"
-    else
-        N=$(date -d $target +"%s")
-        now=$(date +"%s")
-        difference=$((N-now))
-        if (( $difference < 0 )); then
-            echo "Cannot set alarm for the past"
-        else
-            ((sleep $difference && zenity --info --icon-name="appointment-soon" --title="Time's Up" --text="$message" & cvlc --play-and-exit /usr/share/sounds/Borealis/Kopete_notify.ogg) & ) &>/dev/null
-            echo "Alarm set for: $(date -d $target)"
-        fi
+    local target="$1"
+    local message="${2:-BING}"
+
+    if [ -z "$target" ]; then
+        echo "Usage: alarm TIME [MESSAGE]"
     fi
+
+    target_unix="$(date -d "$target" "+%s")"
+    now_unix=$(date "+%s")
+    difference=$((target_unix - now_unix))
+
+    if (( difference < 0 )); then
+        echo "Cannot set alarm for the past"
+    fi
+
+    echo "Setting alarm for: $(date -d "$target")"
+    sleep $difference || return -1
+    zenity --info --icon-name="appointment-soon" --title="Time's Up" --text="$message"
+    cvlc --play-and-exit /usr/share/sounds/Borealis/Kopete_notify.ogg &>/dev/null
 }
 
 gpu-info()
@@ -208,6 +216,6 @@ cseproj-info()
 old_fff=$(which fff)
 fff()
 {
-    $old_fff "$@"
+    eval "$old_fff" "$@"
     cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
 }
