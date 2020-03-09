@@ -189,8 +189,10 @@ alarm()
 gpu-info()
 {
     pushd "/mnt/Data/Programs/Python/gpu-usage-info" > /dev/null
-    exec ./gpu_info.py $@
-    popd > /dev/null
+    ./gpu_info.py $@
+    return_code=$?
+    popd &> /dev/null
+    return $return_code
 }
 
 cseproj-info()
