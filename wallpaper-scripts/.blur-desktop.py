@@ -21,8 +21,10 @@ def get_cmd_output(cmd):
         str: The output of the command
 
     """
-    process = subprocess.run(cmd, check=True, stdout=subprocess.PIPE)
-    return process.stdout.decode("utf-8").strip()
+    process = subprocess.run(
+        cmd, check=True, stdout=subprocess.PIPE, text=True
+    )
+    return process.stdout.strip()
 
 
 class WallpaperBlur:
@@ -189,10 +191,10 @@ class WallpaperBlur:
             return
 
         total_imgs = int(self.duration * self.fps)
-        wait = self.duration / self.fps
+        wait = 1 / self.fps
 
         for i in range(1, total_imgs + 1):
-            Image.blend(bg, fg, i / total_imgs).save(
+            Image.blend(bg, fg, i / total_imgs).convert("RGB").save(
                 self.TMP_FMT.format(monitor_id, i)
             )
 
