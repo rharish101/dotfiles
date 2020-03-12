@@ -22,6 +22,7 @@ alias nvidia-debugdump="optirun --no-xorg nvidia-debugdump"
 alias nvidia-modprobe="optirun --no-xorg nvidia-modprobe"
 alias nvidia-persistenced="optirun --no-xorg nvidia-persistenced"
 alias nvidia-settings="optirun -b none nvidia-settings -c :8"
+alias nvidia-sleep.sh="optirun --no-xorg nvidia-sleep.sh"
 alias nvidia-smi="optirun --no-xorg nvidia-smi"
 alias nvidia-xconfig="optirun --no-xorg nvidia-xconfig"
 
