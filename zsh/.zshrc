@@ -121,7 +121,6 @@ export PS2=$'\e[1;34m...  \e[0m'
 export VIRTUAL_ENV_DISABLE_PROMPT=false # force themeing of virtual envs
 export VGL_READBACK=pbo # increase bumblebee performance
 export PRIMUS_SYNC=1 # primus fix for compositing window managers
-export UNCRUSTIFY_CONFIG="$HOME/.uncrustify"
 export WINEPREFIX="$HOME/.wine"
 export WINEDLLOVERRIDES="mscoree=d;mshtml=d" # don't bug about mono and gecko
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/cuda/lib64  # include CUDA
