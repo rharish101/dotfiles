@@ -42,7 +42,8 @@ class WallpaperTransition:
             # `self.backup` will automatically be called when `exit` is called
             signal(SIGTERM, lambda s, f: exit())
 
-    def get_monitors(self):
+    @staticmethod
+    def get_monitors():
         """Get information on the connected monitors.
 
         Returns:
@@ -69,7 +70,8 @@ class WallpaperTransition:
 
         return monitors
 
-    def get_wallpaper(self, monitor_id):
+    @staticmethod
+    def get_wallpaper(monitor_id):
         """Get the path to the current wallpaper of the given monitor."""
         cmd = [
             "xfconf-query",
@@ -80,7 +82,8 @@ class WallpaperTransition:
         ]
         return subprocess.check_output(cmd).decode("utf-8").strip()
 
-    def set_wallpaper(self, monitor_id, img_path):
+    @staticmethod
+    def set_wallpaper(monitor_id, img_path):
         """Set the current wallpaper for the given monitor."""
         subprocess.call(
             [
@@ -94,19 +97,9 @@ class WallpaperTransition:
             ]
         )
 
-    def get_wall_style(self, monitor_id):
-        """Get the style of the current wallpaper of the given monitor.
-
-        The style is one of:
-            Centered: Image un-resized, placed at the center
-            Tiled: Image un-resized, tiled from top-left to bottom-right
-            Stretched: Image resized with change of aspect ratio to the screen
-            Scaled: Image downsized (keeping aspect ratio constant) to fit
-                within the screen, with a black background
-            Zoomed: Image resized (keeping aspect ratio constant) to fit over
-                the screen, and the extra cropped out
-
-        """
+    @staticmethod
+    def get_wall_style(monitor_id):
+        """Get the style of the current wallpaper of the given monitor."""
         cmd = [
             "xfconf-query",
             "--channel",
@@ -116,77 +109,126 @@ class WallpaperTransition:
         ]
         return int(subprocess.check_output(cmd).decode("utf-8").strip())
 
-    def process_image(self, img, target_size, wall_style=None):
+    @staticmethod
+    def _zoom_img(img, target_size):
+        """Zoom the image for the target size.
+
+        Here, the image is resized (keeping aspect ratio constant) to fit over
+        the screen, and the extra is cropped out.
+        """
+        # Preserve aspect ratio by resizing and then center-cropping
+        if (img.size[0] / img.size[1]) > (target_size[0] / target_size[1]):
+            upscale_ratio = target_size[1] / img.size[1]
+        else:
+            upscale_ratio = target_size[0] / img.size[0]
+
+        img = img.resize(
+            tuple(int(upscale_ratio * dim) for dim in img.size),
+            Image.ANTIALIAS,
+        )
+        img = img.crop(
+            (
+                (img.size[0] - target_size[0]) // 2,
+                (img.size[1] - target_size[1]) // 2,
+                (img.size[0] + target_size[0]) // 2,
+                (img.size[1] + target_size[1]) // 2,
+            )
+        )
+
+        return img
+
+    @staticmethod
+    def _stretch_img(img, target_size):
+        """Stretch the image for the target size.
+
+        Here, the image is resized with change of aspect ratio to the screen
+        """
+        # Aspect ratio is not preserved
+        return img.resize(target_size, Image.ANTIALIAS)
+
+    @staticmethod
+    def _tile_img(img, target_size):
+        """Tile the image for the target size.
+
+        Here, the image is not resized; it is tiled from the top-left to the
+        bottom-right.
+        """
+        bg = Image.new(mode="RGBA", size=target_size, color=(0, 0, 0, 0))
+
+        for offset_x in range(0, target_size[0], img.size[0]):
+            for offset_y in range(0, target_size[1], img.size[1]):
+                bg.paste(img, (offset_x, offset_y))
+
+        return bg
+
+    @staticmethod
+    def _center_img(img, target_size):
+        """Center the image for the target size.
+
+        Here, the image isn't resized; it is placed at the center.
+        """
+        bg = Image.new(mode="RGBA", size=target_size, color=(0, 0, 0, 255))
+        offset_x = int((target_size[0] - img.size[0]) / 2)
+        offset_y = int((target_size[1] - img.size[1]) / 2)
+        bg.paste(img, (offset_x, offset_y))
+        return bg
+
+    @staticmethod
+    def _scale_img(img, target_size):
+        """Scale the image for the target size.
+
+        Here, the image is downsized (keeping aspect ratio constant) to fit
+        within the screen, with a black background.
+        """
+        # `thumbnail` modifies the original image
+        copy = img.copy()
+
+        # `thumbnail` preserves the aspect ratio, by downsizing the
+        # largest dimension to fit within the given size.
+        copy.thumbnail(target_size, Image.ANTIALIAS)
+
+        return copy
+
+    @classmethod
+    def process_image(cls, img, target_size, wall_style=None):
         """Modify the given image according to the wallpaper style.
 
         The style is one of:
-            Centered: Image un-resized, placed at the center
-            Tiled: Image un-resized, tiled from top-left to bottom-right
-            Stretched: Image resized with change of aspect ratio to the screen
-            Scaled: Image downsized (keeping aspect ratio constant) to fit
-                within the screen, with a black background
-            Zoomed: Image resized (keeping aspect ratio constant) to fit over
-                the screen, and the extra cropped out
 
         """
         if wall_style == 5:  # Zoomed
-            # Preserve aspect ratio by resizing and then center-cropping
-            if (img.size[0] / img.size[1]) > (target_size[0] / target_size[1]):
-                upscale_ratio = target_size[1] / img.size[1]
-            else:
-                upscale_ratio = target_size[0] / img.size[0]
-            img = img.resize(
-                tuple(int(upscale_ratio * dim) for dim in img.size),
-                Image.ANTIALIAS,
-            )
-            img = img.crop(
-                (
-                    (img.size[0] - target_size[0]) // 2,
-                    (img.size[1] - target_size[1]) // 2,
-                    (img.size[0] + target_size[0]) // 2,
-                    (img.size[1] + target_size[1]) // 2,
-                )
-            )
-
+            img = cls._zoom_img(img, target_size)
         elif wall_style == 3:  # Stretched
-            # Aspect ratio is not preserved
-            img = img.resize(target_size, Image.ANTIALIAS)
-
+            img = cls._stretch_img(img, target_size)
         elif wall_style == 2:  # Tiled
-            bg = Image.new(mode="RGBA", size=target_size, color=(0, 0, 0, 0))
-            for offset_x in range(0, target_size[0], img.size[0]):
-                for offset_y in range(0, target_size[1], img.size[1]):
-                    bg.paste(img, (offset_x, offset_y))
-            img = bg
+            img = cls._tile_img(img, target_size)
+        elif wall_style == 4:  # Scaled
+            img = cls._scale_img(img, target_size)
+        else:  # Centered
+            img = cls._center_img(img, target_size)
 
-        else:  # Centered or Scaled
-            if wall_style == 4:  # Scaled
-                # `thumbnail` preserves the aspect ratio, by downsizing the
-                # largest dimension to fit within the given size.
-                img.thumbnail(target_size, Image.ANTIALIAS)
-
-            bg = Image.new(mode="RGBA", size=target_size, color=(0, 0, 0, 255))
-            offset_x = int((target_size[0] - img.size[0]) / 2)
-            offset_y = int((target_size[1] - img.size[1]) / 2)
-            bg.paste(img, (offset_x, offset_y))
-            img = bg
-
-        # Alpha channel is required as this image might be merged with another
-        # RGBA image.
+        # Remove alpha channel, as JPEG doesn't have it, and we don't need it
         img = img.convert("RGB")
         return img
 
-    def bg_transition(self, monitor_id):
-        """Perform a transition into a randomly chosen wallpaper."""
-        current = self.get_wallpaper(monitor_id)
+    def _choose_transition(self, current_wallp, monitor_id):
+        """Choose the wallpaper for a transition."""
         available = [
             item
             for item in os.listdir(self.img_dir)
             if os.path.isfile(os.path.join(self.img_dir, item))
         ]
+
         # Avoid changing into itself
-        available.remove(os.path.basename(current))
-        new = os.path.join(self.img_dir, choice(available))
+        available.remove(os.path.basename(current_wallp))
+
+        new_wallp = os.path.join(self.img_dir, choice(available))
+        return new_wallp
+
+    def bg_transition(self, monitor_id):
+        """Perform a transition into a randomly chosen wallpaper."""
+        current = self.get_wallpaper(monitor_id)
+        new = self._choose_transition(current, monitor_id)
 
         wall_style = self.get_wall_style(monitor_id)
         bg = self.process_image(
