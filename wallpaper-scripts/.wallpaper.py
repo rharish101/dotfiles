@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """Script to do smooth wallpaper transitions in Xfce4."""
+import atexit
 import os
 import subprocess
 from argparse import ArgumentDefaultsHelpFormatter, ArgumentParser
-from atexit import register
 from multiprocessing.dummy import Pool  # use threads instead of processes
 from random import choice
 from signal import SIGTERM, signal
@@ -35,12 +35,12 @@ class WallpaperTransition:
         self.timeout = timeout
         self.duration = duration
         self.fps = fps
+        self.backup_pic = backup_pic
 
-        if backup_pic is not None:
-            self.backup_pic = backup_pic
-            self.backup = register(self.backup)
-            # `self.backup` will automatically be called when `exit` is called
-            signal(SIGTERM, lambda s, f: exit())
+        # Apply the backup picture on exit
+        atexit.register(self.set_backup)
+        # Gracefully exit after applying the backup picture on SIGTERM
+        signal(SIGTERM, lambda s, f: exit())
 
     @staticmethod
     def get_monitors():
@@ -80,22 +80,29 @@ class WallpaperTransition:
             "--property",
             f"/backdrop/screen0/monitor{monitor_id}/workspace0/last-image",
         ]
-        return subprocess.check_output(cmd).decode("utf-8").strip()
+
+        try:
+            proc = subprocess.run(
+                cmd, capture_output=True, check=True, text=True
+            )
+        except subprocess.CalledProcessError:
+            return None
+        else:
+            return proc.stdout.strip()
 
     @staticmethod
     def set_wallpaper(monitor_id, img_path):
         """Set the current wallpaper for the given monitor."""
-        subprocess.call(
-            [
-                "xfconf-query",
-                "--channel",
-                "xfce4-desktop",
-                "--property",
-                f"/backdrop/screen0/monitor{monitor_id}/workspace0/last-image",
-                "--set",
-                img_path,
-            ]
-        )
+        cmd = [
+            "xfconf-query",
+            "--channel",
+            "xfce4-desktop",
+            "--property",
+            f"/backdrop/screen0/monitor{monitor_id}/workspace0/last-image",
+            "--set",
+            img_path,
+        ]
+        subprocess.Popen(cmd)
 
     @staticmethod
     def get_wall_style(monitor_id):
@@ -107,7 +114,15 @@ class WallpaperTransition:
             "--property",
             f"/backdrop/screen0/monitor{monitor_id}/workspace0/image-style",
         ]
-        return int(subprocess.check_output(cmd).decode("utf-8").strip())
+
+        try:
+            proc = subprocess.run(
+                cmd, capture_output=True, check=True, text=True
+            )
+        except subprocess.CalledProcessError:
+            return None
+        else:
+            return int(proc.stdout)
 
     @staticmethod
     def _zoom_img(img, target_size):
@@ -217,20 +232,23 @@ class WallpaperTransition:
             item
             for item in os.listdir(self.img_dir)
             if os.path.isfile(os.path.join(self.img_dir, item))
+            and item != os.path.basename(current_wallp)
         ]
-
-        # Avoid changing into itself
-        available.remove(os.path.basename(current_wallp))
-
         new_wallp = os.path.join(self.img_dir, choice(available))
         return new_wallp
 
     def bg_transition(self, monitor_id):
         """Perform a transition into a randomly chosen wallpaper."""
         current = self.get_wallpaper(monitor_id)
+        if current is None:  # failed to get wallpaper
+            return
+
         new = self._choose_transition(current, monitor_id)
 
         wall_style = self.get_wall_style(monitor_id)
+        if wall_style is None:  # failed to get wallpaper style
+            return
+
         bg = self.process_image(
             Image.open(current), self.monitors[monitor_id], wall_style
         )
@@ -255,8 +273,11 @@ class WallpaperTransition:
         for i in range(1, total_imgs + 1):
             os.remove(self.TMP_FMT.format(monitor_id, i))
 
-    def backup(self):
+    def set_backup(self):
         """Set the backup image on all connected monitors."""
+        if self.backup_pic is None:
+            return
+
         # Connected monitors may have changed
         self.monitors = self.get_monitors()
         args = [(monitor_id, self.backup_pic) for monitor_id in self.monitors]
@@ -268,7 +289,7 @@ class WallpaperTransition:
         while True:
             self.monitors = self.get_monitors()
             with Pool(min(self.THR_LIMIT, len(self.monitors))) as pool:
-                pool.map(self.bg_transition, self.monitors)
+                pool.map(self.bg_transition, self.monitors.keys())
             sleep(self.timeout)
 
 
