@@ -6,7 +6,7 @@ from argparse import ArgumentDefaultsHelpFormatter, ArgumentParser
 from atexit import register
 from multiprocessing.dummy import Pool  # use threads instead of processes
 from random import choice
-from signal import SIGCONT, SIGSTOP, SIGTERM, signal
+from signal import SIGTERM, signal
 from time import sleep
 
 from PIL import Image
@@ -17,16 +17,13 @@ class WallpaperTransition:
     """Class for performing wallpaper transition using Xfce."""
 
     TMP_FMT = "/tmp/{}_wall_{}.jpg"  # format for temp files for the transition
+    THR_LIMIT = 8  # thread limit for per-monitor transitions
 
-    def __init__(
-        self, img_dir, blur_dir, timeout, duration, fps, backup_pic=None
-    ):
+    def __init__(self, img_dir, timeout, duration, fps, backup_pic=None):
         """Initialize the instance.
 
         Args:
             img_dir (str): Path to the directory containing the wallpapers
-            blur_dir (str): Path to the directory containing the blurred
-                wallpapers
             timeout (int): The wait between two transitions
             duration (int): The duration of a transition
             fps (int): The FPS for a transition
@@ -35,7 +32,6 @@ class WallpaperTransition:
 
         """
         self.img_dir = img_dir
-        self.blur_dir = blur_dir
         self.timeout = timeout
         self.duration = duration
         self.fps = fps
@@ -180,17 +176,17 @@ class WallpaperTransition:
         img = img.convert("RGB")
         return img
 
-    def bg_transition(self, monitor_id, img_dir):
+    def bg_transition(self, monitor_id):
         """Perform a transition into a randomly chosen wallpaper."""
         current = self.get_wallpaper(monitor_id)
         available = [
             item
-            for item in os.listdir(img_dir)
-            if os.path.isfile(os.path.join(img_dir, item))
+            for item in os.listdir(self.img_dir)
+            if os.path.isfile(os.path.join(self.img_dir, item))
         ]
         # Avoid changing into itself
         available.remove(os.path.basename(current))
-        new = os.path.join(img_dir, choice(available))
+        new = os.path.join(self.img_dir, choice(available))
 
         wall_style = self.get_wall_style(monitor_id)
         bg = self.process_image(
@@ -221,45 +217,16 @@ class WallpaperTransition:
         """Set the backup image on all connected monitors."""
         # Connected monitors may have changed
         self.monitors = self.get_monitors()
-
-        args = []
-        for monitor_id in self.monitors:
-            args.append((monitor_id, self.backup_pic))
-
-        with Pool(len(self.monitors)) as pool:
+        args = [(monitor_id, self.backup_pic) for monitor_id in self.monitors]
+        with Pool(min(self.THR_LIMIT, len(self.monitors))) as pool:
             pool.starmap(self.set_wallpaper, args)
 
     def loop(self):
         """Loop and perform transitions."""
         while True:
-            try:
-                pgrep = subprocess.check_output(["pgrep", "blur-desktop"])
-            except subprocess.CalledProcessError:
-                # No blurring program running
-                pgrep = ""
-            # Converting map to list is necessary for persistence of PID values
-            pid_list = list(map(int, pgrep.strip().split()))
-
-            for pid in pid_list:
-                os.kill(pid, SIGSTOP.value)
-
-            args = []
             self.monitors = self.get_monitors()
-            for monitor_id in self.monitors:
-                curr_dir = os.path.dirname(self.get_wallpaper(monitor_id))
-                if self.blur_dir is not None and os.path.abspath(
-                    curr_dir
-                ) == os.path.abspath(self.blur_dir):
-                    args.append((monitor_id, self.blur_dir))
-                else:
-                    args.append((monitor_id, self.img_dir))
-
-            with Pool(len(self.monitors)) as pool:
-                pool.starmap(self.bg_transition, args)
-
-            for pid in pid_list:
-                os.kill(pid, SIGCONT.value)
-
+            with Pool(min(self.THR_LIMIT, len(self.monitors))) as pool:
+                pool.map(self.bg_transition, self.monitors)
             sleep(self.timeout)
 
 
@@ -273,7 +240,6 @@ def main(args):
     """
     wt = WallpaperTransition(
         args.img_dir,
-        args.blur_dir,
         args.timeout,
         args.duration,
         args.fps,
@@ -292,9 +258,6 @@ if __name__ == "__main__":
         metavar="ImgDir",
         type=str,
         help="the directory of the backgrounds you want to loop through",
-    )
-    parser.add_argument(
-        "--blur-dir", type=str, help="the directory of the blurred backgrounds"
     )
     parser.add_argument(
         "--timeout",
