@@ -60,6 +60,8 @@ while [[ -n "$1" ]]; do
             ;;
         -f|--force)
             force_arg="$2"
+            shift
+
             if [[ "$force_arg" != "start" ]] && [[ "$force_arg" != "stop" ]]; then
                 echo "$usage"
                 exit 1
@@ -74,7 +76,7 @@ done
 
 if [[ -z "$(pgrep -x xava)" ]]; then
     if [[ $force_arg != "stop" ]]; then
-        start_xava || stop_xava --quiet && return 1  # ensure that XAVA is definitely not running
+        start_xava || (stop_xava --quiet && return 1)  # ensure that XAVA is definitely not running
     fi
 elif [[ $force_arg != "start" ]]; then
     stop_xava
