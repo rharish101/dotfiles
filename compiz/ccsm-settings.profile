@@ -117,8 +117,8 @@ s0_position_matches =
 s0_position_x_values = 
 s0_position_y_values = 
 s0_position_constrain_workarea = 
-s0_mode_matches = class=Spotify;class=Lollypop;class=Ccsm;
-s0_mode_modes = 1;1;1;
+s0_mode_matches = class=Spotify;class=Lollypop;class=Ccsm;(class=firefox) & role=browser;
+s0_mode_modes = 1;1;1;3;
 s0_viewport_matches = 
 s0_viewport_x_values = 
 s0_viewport_y_values = 
@@ -157,7 +157,7 @@ s0_window_opacity = 0.300000
 s0_window_part_size = 20
 
 [core]
-s0_active_plugins = core;composite;crashhandler;opengl;compiztoolbox;decor;extrawm;fadedesktop;grid;imgjpeg;imgpng;imgsvg;mousepoll;move;place;put;regex;resize;resizeinfo;snap;text;wall;winrules;workspacenames;animation;commands;expo;fade;mag;scale;scaleaddon;staticswitcher;workarounds;addhelper;
+s0_active_plugins = core;composite;crashhandler;opengl;compiztoolbox;decor;extrawm;fadedesktop;grid;imgpng;move;place;put;regex;resize;snap;text;wall;winrules;workspacenames;animation;commands;expo;fade;scale;scaleaddon;staticswitcher;workarounds;addhelper;
 s0_audible_bell = false
 s0_ignore_hints_when_maximized = true
 s0_hide_skip_taskbar_windows = true
@@ -207,13 +207,13 @@ s0_above_match = class=Zenity
 s0_below_match = class=XAVA
 s0_sticky_match = class=XAVA
 s0_fullscreen_match = 
-s0_maximize_match = 
+s0_maximize_match = class=Ytop
 s0_no_argb_match = 
 s0_no_move_match = class=XAVA
 s0_no_resize_match = class=XAVA
 s0_no_minimize_match = class=XAVA
 s0_no_maximize_match = class=XAVA
-s0_no_close_match = 
+s0_no_close_match = class=XAVA
 s0_no_focus_match = class=XAVA
 s0_size_matches = class=Desmume;
 s0_size_width_values = 627;
@@ -418,17 +418,17 @@ s0_click_on_desktop = 1
 [blur]
 s0_pulse = false
 s0_blur_speed = 3.500000
-s0_focus_blur_match = Desktop
-s0_focus_blur = true
+s0_focus_blur_match = toolbar | menu | utility | normal | dialog | modaldialog
+s0_focus_blur = false
 s0_alpha_blur_match = 
-s0_alpha_blur = false
-s0_filter = 1
+s0_alpha_blur = true
+s0_filter = 0
 s0_gaussian_radius = 3
 s0_gaussian_strength = 1.000000
 s0_mipmap_lod = 2.500000
 s0_saturation = 100
 s0_occlusion = true
-s0_independent_tex = true
+s0_independent_tex = false
 
 [fadedesktop]
 s0_fadetime = 150
@@ -703,12 +703,12 @@ s0_put_restore_key = <Alt>F5
 s0_left_maximize = <Control><Super>Left
 s0_right_maximize = <Control><Super>Right
 s0_top_left_corner_action = 7
-s0_top_edge_action = 10
+s0_top_edge_action = 8
 s0_top_right_corner_action = 9
 s0_left_edge_action = 4
 s0_right_edge_action = 6
 s0_bottom_left_corner_action = 1
-s0_bottom_edge_action = 0
+s0_bottom_edge_action = 2
 s0_bottom_right_corner_action = 3
 s0_snapback_windows = true
 s0_cycle_sizes = false
@@ -968,8 +968,8 @@ s0_title_text_placement = 0
 s0_vertical_offset = 50
 
 [commands]
-s0_command0 = /mnt/Data/Programs/Bash/yad-min.sh
-s0_command1 = /mnt/Data/Programs/Bash/yad-close.sh
+s0_command0 = /mnt/Data/Programs/Shell/yad-min.zsh
+s0_command1 = /mnt/Data/Programs/Shell/yad-close.zsh
 s0_command2 = 
 s0_command3 = 
 s0_command4 = 
@@ -1182,7 +1182,7 @@ s0_border_size = 3
 s0_font_color = #ffffffff
 s0_back_color = #00000099
 s0_window_highlight = true
-s0_highlight_color = #ffffff1c
+s0_highlight_color = #ffffff47
 s0_layout_mode = 0
 s0_natural_precision = 2.000000
 s0_constrain_pull_to_screen = true
