@@ -91,15 +91,15 @@ alias xelatex="xelatex -shell-escape"
 alias latexmk="latexmk -pdf -shell-escape -xelatex"
 
 # Custom scripts
-alias check-bitrate="/mnt/Data/Programs/Bash/check-bitrate.zsh"
-alias capitalize-mp3="/mnt/Data/Programs/Bash/capitalize-mp3.zsh"
-alias find-numeric-genres="/mnt/Data/Programs/Bash/find-numeric-genres.zsh"
-alias compress-video="/mnt/Data/Programs/Bash/compress-video.zsh"
+alias check-bitrate="/mnt/Data/Programs/Shell/check-bitrate.zsh"
+alias capitalize-mp3="/mnt/Data/Programs/Shell/capitalize-mp3.zsh"
+alias find-numeric-genres="/mnt/Data/Programs/Shell/find-numeric-genres.zsh"
+alias compress-video="/mnt/Data/Programs/Shell/compress-video.zsh"
 alias imgdiff="/mnt/Data/Programs/Python/imgdiff.py"
 alias dup-img-rm="TF_CPP_MIN_LOG_LEVEL=3 /mnt/Data/Programs/Python/dup_img_rm.py"
 alias dhash="/mnt/Data/Programs/Python/dhash.py"
 alias chromedriver="/mnt/Data/Programs/Python/chromedriver.py"
-alias mount-mtp="/mnt/Data/Programs/Bash/mtp_mount.sh"
+alias mount-mtp="/mnt/Data/Programs/Shell/mtp_mount.sh"
 alias umount-mtp="fusermount -u $HOME/mtp && rmdir $HOME/mtp"
 
 # Bumblebee aliases
@@ -155,28 +155,26 @@ alias why="greet 'Why not?';"
 greet
 
 # Set an ad-hoc GUI timer
-timer()
+timer ()
 {
     local target="$1"
     local message="${2:-BING}"
 
-    if [ -z "$target" ]; then
+    if [[ -z "$target" ]]; then
         echo "Usage: timer TIME [MESSAGE]"
     fi
 
     echo "Setting timer for: $target"
-    sleep "$target" || return -1
-    zenity --info --icon-name="appointment-soon" --title="Time's Up" --text="$message"
-    cvlc --play-and-exit /usr/share/sounds/Borealis/Kopete_notify.ogg &> /dev/null
+    _timer_helper "$target" "$message" &!
 }
 
 # Set an ad-hoc GUI alarm
-alarm()
+alarm ()
 {
     local target="$1"
     local message="${2:-BING}"
 
-    if [ -z "$target" ]; then
+    if [[ -z "$target" ]]; then
         echo "Usage: alarm TIME [MESSAGE]"
     fi
 
@@ -189,9 +187,18 @@ alarm()
     fi
 
     echo "Setting alarm for: $(date -d "$target")"
-    sleep $difference || return -1
+    _timer_helper "$difference" "$message" &!
+}
+
+# Helper function for timer and alarm
+_timer_helper ()
+{
+    local target="$1"
+    local message="$2"
+
+    sleep "$target" || return -1
     zenity --info --icon-name="appointment-soon" --title="Time's Up" --text="$message"
-    cvlc --play-and-exit /usr/share/sounds/Borealis/Kopete_notify.ogg &>/dev/null
+    cvlc --play-and-exit /usr/share/sounds/Borealis/Kopete_notify.ogg &> /dev/null
 }
 
 gpu-info()
