@@ -7,7 +7,7 @@ Toggle audio spectrum visualizer
     -f, --force {start,stop}    Force XAVA to start or stop
 EOF
 
-export POLL_DELAY=0.5  # delay for polling a background process
+export POLL_DELAY=0.2  # delay in seconds for polling a background process
 setopt LOCAL_OPTIONS NO_NOTIFY NO_MONITOR  # hide zsh output for background processes
 
 notify () { notify-send --app-name=XAVA --icon=xava XAVA "$*" }
