@@ -165,7 +165,7 @@ timer ()
     fi
 
     echo "Setting timer for: $target"
-    _timer_helper "$target" "$message" &!
+    _timer_helper "$target" "$message"
 }
 
 # Set an ad-hoc GUI alarm
@@ -187,7 +187,7 @@ alarm ()
     fi
 
     echo "Setting alarm for: $(date -d "$target")"
-    _timer_helper "$difference" "$message" &!
+    _timer_helper "$difference" "$message"
 }
 
 # Helper function for timer and alarm
@@ -196,9 +196,19 @@ _timer_helper ()
     local target="$1"
     local message="$2"
 
-    sleep "$target" || return -1
-    zenity --info --icon-name="appointment-soon" --title="Time's Up" --text="$message"
-    cvlc --play-and-exit /usr/share/sounds/Borealis/Kopete_notify.ogg &> /dev/null
+    main ()
+    {
+        sleep "$target" || return 1
+        zenity --info --icon-name="appointment-soon" --title="Time's Up" --text="$message" &!
+        canberra-gtk-play --id alarm-clock-elapsed --description="Time's Up"
+    }
+
+    main &!
+    local pid=$!
+    # Wait for 0.2s before checking if the main function succeeded
+    sleep 0.2
+    # `main` is not running => it has failed, so indicate this function's failure
+    ps -p $pid &>/dev/null || return 1
 }
 
 gpu-info()
