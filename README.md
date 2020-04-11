@@ -28,9 +28,10 @@ stow -t ~ config
   * Lolcat
   * Roboto Mono NerdFont
 * Zsh
-  * oh-my-zsh
+  * [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
   * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
   * [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+  * [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 
 ### Optional
 * My wallpaper scripts (warning: hacky code)
