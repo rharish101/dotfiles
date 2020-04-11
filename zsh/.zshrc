@@ -130,6 +130,7 @@ export FFF_TRASH_CMD="trash-put" # Use `trash-put` to trash in fff
 # Enable zsh plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10' # looks better with solarized-dark
 
 # Settings for zsh history
 unsetopt LIST_AMBIGUOUS

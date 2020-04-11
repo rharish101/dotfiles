@@ -12,6 +12,9 @@ env:
   # available, otherwise `xterm-256color` is used.
   TERM: xterm-256color
 
+  # Force content scaling factor (HiDPI stuff) of 1.0 for Alacritty
+  WINIT_X11_SCALE_FACTOR: "1.0"
+
 window:
   # Window dimensions (changes require restart)
   #
@@ -182,12 +185,12 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: true
 
-# Colors (Tomorrow Night Bright)
+# Colors (Solarized Dark)
 colors:
   # Default colors
   primary:
-    background: '0x080808'
-    foreground: '0xd3dae3'
+    background: '#002b36' # base03
+    foreground: '#839496' # base0
 
     # Bright and dim foreground colors
     #
@@ -216,25 +219,25 @@ colors:
 
   # Normal colors
   normal:
-    black:   '0x080808'
-    red:     '0xc0392b'
-    green:   '0x27ae60'
-    yellow:  '0xf39c12'
-    blue:    '0x2980b9'
-    magenta: '0x8e44ad'
-    cyan:    '0x16a085'
-    white:   '0xbdc3c7'
+    black:   '#073642' # base02
+    red:     '#dc322f' # red
+    green:   '#859900' # green
+    yellow:  '#b58900' # yellow
+    blue:    '#268bd2' # blue
+    magenta: '#d33682' # magenta
+    cyan:    '#2aa198' # cyan
+    white:   '#eee8d5' # base2
 
   # Bright colors
   bright:
-    black:   '0x586368'
-    red:     '0xe74c3c'
-    green:   '0x2ecc71'
-    yellow:  '0xf1c40f'
-    blue:    '0x3498db'
-    magenta: '0x9b59b6'
-    cyan:    '0x2aa198'
-    white:   '0xd3dae3'
+    black:   '#002b36' # base03
+    red:     '#cb4b16' # orange
+    green:   '#586e75' # base01
+    yellow:  '#657b83' # base00
+    blue:    '#839496' # base0
+    magenta: '#6c71c4' # violet
+    cyan:    '#93a1a1' # base1
+    white:   '#fdf6e3' # base3
 
   # Dim colors
   #
