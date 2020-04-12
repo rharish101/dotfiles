@@ -97,6 +97,7 @@ alias xelatex="xelatex -shell-escape"
 alias latexmk="latexmk -pdf -shell-escape -xelatex"
 
 # Custom scripts
+alias with-cuda="/mnt/Data/Programs/Shell/with-cuda.zsh"
 alias check-bitrate="/mnt/Data/Programs/Shell/check-bitrate.zsh"
 alias capitalize-mp3="/mnt/Data/Programs/Shell/capitalize-mp3.zsh"
 alias find-numeric-genres="/mnt/Data/Programs/Shell/find-numeric-genres.zsh"
@@ -107,19 +108,6 @@ alias dhash="/mnt/Data/Programs/Python/dhash.py"
 alias chromedriver="/mnt/Data/Programs/Python/chromedriver.py"
 alias mount-mtp="/mnt/Data/Programs/Shell/mtp_mount.sh"
 alias umount-mtp="fusermount -u $HOME/mtp && rmdir $HOME/mtp"
-
-# Bumblebee aliases
-alias nvtop='optirun --no-xorg nvtop'
-alias nvidia-bug-report.sh="optirun --no-xorg nvidia-bug-report.sh"
-alias nvidia-cuda-mps-control="optirun --no-xorg nvidia-cuda-mps-control"
-alias nvidia-cuda-mps-server="optirun --no-xorg nvidia-cuda-mps-server"
-alias nvidia-debugdump="optirun --no-xorg nvidia-debugdump"
-alias nvidia-modprobe="optirun --no-xorg nvidia-modprobe"
-alias nvidia-persistenced="optirun --no-xorg nvidia-persistenced"
-alias nvidia-settings="optirun -b none nvidia-settings -c :8"
-alias nvidia-sleep.sh="optirun --no-xorg nvidia-sleep.sh"
-alias nvidia-smi="optirun --no-xorg nvidia-smi"
-alias nvidia-xconfig="optirun --no-xorg nvidia-xconfig"
 
 # Environment variables
 export LS_COLORS="$LS_COLORS:di=1;34:ln=1;36:so=1;35:pi=33:ex=32:bd=1;33:cd=1;33:su=0;41:sg=0;43:tw=0;44:ow=1;34"
