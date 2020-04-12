@@ -132,6 +132,7 @@ export WINEPREFIX="$HOME/.wine"
 export WINEDLLOVERRIDES="mscoree=d;mshtml=d" # don't bug about mono and gecko
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/cuda/lib64  # include CUDA
 export FFF_TRASH_CMD="trash-put" # Use `trash-put` to trash in fff
+export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs"
 
 # Enable zsh plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
