@@ -95,6 +95,7 @@ alias cmatrix="cmatrix -bs"
 alias black="black --line-length=79"
 alias xelatex="xelatex -shell-escape"
 alias latexmk="latexmk -pdf -shell-escape -xelatex"
+alias rsync-mtp="rsync --omit-dir-times --no-perms"
 
 # Custom scripts
 alias with-cuda="/mnt/Data/Programs/Shell/with-cuda.zsh"
@@ -204,7 +205,7 @@ _timer_helper ()
     ps -p $pid &>/dev/null || return 1
 }
 
-gpu-info()
+gpu-info ()
 {
     pushd "/mnt/Data/Programs/Python/gpu-usage-info" > /dev/null
     ./gpu_info.py $@
@@ -213,7 +214,7 @@ gpu-info()
     return $return_code
 }
 
-cseproj-info()
+cseproj-info ()
 {
     hosts=()
     for num in 145 146 147 148 149 150 152; do
@@ -224,8 +225,10 @@ cseproj-info()
 
 # cd to directory on exit of fff
 old_fff=$(which fff)
-fff()
+fff ()
 {
     eval "$old_fff" "$@"
     cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
 }
+
+csv-view () { column -s, -t < "$1" | less "-#1" -N -S }
