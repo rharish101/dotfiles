@@ -13,19 +13,6 @@ alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
 alias sudo="sudo "
 alias restart="reboot"
 
-# Bumblebee aliases
-alias nvtop='optirun --no-xorg nvtop'
-alias nvidia-bug-report.sh="optirun --no-xorg nvidia-bug-report.sh"
-alias nvidia-cuda-mps-control="optirun --no-xorg nvidia-cuda-mps-control"
-alias nvidia-cuda-mps-server="optirun --no-xorg nvidia-cuda-mps-server"
-alias nvidia-debugdump="optirun --no-xorg nvidia-debugdump"
-alias nvidia-modprobe="optirun --no-xorg nvidia-modprobe"
-alias nvidia-persistenced="optirun --no-xorg nvidia-persistenced"
-alias nvidia-settings="optirun -b none nvidia-settings -c :8"
-alias nvidia-sleep.sh="optirun --no-xorg nvidia-sleep.sh"
-alias nvidia-smi="optirun --no-xorg nvidia-smi"
-alias nvidia-xconfig="optirun --no-xorg nvidia-xconfig"
-
 # Colorful man pages
 man()
 {
