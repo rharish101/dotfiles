@@ -98,16 +98,16 @@ alias latexmk="latexmk -pdf -shell-escape -xelatex"
 alias rsync-mtp="rsync --omit-dir-times --no-perms"
 
 # Custom scripts
-alias with-cuda="/mnt/Data/Programs/Shell/with-cuda.zsh"
-alias check-bitrate="/mnt/Data/Programs/Shell/check-bitrate.zsh"
-alias capitalize-mp3="/mnt/Data/Programs/Shell/capitalize-mp3.zsh"
-alias find-numeric-genres="/mnt/Data/Programs/Shell/find-numeric-genres.zsh"
-alias compress-video="/mnt/Data/Programs/Shell/compress-video.zsh"
-alias imgdiff="/mnt/Data/Programs/Python/imgdiff.py"
-alias dup-img-rm="TF_CPP_MIN_LOG_LEVEL=3 /mnt/Data/Programs/Python/dup_img_rm.py"
-alias dhash="/mnt/Data/Programs/Python/dhash.py"
-alias chromedriver="/mnt/Data/Programs/Python/chromedriver.py"
-alias mount-mtp="/mnt/Data/Programs/Shell/mtp_mount.sh"
+alias with-cuda="/home/rharish/Programs/Shell/with-cuda.zsh"
+alias check-bitrate="/home/rharish/Programs/Shell/check-bitrate.zsh"
+alias capitalize-mp3="/home/rharish/Programs/Shell/capitalize-mp3.zsh"
+alias find-numeric-genres="/home/rharish/Programs/Shell/find-numeric-genres.zsh"
+alias compress-video="/home/rharish/Programs/Shell/compress-video.zsh"
+alias imgdiff="/home/rharish/Programs/Python/imgdiff.py"
+alias dup-img-rm="TF_CPP_MIN_LOG_LEVEL=3 /home/rharish/Programs/Python/dup_img_rm.py"
+alias dhash="/home/rharish/Programs/Python/dhash.py"
+alias chromedriver="/home/rharish/Programs/Python/chromedriver.py"
+alias mount-mtp="/home/rharish/Programs/Shell/mtp_mount.sh"
 alias umount-mtp="fusermount -u $HOME/mtp && rmdir $HOME/mtp"
 
 # Environment variables
@@ -208,7 +208,7 @@ _timer_helper ()
 
 gpu-info ()
 {
-    pushd "/mnt/Data/Programs/Python/gpu-usage-info" > /dev/null
+    pushd "/home/rharish/Programs/Python/gpu-usage-info" > /dev/null
     ./gpu_info.py $@
     return_code=$?
     popd &> /dev/null
