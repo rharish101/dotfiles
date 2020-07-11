@@ -94,7 +94,8 @@ alias restart="reboot"
 alias cmatrix="cmatrix -bs"
 alias black="black --line-length=79"
 alias xelatex="xelatex -shell-escape"
-alias rsync-mtp="rsync --omit-dir-times --no-perms"
+alias rsync-mtp="rsync --omit-dir-times --no-perms --inplace"
+alias backup="rar a -r -m5 -ma5 -hp -rr"
 
 # Custom scripts
 alias with-cuda="$HOME/Programs/Shell/with-cuda.zsh"
@@ -117,11 +118,12 @@ export VIRTUAL_ENV_DISABLE_PROMPT=false # force themeing of virtual envs
 export VGL_READBACK=pbo # increase bumblebee performance
 export PRIMUS_SYNC=1 # primus fix for compositing window managers
 export WINEPREFIX="$HOME/.wine"
-export WINEDLLOVERRIDES="mscoree=d;mshtml=d" # don't bug about mono and gecko
+export WINEDLLOVERRIDES="mshtml=d" # don't bug about gecko
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/cuda/lib64  # include CUDA
 export FFF_TRASH_CMD="trash-put" # Use `trash-put` to trash in fff
 export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs"
 export NNN_PLUG='c:fzcd;o:fzopen'
+export TF_CPP_MIN_LOG_LEVEL=1
 
 # Enable zsh plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -252,4 +254,6 @@ n ()
     fi
 }
 
-csv-view () { column -s, -t < "$1" | less "-#1" -N -S }
+csv-view () { column -s, -t < "$1" | less "-#5" -N -S }
+
+venv-activate () { source "$HOME/Programs/Python/venvs/$1/bin/activate" }
