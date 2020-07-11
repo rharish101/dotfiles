@@ -45,6 +45,7 @@ stow -t ~ config
 * Tmux
 * R
   * The [colorout](https://github.com/jalvesaq/colorout) package
+* LaTeX
 
 ## Instructions
 * **Compiz**  

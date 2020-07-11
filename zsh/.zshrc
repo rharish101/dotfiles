@@ -94,7 +94,6 @@ alias restart="reboot"
 alias cmatrix="cmatrix -bs"
 alias black="black --line-length=79"
 alias xelatex="xelatex -shell-escape"
-alias latexmk="latexmk -pdf -shell-escape -xelatex"
 alias rsync-mtp="rsync --omit-dir-times --no-perms"
 
 # Custom scripts
