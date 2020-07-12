@@ -39,7 +39,7 @@ stow -t ~ config
   * python-xlib
 * Cava GUI (a.k.a. [XAVA](https://github.com/nikp123/xava))
   * devilspie2
-* Vim (probably should be required :stuck_out_tongue:)
+* Vim 8 (probably should be required :stuck_out_tongue:)
 * IPython
   * Powerline
 * Tmux
