@@ -112,9 +112,9 @@ export VIRTUAL_ENV_DISABLE_PROMPT=false # force themeing of virtual envs
 export WINEPREFIX="$HOME/.wine"
 export WINEDLLOVERRIDES="mshtml=d" # don't bug about gecko
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/cuda/lib64  # include CUDA
-export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs"
-export NNN_PLUG='c:fzcd;o:fzopen'
-export TF_CPP_MIN_LOG_LEVEL=1
+export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs"  # ripgrep in fzf
+export NNN_PLUG='c:fzcd;o:fzopen' # nnn shortcuts for fzf
+export TF_CPP_MIN_LOG_LEVEL=1 # hide TensorFlow INFO and DEBUG logs
 
 # Enable zsh plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
