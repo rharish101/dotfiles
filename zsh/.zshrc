@@ -105,7 +105,6 @@ alias dup-img-rm="TF_CPP_MIN_LOG_LEVEL=3 $HOME/Programs/Python/dup_img_rm.py"
 alias dhash="$HOME/Programs/Python/dhash.py"
 
 # Environment variables
-export LS_COLORS="$LS_COLORS:di=1;34:ln=1;36:so=1;35:pi=33:ex=32:bd=1;33:cd=1;33:su=0;41:sg=0;43:tw=0;44:ow=1;34"
 export QT_QPA_PLATFORMTHEME=gtk2  # Qt apps use GTK2 themeing
 export PS2=$'\e[1;34m...  \e[0m'
 export VIRTUAL_ENV_DISABLE_PROMPT=false # force themeing of virtual envs
