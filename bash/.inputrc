@@ -18,3 +18,4 @@ $endif
 set show-all-if-ambiguous on
 set echo-control-characters off
 TAB: menu-complete
+"\e[Z": menu-complete-backward
