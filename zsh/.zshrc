@@ -88,12 +88,9 @@ export EDITOR='vim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
-alias sudo="sudo "
 alias restart="reboot"
 alias cmatrix="cmatrix -bs"
 alias black="black --line-length=79"
-alias xelatex="xelatex -shell-escape"
 alias rsync-mtp="rsync --omit-dir-times --no-perms --inplace"
 alias backup="rar a -r -m5 -ma5 -hp -rr"
 
@@ -106,21 +103,15 @@ alias compress-video="$HOME/Programs/Shell/compress-video.zsh"
 alias imgdiff="$HOME/Programs/Python/imgdiff.py"
 alias dup-img-rm="TF_CPP_MIN_LOG_LEVEL=3 $HOME/Programs/Python/dup_img_rm.py"
 alias dhash="$HOME/Programs/Python/dhash.py"
-alias chromedriver="$HOME/Programs/Python/chromedriver.py"
-alias mount-mtp="$HOME/Programs/Shell/mtp_mount.sh"
-alias umount-mtp="fusermount -u $HOME/mtp && rmdir $HOME/mtp"
 
 # Environment variables
 export LS_COLORS="$LS_COLORS:di=1;34:ln=1;36:so=1;35:pi=33:ex=32:bd=1;33:cd=1;33:su=0;41:sg=0;43:tw=0;44:ow=1;34"
 export QT_QPA_PLATFORMTHEME=gtk2  # Qt apps use GTK2 themeing
 export PS2=$'\e[1;34m...  \e[0m'
 export VIRTUAL_ENV_DISABLE_PROMPT=false # force themeing of virtual envs
-export VGL_READBACK=pbo # increase bumblebee performance
-export PRIMUS_SYNC=1 # primus fix for compositing window managers
 export WINEPREFIX="$HOME/.wine"
 export WINEDLLOVERRIDES="mshtml=d" # don't bug about gecko
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/cuda/lib64  # include CUDA
-export FFF_TRASH_CMD="trash-put" # Use `trash-put` to trash in fff
 export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs"
 export NNN_PLUG='c:fzcd;o:fzopen'
 export TF_CPP_MIN_LOG_LEVEL=1
