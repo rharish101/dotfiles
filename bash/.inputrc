@@ -11,7 +11,7 @@ set editing-mode vi
 
 # Show Vi mode in the prompt
 set show-mode-in-prompt on
-set vi-ins-mode-string "(ins) "
+set vi-ins-mode-string ""
 set vi-cmd-mode-string "(cmd) "
 
 $if mode=vi
