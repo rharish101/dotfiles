@@ -1,21 +1,33 @@
+# Include global options
 $include /etc/inputrc
+
+# Show all completions
+set show-all-if-ambiguous on
+# Don't display characters made with Ctrl as a modifier
+set echo-control-characters off
+
+# Use Vi bindings
 set editing-mode vi
+
+# Show Vi mode in the prompt
 set show-mode-in-prompt on
 set vi-ins-mode-string "(ins) "
 set vi-cmd-mode-string "(cmd) "
+
 $if mode=vi
-set keymap vi-command
-# these are for vi-command mode
-"\e[A":history-search-backward
-"\e[B":history-search-forward
-j:history-search-forward
-k:history-search-backward
-set keymap vi-insert
-# these are for vi-insert mode
-"\e[A":history-search-backward
-"\e[B":history-search-forward
+    # Set Vi command mode for any following keybinds
+    set keymap vi-command
+    "\e[A": history-search-backward
+    "\e[B": history-search-forward
+    j: history-search-forward
+    k: history-search-backward
+
+    # Set Vi insert mode for any following keybinds
+    set keymap vi-insert
+    "\e[A": history-search-backward
+    "\e[B": history-search-forward
 $endif
-set show-all-if-ambiguous on
-set echo-control-characters off
+
+# Use Tab and Shift-Tab to cycle through completions
 TAB: menu-complete
 "\e[Z": menu-complete-backward
