@@ -17,5 +17,4 @@ set keymap vi-insert
 $endif
 set show-all-if-ambiguous on
 set echo-control-characters off
-set mark-symlinked-directories on
 TAB: menu-complete
