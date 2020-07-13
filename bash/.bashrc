@@ -1,17 +1,14 @@
-shopt -s cmdhist lithist
-complete -cf sudo
-shopt -s autocd
+shopt -s autocd # cd to directory when the name is given as a command
+shopt -s cmdhist lithist # store multi-line commands with newlines in history
 
 export EDITOR=vim
 export HISTCONTROL=ignoredups
-export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
-export LS_COLORS="$LS_COLORS:di=1;34:ln=1;36:so=1;35:pi=33:ex=32:bd=1;33:cd=1;33:su=0;41:sg=0;43:tw=0;44:ow=1;34"
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/cuda/lib64  # include CUDA
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/cuda/lib64 # include CUDA
+export TF_CPP_MIN_LOG_LEVEL=1 # hide TensorFlow INFO and DEBUG logs
 
 alias ls='ls --color=auto'
-alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
-alias sudo="sudo "
 alias restart="reboot"
+alias black="black --line-length=79"
 
 # Colorful man pages
 man()
