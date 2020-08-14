@@ -207,7 +207,7 @@ cseproj-info ()
     for num in 145 146 147 148 149 150 152; do
         hosts+=("cseproj${num}")
     done
-    gpu-info -J login.cse.iitk.ac.in $hosts
+    gpu-info $hosts
 }
 
 # "cd" to directory with Ctrl-G in nnn
