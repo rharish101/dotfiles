@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 read -r -d '' usage <<EOF
 Usage: $(basename $0) [-h] [-d LockedDpms] [-i Image]
-Use i3lock-color to lock the screen with multi-monitor support
+Use i3lock-color to lock the screen, with DPMS support
 
     -h, --help        Display help and exit
     -d LockedDpms, --dpms LockedDpms
@@ -10,10 +10,22 @@ Use i3lock-color to lock the screen with multi-monitor support
                       Background image (default: $image)"
 EOF
 
+dpms_set ()
+{
+    while true; do
+        local dpms_curr="$(xset q | awk '/Standby/{print $2, $4, $6}')"
+        if [[ "$dpms_curr" != "$dpms_locked" ]]; then
+            xset dpms ${=dpms_locked}
+        fi
+        sleep 5
+    done
+}
+
+dpms_revert () { xset dpms ${=dpms_unlocked} }
+
 ARGS=(
     --ignore-empty-password
     --pointer=default
-    --composite
     --indicator
     --radius=25
     --insidecolor=383C4A00
@@ -49,7 +61,6 @@ ARGS=(
 
 dpms_unlocked="$(xset q | awk '/Standby/{print $2, $4, $6}')"
 dpms_locked="10 10 10"
-num_monitors=$(xrandr --query | grep " connected" | wc -l)
 image="$HOME/.local/share/backgrounds/i3locker-background.png"
 
 while [[ -n "$1" ]]; do
@@ -73,36 +84,11 @@ while [[ -n "$1" ]]; do
     shift
 done
 
-dpms_revert () { xset dpms ${=dpms_unlocked} }
-trap dpms_revert HUP INT TERM
-
-dpms_set ()
-{
-    while true; do
-        dpms_curr="$(xset q | awk '/Standby/{print $2, $4, $6}')"
-        if [[ "$dpms_curr" != "$dpms_locked" ]]; then
-            xset dpms ${=dpms_locked}
-        fi
-        sleep 5
-    done
-}
-
-# Check if eog is installed; eog is used with compiz for fade-in/fade-out
-which eog > /dev/null || eog=:
-
-eog -f -g "$image" --class="i3lock" &
-eog_pids=($!)
-if (( num_monitors == 2 )); then
-    eog -n -f -g "$image" --class="i3lock-1" &
-    eog_pids+=$!
-fi
-
+trap dpms_revert EXIT HUP INT TERM
 dpms_set &
 dpms_pid=$!
 
-# ~/.multi-lock -i "$image" -a "$ARGS"
 i3lock --nofork -i "$image" $ARGS
 
-kill $eog_pids
-kill $dpms_pid
+kill -9 $dpms_pid
 dpms_revert
