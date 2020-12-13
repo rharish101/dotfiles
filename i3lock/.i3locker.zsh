@@ -12,6 +12,8 @@ EOF
 
 dpms_set ()
 {
+    xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/presentation-mode -s false
+
     while true; do
         local dpms_curr="$(xset q | awk '/Standby/{print $2, $4, $6}')"
         if [[ "$dpms_curr" != "$dpms_locked" ]]; then
@@ -84,7 +86,7 @@ while [[ -n "$1" ]]; do
     shift
 done
 
-trap dpms_revert EXIT HUP INT TERM
+trap dpms_revert HUP INT TERM
 dpms_set &
 dpms_pid=$!
 
