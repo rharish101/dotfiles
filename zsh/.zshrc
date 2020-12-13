@@ -243,5 +243,3 @@ n ()
 }
 
 csv-view () { column -s, -t < "$1" | less "-#5" -N -S }
-
-venv-activate () { source "$HOME/Programs/Python/venvs/$1/bin/activate" }
