@@ -131,6 +131,9 @@ bindkey -M vicmd 'k' history-substring-search-up # k in vi-mode for cycling up m
 bindkey -M vicmd 'j' history-substring-search-down # j in vi-mode for cycling down matching commands
 bindkey '^[[Z' reverse-menu-complete # shift-tab for previous selection / reverse of tab
 
+# Setup pyenv
+eval "$(pyenv init -)"
+
 # ==========================================================
 # ==================== CUSTOM FUNCTIONS ====================
 # ==========================================================
