@@ -92,7 +92,7 @@ alias restart="reboot"
 alias cmatrix="cmatrix -bs"
 alias black="black --line-length=79"
 alias rsync-mtp="rsync --omit-dir-times --no-perms --inplace"
-alias backup="rar a -r -m5 -ma5 -hp -rr"
+alias backup="rar a -r -m5 -ma5 -hp -rr --"
 
 # Custom scripts
 alias with-cuda="$HOME/Programs/Shell/with-cuda.zsh"
