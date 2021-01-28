@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:/usr/local/bin:$HOME/.npm/packages/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
@@ -90,9 +90,8 @@ export EDITOR='vim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias restart="reboot"
 alias cmatrix="cmatrix -bs"
-alias black="black --line-length=79"
 alias rsync-mtp="rsync --omit-dir-times --no-perms --inplace"
-alias backup="rar a -r -m5 -ma5 -hp -rr --"
+alias backup="rar a -r -ma5 -hp -rr --"
 
 # Custom scripts
 alias with-cuda="$HOME/Programs/Shell/with-cuda.zsh"
@@ -101,21 +100,21 @@ alias capitalize-mp3="$HOME/Programs/Shell/capitalize-mp3.zsh"
 alias find-numeric-genres="$HOME/Programs/Shell/find-numeric-genres.zsh"
 alias compress-video="$HOME/Programs/Shell/compress-video.zsh"
 alias imgdiff="$HOME/Programs/Python/imgdiff.py"
-alias dup-img-rm="TF_CPP_MIN_LOG_LEVEL=3 $HOME/Programs/Python/dup_img_rm.py"
+alias dup-img-rm="$HOME/Programs/Python/dup_img_rm.py"
 alias dhash="$HOME/Programs/Python/dhash.py"
+
+# Enable zsh plugins
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh # to customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 
 # Environment variables for interactive sessions
 export PS2=$'\e[1;34m...  \e[0m'
 export VIRTUAL_ENV_DISABLE_PROMPT=false # force themeing of virtual envs
 export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs" # ripgrep in fzf
 export NNN_PLUG='c:fzcd;o:fzopen' # nnn shortcuts for fzf
-
-# Enable zsh plugins
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10' # looks better with solarized-dark
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh # to customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10' # looks better with solarized-dark
 
 # Settings for zsh history
 unsetopt LIST_AMBIGUOUS
@@ -241,5 +240,3 @@ n ()
             rm -f "$NNN_TMPFILE" > /dev/null
     fi
 }
-
-csv-view () { column -s, -t < "$1" | less "-#5" -N -S }
