@@ -1,26 +1,5 @@
-#pulseaudio-button>image {
-	-gtk-icon-style: regular;
-	-gtk-icon-transform: scale(0.6);
-}
+#xfce4-power-manager-plugin>box>image { -gtk-icon-transform: scale(0.4); }
+#pulseaudio-button>image { -gtk-icon-transform: scale(0.4); }
 
-VteTerminal, vte-terminal {
-  padding: 0px 15px 15px 15px;
-  -VteTerminal-inner-border: 0px 15px 15px 15px;
-}
-.terminator-terminal-window>notebook>header {
-	background-color: #080808;
-}
-.terminator-terminal-window paned>separator {
-	background-image: linear-gradient(#586368,#586368);
-}
-
-#whiskermenu-window>frame>stack>box>stack>box>scrolledwindow>viewport* {
-  padding: 3px 2px;
-}
-#whiskermenu-window>frame>stack>box>stack>box>stack>scrolledwindow* {
-  font-size: 21px;
-  padding: 2px;
-}
-#whiskermenu-window>frame>stack>box>box>label {
-  font-size: 20px;
-}
+#whiskermenu-window>frame>stack>box>stack>box>scrolledwindow>viewport* { padding: 2px; }
+#whiskermenu-window>frame>stack>box>stack>box>stack>scrolledwindow* { padding: 2px; }
