@@ -48,12 +48,11 @@ title_align center
 # Use Super as the mod key
 set $mod Mod4
 
-# Kill a regular focused window
-# bindsym $mod+Shift+q kill
-bindsym $mod+q exec /home/rharish/Programs/Shell/yad-min.zsh
+# Kill the focused window
+bindsym $mod+q kill
 
-# Kill a focused window that is controlled with a custom "yad-script"
-bindsym Control+q exec /home/rharish/Programs/Shell/yad-close.zsh
+# Minimize the focused window that is controlled with a custom "yad-script"
+bindsym Control+q exec /home/rharish/Programs/Shell/yad-min.zsh
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
