@@ -132,6 +132,7 @@ bindkey '^[[Z' reverse-menu-complete # shift-tab for previous selection / revers
 
 # Setup pyenv
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # ==========================================================
 # ==================== CUSTOM FUNCTIONS ====================
