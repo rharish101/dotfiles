@@ -3,12 +3,9 @@ shopt -s cmdhist lithist # store multi-line commands with newlines in history
 
 export EDITOR=vim
 export HISTCONTROL=ignoredups
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/cuda/lib64 # include CUDA
-export TF_CPP_MIN_LOG_LEVEL=1 # hide TensorFlow INFO and DEBUG logs
 
 alias ls='ls --color=auto'
 alias restart="reboot"
-alias black="black --line-length=79"
 
 # Colorful man pages
 man()
