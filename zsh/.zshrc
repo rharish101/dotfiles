@@ -100,6 +100,7 @@ alias capitalize-mp3="$HOME/Programs/Shell/capitalize-mp3.zsh"
 alias find-numeric-genres="$HOME/Programs/Shell/find-numeric-genres.zsh"
 alias compress-video="$HOME/Programs/Shell/compress-video.zsh"
 alias imgtools="PYTHONPATH='$HOME/Programs/Python/Self/imgtools' python -m imgtools"
+alias gpu-info="$HOME/Programs/Python/Self/gpu-usage-info/gpu_info.py"
 
 # Enable zsh plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -191,15 +192,6 @@ _timer_helper ()
     sleep 0.2
     # `main` is not running => it has failed, so indicate this function's failure
     ps -p $pid &>/dev/null || return 1
-}
-
-gpu-info ()
-{
-    pushd "$HOME/Programs/Python/gpu-usage-info" > /dev/null
-    ./gpu_info.py $@
-    return_code=$?
-    popd &> /dev/null
-    return $return_code
 }
 
 cseproj-info ()
