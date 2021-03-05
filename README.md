@@ -7,6 +7,7 @@ I use [GNU Stow](https://www.gnu.org/software/stow/) to manage my dotfiles (for 
 * GNU Stow
 * [Xfce](https://gitlab.xfce.org)
 * [i3-gaps](https://github.com/Airblader/i3)
+    * [picom](https://github.com/yshui/picom)
 * The [Plata-Noir-Compact](https://gitlab.com/tista500/plata-theme) GTK theme
 * The [Papirus-Dark](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) icon theme
     * The [papirus-folders](https://github.com/PapirusDevelopmentTeam/papirus-folders) tool
