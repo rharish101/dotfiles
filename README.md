@@ -67,53 +67,37 @@ You can also setup `xss-lock` so that this script is called whenever the screen 
 xss-lock ~/.i3locker.zsh
 ```
 
-## Screenshots (Outdated)
-### **Current Desktop**
+## Screenshots
+### Current Desktop
 ![desktop](./screenshots/desktop.png)
 
-### **Individual Software**
-* **XAVA**
-  ![cava](./screenshots/cava.png)
+### i3lock
+![i3lock](./screenshots/i3lock.png)
 
-* **i3lock**
-  ![i3lock](./screenshots/i3lock.png)
+### Terminal
+#### Colorscheme
+![colorscheme](./screenshots/colorscheme.png)
 
-* **Terminator**
-  * Colorscheme
-    ![colorscheme](./screenshots/colorscheme.png)
+#### Fortune + Cowsay + Lolcat
+![cowsay](./screenshots/cowsay.png)
 
-  * Cowsay (with fortune and lolcat)
-    ![cowsay](./screenshots/cowsay.png)
+#### Zsh
+![zsh-1](./screenshots/zsh-1.png)
+![zsh-2](./screenshots/zsh-2.png)
 
-  * Zsh
-    ![zsh-1](./screenshots/zsh-1.png)
-    <br>
+#### Bash
+![bash](./screenshots/bash.png)
 
-    ![zsh-2](./screenshots/zsh-2.png)
+### Wallpaper Scripts
+![wallpaper-scripts](./screenshots/scripts.gif)
 
-  * Bash
-    ![bash-1](./screenshots/bash-1.png)
-    <br>
+### Vim
+![vim-1](./screenshots/vim-1.png)
+![vim-2](./screenshots/vim-2.png)
+![vim-3](./screenshots/vim-3.png)
 
-    ![bash-2](./screenshots/bash-2.png)
+### IPython
+![ipython](./screenshots/ipython.png)
 
-* **Wallpaper Scripts**
-  ![wallpaper-scripts](./screenshots/scripts.gif)
-
-* **Vim**
-  ![vim-1](./screenshots/vim-1.png)
-  <br>
-
-  ![vim-2](./screenshots/vim-2.png)
-  <br>
-
-  ![vim-3](./screenshots/vim-3.png)
-
-* **IPython + Powerline**
-(WIP)
-
-* **Tmux**
-  ![tmux](./screenshots/tmux.png)
-
-* **R**
-  ![r](./screenshots/r.png)
+### Tmux
+![tmux](./screenshots/tmux.png)
