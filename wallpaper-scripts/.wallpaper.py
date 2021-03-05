@@ -155,14 +155,16 @@ class WallpaperTransition:
         total_imgs = int(self.duration * self.fps)
         wait = self.duration / self.fps
 
-        with TemporaryDirectory() as tmp_dir:
+        with TemporaryDirectory() as tmp_dir_str:
+            tmp_dir = Path(tmp_dir_str)
+
             for i in range(1, total_imgs):
-                tmp_file = Path(tmp_dir) / self.TMP_FMT.format(i)
+                tmp_file = tmp_dir / self.TMP_FMT.format(i)
                 Image.blend(bg, fg, i / total_imgs).save(tmp_file)
 
             # FPS and duration is used for this
             for i in range(1, total_imgs):
-                tmp_file = Path(tmp_dir) / self.TMP_FMT.format(i)
+                tmp_file = tmp_dir / self.TMP_FMT.format(i)
                 sleep(wait)
                 # Creating the fehbg file would slow down the transition
                 self.set_wallpaper(tmp_file, no_fehbg=True)
@@ -171,7 +173,7 @@ class WallpaperTransition:
 
             sleep(self.DELETE_DELAY)
             for i in range(1, total_imgs):
-                tmp_file = Path(tmp_dir) / self.TMP_FMT.format(i)
+                tmp_file = tmp_dir / self.TMP_FMT.format(i)
                 tmp_file.unlink()
 
     @classmethod
