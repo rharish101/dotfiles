@@ -1,8 +1,10 @@
 # Include global options
 $include /etc/inputrc
 
-# Show all completions
+# Completions
 set show-all-if-ambiguous on
+set completion-ignore-case on
+
 # Don't display characters made with Ctrl as a modifier
 set echo-control-characters off
 
