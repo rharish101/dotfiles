@@ -111,8 +111,6 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 # Environment variables for interactive sessions
 export PS2=$'\e[1;34m...  \e[0m'
 export VIRTUAL_ENV_DISABLE_PROMPT=false # force themeing of virtual envs
-export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs" # ripgrep in fzf
-export NNN_PLUG='c:fzcd;o:fzopen' # nnn shortcuts for fzf
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10' # looks better with solarized-dark
 
 # Settings for zsh history
