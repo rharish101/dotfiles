@@ -1,34 +1,34 @@
 # dotfiles
 
 This is a repository containing all of my configurations of my current rice.
-I use GNU Stow to manage my dotfiles (for a tutorial, [click here](https://alexpearce.me/2016/02/managing-dotfiles-with-stow/)).
+I use [GNU Stow](https://www.gnu.org/software/stow/) to manage my dotfiles (for a tutorial, [click here](https://alexpearce.me/2016/02/managing-dotfiles-with-stow/)).
 
 ## Requirements
 * GNU Stow
-* Xfce4
+* [Xfce](https://gitlab.xfce.org)
 * [i3-gaps](https://github.com/Airblader/i3)
 * The [Plata-Noir-Compact](https://gitlab.com/tista500/plata-theme) GTK theme
 * The [Papirus-Dark](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) icon theme
     * The [papirus-folders](https://github.com/PapirusDevelopmentTeam/papirus-folders) tool
-* The Breeze Light cursor theme
+* The Breeze Light cursor theme from KDE Plasma
 * [i3lock-color](https://github.com/Raymo111/i3lock-color)
-    * xss-lock (optional; for locking on screen blank)
+    * [xss-lock](https://bitbucket.org/raymonad/xss-lock/src/master/) (optional; for locking on screen blank)
 * Roboto Font
 * [Alacritty](https://github.com/alacritty/alacritty)
-    * Fortune
+    * [Fortune](https://github.com/shlomif/fortune-mod)
     * Cowsay
-    * Lolcat
+    * [Lolcat](https://github.com/busyloop/lolcat)
     * Fira Code [NerdFont](https://github.com/ryanoasis/nerd-fonts)
-* Zsh
+* [Zsh](https://www.zsh.org/)
     * [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
     * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
     * [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
     * [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 
 ### Optional
-* Vim 8 (probably should be required :stuck_out_tongue:)
-* IPython
-* Tmux
+* [Vim](https://github.com/vim/vim/) 8+ (probably should be required :stuck_out_tongue:)
+* [IPython](https://github.com/ipython/ipython)
+* [Tmux](https://github.com/tmux/tmux)
 * My wallpaper script (warning: hacky code)
     * [Pillow](https://pypi.org/project/Pillow/) (PIL fork)
     * [python-xlib](https://pypi.org/project/python-xlib/)
