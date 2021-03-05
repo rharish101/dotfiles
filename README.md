@@ -9,26 +9,26 @@ I use GNU Stow to manage my dotfiles (for a tutorial, [click here](https://alexp
 * [i3-gaps](https://github.com/Airblader/i3)
 * The [Plata-Noir-Compact](https://gitlab.com/tista500/plata-theme) GTK theme
 * The [Papirus-Dark](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) icon theme
-  * The [papirus-folders](https://github.com/PapirusDevelopmentTeam/papirus-folders) tool
+    * The [papirus-folders](https://github.com/PapirusDevelopmentTeam/papirus-folders) tool
 * The Breeze Light cursor theme
 * [i3lock-color](https://github.com/Raymo111/i3lock-color)
-  * xss-lock (optional; for locking on screen blank)
+    * xss-lock (optional; for locking on screen blank)
 * Roboto Font
 * [Alacritty](https://github.com/alacritty/alacritty)
-  * Fortune
-  * Cowsay
-  * Lolcat
-  * Fira Code [NerdFont](https://github.com/ryanoasis/nerd-fonts)
+    * Fortune
+    * Cowsay
+    * Lolcat
+    * Fira Code [NerdFont](https://github.com/ryanoasis/nerd-fonts)
 * Zsh
-  * [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
-  * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
-  * [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-  * [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+    * [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
+    * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+    * [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+    * [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 
 ### Optional
 * My wallpaper scripts (warning: hacky code)
-  * Pillow (PIL fork)
-  * python-xlib
+    * Pillow (PIL fork)
+    * python-xlib
 * Vim 8 (probably should be required :stuck_out_tongue:)
 * IPython
 * Tmux
@@ -42,10 +42,10 @@ stow -t ~ config
 ```
 
 ### **Papirus Folders**
-  Run the following command to set the folder colors of the Papirus-Dark theme to match the Plata GTK theme's colorscheme:
-  ```sh
-  papirus-folders -C indigo --theme Papirus-Dark
-  ```
+Run the following command to set the folder colors of the Papirus-Dark theme to match the Plata GTK theme's colorscheme:
+```sh
+papirus-folders -C indigo --theme Papirus-Dark
+```
 
 ### **Wallpaper Scripts (Outdated)**
 The script ".blur-desktop.py" blurs the wallpaper when the active/focused window is not the desktop.
