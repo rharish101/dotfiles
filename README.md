@@ -26,12 +26,13 @@ I use GNU Stow to manage my dotfiles (for a tutorial, [click here](https://alexp
     * [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 
 ### Optional
-* My wallpaper scripts (warning: hacky code)
-    * Pillow (PIL fork)
-    * python-xlib
 * Vim 8 (probably should be required :stuck_out_tongue:)
 * IPython
 * Tmux
+* My wallpaper script (warning: hacky code)
+    * [Pillow](https://pypi.org/project/Pillow/) (PIL fork)
+    * [python-xlib](https://pypi.org/project/python-xlib/)
+    * [typing-extensions](https://pypi.org/project/typing-extensions/)
 
 ## Instructions
 Simply use Stow on all the folders in this repository (except for the screenshots and the `vim` folder).
@@ -47,14 +48,13 @@ Run the following command to set the folder colors of the Papirus-Dark theme to 
 papirus-folders -C indigo --theme Papirus-Dark
 ```
 
-### **Wallpaper Scripts (Outdated)**
-The script ".blur-desktop.py" blurs the wallpaper when the active/focused window is not the desktop.
-The script ".wallpaper.py" enables the wallpaper to be smoothly changed every X seconds.
-
+### **Wallpaper Script**
+The script ".wallpaper.py" enables the wallpaper to be smoothly changed every few seconds.
 The wallpaper changing script is adapted from [xfce-wallpaper-transition](https://github.com/c4tz/xfce-wallpaper-transition).
 
-Both the scripts use argparse to parse commandline arguments.
-Simpy type `~/.blur-desktop.py -h` or `~/.wallpaper.py -h` to get the list of available commandline arguments.
+How to use:
+1. Run `~/.wallpaper.py -h` to get the list of available commandline arguments.
+2. Run the script with the necessary arguments.
 
 ### **Lockscreen Script**
 How to use:
