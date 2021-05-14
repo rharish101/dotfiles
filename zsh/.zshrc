@@ -100,7 +100,6 @@ alias capitalize-mp3="$HOME/Programs/Shell/capitalize-mp3.zsh"
 alias find-numeric-genres="$HOME/Programs/Shell/find-numeric-genres.zsh"
 alias compress-video="$HOME/Programs/Shell/compress-video.zsh"
 alias imgtools="PYTHONPATH='$HOME/Programs/Python/Self/imgtools' python -m imgtools"
-alias gpu-info="$HOME/Programs/Python/Self/gpu-usage-info/gpu_info.py"
 
 # Enable zsh plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -190,15 +189,6 @@ _timer_helper ()
     sleep 0.2
     # `main` is not running => it has failed, so indicate this function's failure
     ps -p $pid &>/dev/null || return 1
-}
-
-cseproj-info ()
-{
-    hosts=()
-    for num in 145 146 147 148 149 150 152; do
-        hosts+=("cseproj${num}")
-    done
-    gpu-info $hosts
 }
 
 # "cd" to directory with Ctrl-G in nnn
