@@ -30,34 +30,34 @@ ARGS=(
     --pointer=default
     --indicator
     --radius=25
-    --insidecolor=383C4A00
-    --insidevercolor=383C4A00
-    --insidewrongcolor=ED071700
+    --inside-color=383C4A00
+    --insidever-color=383C4A00
+    --insidewrong-color=ED071700
     --line-uses-inside
     --ring-width=6
-    --ringcolor=D3DAE388
-    --ringvercolor=D3DAE333
-    --verifcolor=D3DAE300
-    --veriftext=''
-    --ringwrongcolor=ED0717AA
-    --wrongcolor=D3DAE300
-    --wrongtext=''
-    --keyhlcolor=D3DAE3FF
-    --bshlcolor=ED0717AA
-    --separatorcolor=1A162800
-    --indpos='350:1010'
+    --ring-color=D3DAE388
+    --ringver-color=D3DAE333
+    --verif-color=D3DAE300
+    --verif-text=''
+    --ringwrong-color=ED0717AA
+    --wrong-color=D3DAE300
+    --wrong-text=''
+    --keyhl-color=D3DAE3FF
+    --bshl-color=ED0717AA
+    --separator-color=1A162800
+    --ind-pos='350:1010'
     --force-clock
-    --timecolor=D3DAE3FF
-    --timestr='%H:%M'
-    --timesize=32
+    --time-color=D3DAE3FF
+    --time-str='%H:%M'
+    --time-size=32
     --time-align=1
-    --timepos='40:1005'
+    --time-pos='40:1005'
     --time-font='roboto'
-    --datecolor=D3DAE3FF
-    --datestr='Type password to unlock'
-    --datesize=20
+    --date-color=D3DAE3FF
+    --date-str='Type password to unlock'
+    --date-size=20
     --date-align=1
-    --datepos='40:1037'
+    --date-pos='40:1037'
     --date-font='roboto'
 )
 
