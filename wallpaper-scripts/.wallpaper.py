@@ -23,6 +23,7 @@ class WallpaperTransition:
     THR_LIMIT: Final = 8  # thread limit for per-monitor transitions
     FEH_LOC: Final = Path("~/.fehbg").expanduser()  # location of feh info
     DELETE_DELAY: Final = 0.5  # delay before deleting temp files
+    FEH_TIMEOUT: Final = 2.0  # timeout in seconds for the feh subprocess
 
     def __init__(self, img_dir: Path, timeout: int, duration: float, fps: int):
         """Initialize the instance.
@@ -77,14 +78,23 @@ class WallpaperTransition:
         wallpaper = match.groups()[0]
         return Path(wallpaper)
 
-    @staticmethod
-    def set_wallpaper(img_path: Path, no_fehbg: bool = False) -> None:
-        """Set the current wallpaper."""
+    @classmethod
+    def set_wallpaper(cls, img_path: Path, intermediate: bool = False) -> None:
+        """Set the current wallpaper.
+
+        Args:
+            img_path: The path to the wallpaper file
+            intermediate: Whether this is an intermediate step in a transition.
+                This skips creating the .fehbg file, and also doesn't wait for
+                the process to complete.
+        """
         cmd = ["feh"]
-        if no_fehbg:
+        if intermediate:
             cmd.append("--no-fehbg")
         cmd += ["--bg-fill", str(img_path)]
-        subprocess.Popen(cmd)
+        proc = subprocess.Popen(cmd)
+        if not intermediate:
+            proc.wait(cls.FEH_TIMEOUT)
 
     @staticmethod
     def adjust_img(
@@ -167,7 +177,7 @@ class WallpaperTransition:
                 tmp_file = tmp_dir / self.TMP_FMT.format(i)
                 sleep(wait)
                 # Creating the fehbg file would slow down the transition
-                self.set_wallpaper(tmp_file, no_fehbg=True)
+                self.set_wallpaper(tmp_file, intermediate=True)
 
             self.set_wallpaper(new)
 
