@@ -92,14 +92,6 @@ alias restart="reboot"
 alias rsync-mtp="rsync --omit-dir-times --no-perms --inplace"
 alias backup="rar a -r -ma5 -hp -rr --"
 
-# Custom scripts
-alias with-cuda="$HOME/Programs/Shell/with-cuda.zsh"
-alias check-bitrate="$HOME/Programs/Shell/check-bitrate.zsh"
-alias capitalize-mp3="$HOME/Programs/Shell/capitalize-mp3.zsh"
-alias find-numeric-genres="$HOME/Programs/Shell/find-numeric-genres.zsh"
-alias compress-video="$HOME/Programs/Shell/compress-video.zsh"
-alias imgtools="PYTHONPATH='$HOME/Programs/Python/Self/imgtools' python -m imgtools"
-
 # Enable zsh plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
