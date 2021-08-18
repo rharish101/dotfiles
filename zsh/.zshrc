@@ -89,7 +89,6 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias restart="reboot"
-alias cmatrix="cmatrix -bs"
 alias rsync-mtp="rsync --omit-dir-times --no-perms --inplace"
 alias backup="rar a -r -ma5 -hp -rr --"
 
