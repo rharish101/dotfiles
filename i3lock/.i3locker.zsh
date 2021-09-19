@@ -42,6 +42,7 @@ ARGS=(
     --ringwrong-color=ED0717AA
     --wrong-color=D3DAE300
     --wrong-text=''
+    --modif-color=D3DAE300
     --keyhl-color=D3DAE3FF
     --bshl-color=ED0717AA
     --separator-color=1A162800
