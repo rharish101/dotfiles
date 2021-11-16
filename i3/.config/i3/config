@@ -30,6 +30,7 @@ for_window [class="Lollypop"] floating enable
 for_window [class="Spotify"] floating enable
 for_window [class="xdman-Main" title="^(?!XDM 2020).*$"] floating enable
 for_window [window_type="notification"] floating enable
+for_window [class="Matplotlib"] floating enable
 
 # Colors for window decorations (visible in stacked, tabbed layouts)
 # class                 border  backgr. text    indicator child_border
