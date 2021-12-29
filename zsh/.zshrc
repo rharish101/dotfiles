@@ -90,7 +90,7 @@ export EDITOR='vim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias restart="reboot"
 alias rsync-mtp="rsync --omit-dir-times --no-perms --inplace"
-alias backup="rar a -r -ma5 -hp -rr --"
+alias backup="7z a -p -mhe=on --"
 
 # Enable zsh plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
