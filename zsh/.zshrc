@@ -133,6 +133,7 @@ timer ()
 
     if [[ -z "$target" ]]; then
         echo "Usage: timer TIME [MESSAGE]"
+        return 1
     fi
 
     echo "Setting timer for: $target"
@@ -147,6 +148,7 @@ alarm ()
 
     if [[ -z "$target" ]]; then
         echo "Usage: alarm TIME [MESSAGE]"
+        return 1
     fi
 
     target_unix="$(date -d "$target" "+%s")"
@@ -155,6 +157,7 @@ alarm ()
 
     if (( difference < 0 )); then
         echo "Cannot set alarm for the past"
+        return 2
     fi
 
     echo "Setting alarm for: $(date -d "$target")"
