@@ -18,7 +18,7 @@ I use [GNU Stow](https://www.gnu.org/software/stow/) to manage my dotfiles (for 
 * [Alacritty](https://github.com/alacritty/alacritty)
     * [Fortune](https://github.com/shlomif/fortune-mod)
     * Cowsay
-    * [Lolcat](https://github.com/busyloop/lolcat)
+    * [Dotacat](https://gitlab.scd31.com/stephen/dotacat)
     * Fira Code [NerdFont](https://github.com/ryanoasis/nerd-fonts)
 * [Zsh](https://www.zsh.org/)
     * [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
