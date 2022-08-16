@@ -1,6 +1,5 @@
 #!/usr/bin/env zsh
-read -r -d '' usage <<EOF
-Usage: $(basename $0) [-h] [-d LockedDpms] [-i Image]
+usage="Usage: $(basename $0) [-h] [-d LockedDpms] [-i Image]
 Use i3lock-color to lock the screen, with DPMS support
 
     -h, --help        Display help and exit
@@ -8,7 +7,6 @@ Use i3lock-color to lock the screen, with DPMS support
                       DPMS settings when locked (default: $dpms_locked)
     -i Image, --image Image
                       Background image (default: $image)"
-EOF
 
 dpms_set ()
 {
