@@ -1,5 +1,9 @@
 #!/usr/bin/env zsh
+dpms_locked="10 300 0"
+image="$HOME/.local/share/backgrounds/i3locker-background.png"
+
 usage="Usage: $(basename $0) [-h] [-d LockedDpms] [-i Image]
+
 Use i3lock-color to lock the screen, with DPMS support
 
     -h, --help        Display help and exit
@@ -61,8 +65,6 @@ ARGS=(
 )
 
 dpms_unlocked="$(xset q | awk '/Standby/{print $2, $4, $6}')"
-dpms_locked="10 10 10"
-image="$HOME/.local/share/backgrounds/i3locker-background.png"
 
 while [[ -n "$1" ]]; do
     case "$1" in
