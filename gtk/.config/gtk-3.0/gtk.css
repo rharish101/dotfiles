@@ -1,5 +1,5 @@
 #xfce4-power-manager-plugin>box>image { -gtk-icon-transform: scale(0.4); }
-#pulseaudio-button>image { -gtk-icon-transform: scale(0.4); }
+#pulseaudio-button>box>image { -gtk-icon-transform: scale(0.4); }
 
 #whiskermenu-window>frame>stack>box>stack>box>scrolledwindow>viewport* { padding: 2px; }
 #whiskermenu-window>frame>stack>box>stack>box>stack>scrolledwindow* { padding: 2px; }
