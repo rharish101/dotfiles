@@ -16,6 +16,7 @@ I use [GNU Stow](https://www.gnu.org/software/stow/) to manage my dotfiles (for 
     * [xss-lock](https://bitbucket.org/raymonad/xss-lock/src/master/) (optional; for locking on screen blank)
 * Roboto Font
 * [Kitty](https://sw.kovidgoyal.net/kitty/)
+    * [Tmux](https://github.com/tmux/tmux)
     * [Fortune](https://github.com/shlomif/fortune-mod)
     * Cowsay
     * [Dotacat](https://gitlab.scd31.com/stephen/dotacat)
@@ -29,7 +30,6 @@ I use [GNU Stow](https://www.gnu.org/software/stow/) to manage my dotfiles (for 
 ### Optional
 * [Vim](https://github.com/vim/vim/) 8+ (probably should be required :stuck_out_tongue:)
 * [IPython](https://github.com/ipython/ipython)
-* [Tmux](https://github.com/tmux/tmux)
 * My wallpaper script (warning: hacky code)
     * [Pillow](https://pypi.org/project/Pillow/) (PIL fork)
     * [python-xlib](https://pypi.org/project/python-xlib/)
