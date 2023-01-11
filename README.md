@@ -15,7 +15,7 @@ I use [GNU Stow](https://www.gnu.org/software/stow/) to manage my dotfiles (for 
 * [i3lock-color](https://github.com/Raymo111/i3lock-color)
     * [xss-lock](https://bitbucket.org/raymonad/xss-lock/src/master/) (optional; for locking on screen blank)
 * Roboto Font
-* [Alacritty](https://github.com/alacritty/alacritty)
+* [Kitty](https://sw.kovidgoyal.net/kitty/)
     * [Fortune](https://github.com/shlomif/fortune-mod)
     * Cowsay
     * [Dotacat](https://gitlab.scd31.com/stephen/dotacat)
