@@ -66,7 +66,7 @@ xss-lock ~/.i3locker.zsh
 #### Colorscheme
 ![colorscheme](./screenshots/colorscheme.png)
 
-#### Fortune + Cowsay + Lolcat
+#### Fortune + Cowsay + Dotacat
 ![cowsay](./screenshots/cowsay.png)
 
 #### Zsh
