@@ -19,7 +19,7 @@ I use [GNU Stow](https://www.gnu.org/software/stow/) to manage my dotfiles (for 
     * [Fortune](https://github.com/shlomif/fortune-mod)
     * Cowsay
     * [Dotacat](https://gitlab.scd31.com/stephen/dotacat)
-    * Fira Code [NerdFont](https://github.com/ryanoasis/nerd-fonts)
+    * [JetBrains Mono](https://www.jetbrains.com/lp/mono/) [NerdFont](https://github.com/ryanoasis/nerd-fonts)
 * [Zsh](https://www.zsh.org/)
     * [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
     * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
