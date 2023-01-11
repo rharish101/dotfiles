@@ -8,7 +8,7 @@ I use [GNU Stow](https://www.gnu.org/software/stow/) to manage my dotfiles (for 
 * [Xfce](https://gitlab.xfce.org)
 * [i3](https://github.com/i3/i3)
     * [picom](https://github.com/yshui/picom)
-* The [Plata-Noir-Compact](https://gitlab.com/tista500/plata-theme) GTK theme
+* The [Canta-dark](https://github.com/vinceliuice/Canta-theme) GTK theme
 * The [Papirus-Dark](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) icon theme
     * The [papirus-folders](https://github.com/PapirusDevelopmentTeam/papirus-folders) tool
 * The Breeze Light cursor theme from KDE Plasma
@@ -40,9 +40,9 @@ stow -t ~ config
 ```
 
 ### **Papirus Folders**
-Run the following command to set the folder colors of the Papirus-Dark theme to match the Plata GTK theme's colorscheme:
+Run the following command to set the folder colors of the Papirus-Dark theme to match the Canta GTK theme's colorscheme:
 ```sh
-papirus-folders -C indigo --theme Papirus-Dark
+papirus-folders -C yellow --theme Papirus-Dark
 ```
 
 ### **Lockscreen Script**
