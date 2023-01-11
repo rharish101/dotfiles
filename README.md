@@ -30,10 +30,6 @@ I use [GNU Stow](https://www.gnu.org/software/stow/) to manage my dotfiles (for 
 ### Optional
 * [Vim](https://github.com/vim/vim/) 8+ (probably should be required :stuck_out_tongue:)
 * [IPython](https://github.com/ipython/ipython)
-* My wallpaper script (warning: hacky code)
-    * [Pillow](https://pypi.org/project/Pillow/) (PIL fork)
-    * [python-xlib](https://pypi.org/project/python-xlib/)
-    * [typing-extensions](https://pypi.org/project/typing-extensions/)
 
 ## Instructions
 Simply use Stow on all the folders in this repository (except for the screenshots and the `vim` folder).
@@ -48,14 +44,6 @@ Run the following command to set the folder colors of the Papirus-Dark theme to 
 ```sh
 papirus-folders -C indigo --theme Papirus-Dark
 ```
-
-### **Wallpaper Script**
-The script ".wallpaper.py" enables the wallpaper to be smoothly changed every few seconds.
-The wallpaper changing script is adapted from [xfce-wallpaper-transition](https://github.com/c4tz/xfce-wallpaper-transition).
-
-How to use:
-1. Run `~/.wallpaper.py -h` to get the list of available commandline arguments.
-2. Run the script with the necessary arguments.
 
 ### **Lockscreen Script**
 How to use:
@@ -87,9 +75,6 @@ xss-lock ~/.i3locker.zsh
 
 #### Bash
 ![bash](./screenshots/bash.png)
-
-### Wallpaper Scripts
-![wallpaper-scripts](./screenshots/scripts.gif)
 
 ### Vim
 ![vim-1](./screenshots/vim-1.png)
