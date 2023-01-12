@@ -20,7 +20,7 @@ I use [GNU Stow](https://www.gnu.org/software/stow/) to manage my dotfiles (for 
     * [Fortune](https://github.com/shlomif/fortune-mod) - tool for random adages
     * [Cowsay](https://github.com/tnalpgge/rank-amateur-cowsay) - tool for making Tux say the random adages
     * [Dotacat](https://gitlab.scd31.com/stephen/dotacat) - tool for colouring Tux saying the random adages
-    * [JetBrains Mono](https://www.jetbrains.com/lp/mono/) [NerdFont](https://github.com/ryanoasis/nerd-fonts) - monospace font
+    * [JetBrainsMono](https://www.jetbrains.com/lp/mono/) [Nerd Font](https://github.com/ryanoasis/nerd-fonts) - monospace font
 * [Zsh](https://www.zsh.org/) - shell
     * [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh) - framework for fun goodies
     * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) - plugin for syntax highlighting
