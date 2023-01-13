@@ -39,13 +39,13 @@ cd vim
 stow -t ~ config
 ```
 
-### **Papirus Folders**
+### Papirus Folders
 Run the following command to set the folder colors of the Papirus-Dark theme to match the Canta GTK theme's colorscheme:
 ```sh
 papirus-folders -C yellow --theme Papirus-Dark
 ```
 
-### **Lockscreen Script**
+### Lockscreen Script
 How to use:
 1. Run `~/.i3locker.zsh -h` to get the list of available commandline arguments.
 2. Run the script with the necessary arguments.
