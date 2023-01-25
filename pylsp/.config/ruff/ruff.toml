@@ -1,6 +1,5 @@
-[tool.ruff]
 extend-select = ["C90", "D", "I"]
 line-length = 79
 
-[tool.ruff.pydocstyle]
+[pydocstyle]
 convention = "google"
