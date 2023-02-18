@@ -1,4 +1,9 @@
 #!/usr/bin/env zsh
+
+# SPDX-FileCopyrightText: 2018 Harish Rajagopal <harish.rajagopals@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 dpms_locked="10 300 0"
 image="$HOME/.local/share/backgrounds/i3locker-background.png"
 

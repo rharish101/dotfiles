@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2020 Harish Rajagopal <harish.rajagopals@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 cowsay -f tux -W 72 "$(fortune -as)" | dotacat -p 3.0
 
 # Setup pyenv

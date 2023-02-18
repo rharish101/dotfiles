@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2018 Harish Rajagopal <harish.rajagopals@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 shopt -s autocd # cd to directory when the name is given as a command
 shopt -s cmdhist lithist # store multi-line commands with newlines in history
 

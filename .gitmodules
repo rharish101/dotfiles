@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2018 Harish Rajagopal <harish.rajagopals@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 [submodule "vim/.vim"]
 	path = vim
 	url = https://github.com/rharish101/vim-config
