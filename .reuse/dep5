@@ -6,7 +6,3 @@ Source: https://github.com/rharish101/dotfiles
 Files: screenshots/*
 Copyright: 2023 Harish Rajagopal <harish.rajagopals@gmail.com>
 License: CC-BY-SA-4.0
-
-Files: zsh/.p10k.zsh
-Copyright: 2020 Harish Rajagopal <harish.rajagopals@gmail.com>
-License: MIT
