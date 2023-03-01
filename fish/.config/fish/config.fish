@@ -38,7 +38,3 @@ pyenv init --path --no-rehash fish | source
 # Keybinds
 bind -k nul accept-autosuggestion # Ctrl+Space
 bind -k nul -M insert accept-autosuggestion # Ctrl+Space
-
-# Starship prompt setup
-starship init fish | source
-enable_transience
