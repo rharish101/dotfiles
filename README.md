@@ -27,11 +27,9 @@ I use [GNU Stow](https://www.gnu.org/software/stow/) to manage my dotfiles (for 
     * [Cowsay](https://github.com/tnalpgge/rank-amateur-cowsay) - tool for making Tux say the random adages
     * [Dotacat](https://gitlab.scd31.com/stephen/dotacat) - tool for colouring Tux saying the random adages
     * [JetBrainsMono](https://www.jetbrains.com/lp/mono/) [Nerd Font](https://github.com/ryanoasis/nerd-fonts) - monospace font
-* [Zsh](https://www.zsh.org/) - shell
-    * [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh) - framework for fun goodies
-    * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) - plugin for syntax highlighting
-    * [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) - plugin for auto suggestions
-    * [powerlevel10k](https://github.com/romkatv/powerlevel10k) - Zsh theme
+* [Fish](https://fishshell.com) - shell
+    * [fisher](https://github.com/jorgebucaran/fisher) - plugin manager
+    * [tide](https://github.com/IlanCosman/tide) - plugin for the prompt
 
 ### Optional
 * [Vim](https://github.com/vim/vim/) 8+ (probably should be required :stuck_out_tongue:) - text editor
@@ -60,6 +58,18 @@ You can also setup `xss-lock` so that this script is called whenever the screen 
 ```sh
 xss-lock ~/.i3locker.zsh
 ```
+
+### Fish plugins
+To install and configure the fish plugins:
+1. Install [fisher](https://github.com/jorgebucaran/fisher).
+2. Install all plugins:
+    ```sh
+    fisher update
+    ```
+3. Follow the configure wizard of tide to set up your prompt the way you want it. If you missed it, or accidentally cancelled it, then run:
+    ```sh
+    tide configure
+    ```
 
 ## Screenshots
 ### Current Desktop
