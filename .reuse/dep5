@@ -6,3 +6,7 @@ Source: https://github.com/rharish101/dotfiles
 Files: screenshots/*
 Copyright: 2023 Harish Rajagopal <harish.rajagopals@gmail.com>
 License: CC-BY-SA-4.0
+
+Files: fish/.config/fish/fish_plugins
+Copyright: 2023 Harish Rajagopal <harish.rajagopals@gmail.com>
+License: MIT
