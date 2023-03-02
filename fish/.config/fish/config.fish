@@ -10,6 +10,7 @@ end
 
 # Environment variables
 set -Ux EDITOR vim
+set -Ux MANPAGER "less -R --use-color -Dd+r -Dk+r -Du+g -DSky"
 set -Ux PYENV_ROOT $HOME/.pyenv
 set -gx SSH_AUTH_SOCK $XDG_RUNTIME_DIR/gcr/ssh # Required for using the SSH agent
 set -Ux TF_CPP_MIN_LOG_LEVEL 1 # Hide TensorFlow INFO and DEBUG logs.
