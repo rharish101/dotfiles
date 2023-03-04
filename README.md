@@ -72,22 +72,24 @@ To install and configure the fish plugins:
     ```
 
 ## Screenshots
+All screenshots under the [CC-BY-SA-4.0 license](https://creativecommons.org/licenses/by-sa/4.0/legalcode).
+
 ### Current Desktop
-![desktop](./screenshots/desktop.png)
+![desktop](https://user-images.githubusercontent.com/25344287/222915919-5e131f4b-3990-4a02-99bf-e923d929247a.png)
 
 ### i3lock
 ![i3lock](./screenshots/i3lock.png)
 
 ### Terminal
-#### Colorscheme
-![colorscheme](./screenshots/colorscheme.png)
+#### Colourscheme
+![colourscheme](https://user-images.githubusercontent.com/25344287/222915927-96398692-42d6-49d3-87b4-d795acae44bb.png)
 
 #### Fortune + Cowsay + Dotacat
-![cowsay](./screenshots/cowsay.png)
+![cowsay](https://user-images.githubusercontent.com/25344287/222915930-72de3307-a36f-4eed-9707-ce880c7f2a4d.png)
 
-#### Zsh
-![zsh-1](./screenshots/zsh-1.png)
-![zsh-2](./screenshots/zsh-2.png)
+#### Fish
+![fish-1](https://user-images.githubusercontent.com/25344287/222915943-3ec85e6c-e3a9-40ae-8fba-430c08ffd114.png)
+![fish-2](https://user-images.githubusercontent.com/25344287/222915946-31735e08-95c0-4d53-9510-36409b1ca9b6.png)
 
 #### Bash
 ![bash](./screenshots/bash.png)
