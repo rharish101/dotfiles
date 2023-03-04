@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/sh
 
 # SPDX-FileCopyrightText: 2018 Harish Rajagopal <harish.rajagopals@gmail.com>
 #
@@ -24,13 +24,16 @@ dpms_set ()
     while true; do
         local dpms_curr="$(xset q | awk '/Standby/{print $2, $4, $6}')"
         if [[ "$dpms_curr" != "$dpms_locked" ]]; then
-            xset dpms ${=dpms_locked}
+            xset dpms $dpms_locked
         fi
         sleep 5
     done
 }
 
-dpms_revert () { xset dpms ${=dpms_unlocked} }
+dpms_revert ()
+{
+    xset dpms $dpms_unlocked
+}
 
 ARGS=(
     --ignore-empty-password
@@ -96,7 +99,7 @@ trap dpms_revert HUP INT TERM
 dpms_set &
 dpms_pid=$!
 
-i3lock --nofork -i "$image" $ARGS
+i3lock --nofork -i "$image" "${ARGS[@]}"
 
 kill -9 $dpms_pid
 dpms_revert
