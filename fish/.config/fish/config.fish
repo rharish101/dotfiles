@@ -18,6 +18,9 @@ set -Uxa --path LD_LIBRARY_PATH /opt/cuda/lib64
 # Vi mode config
 fish_vi_key_bindings
 set -g fish_escape_delay_ms 10
+function _reset_vi_mode --on-event fish_prompt
+    fish_vi_key_bindings insert
+end
 
 # Cursor setup
 set fish_cursor_default block
