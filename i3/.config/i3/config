@@ -60,7 +60,7 @@ set $mod Mod4
 bindsym $mod+q kill
 
 # Minimize the focused window that is controlled with a custom "yad-script"
-bindsym Control+q exec /home/rharish/Programs/Shell/yad-min.zsh
+bindsym Control+q exec /home/rharish/Programs/Shell/yad-min.fish
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
