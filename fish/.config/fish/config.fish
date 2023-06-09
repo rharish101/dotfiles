@@ -13,7 +13,6 @@ set -Ux PYENV_ROOT $HOME/.pyenv
 
 # Extra locations for path variables
 fish_add_path $PYENV_ROOT/bin $HOME/.local/bin
-set -Uxa --path LD_LIBRARY_PATH /opt/cuda/lib64
 
 # Vi mode config
 fish_vi_key_bindings
@@ -29,9 +28,6 @@ set fish_vi_force_cursor # Needed for tmux
 
 # Aliases
 alias restart=reboot
-
-# pyenv setup
-pyenv init --path --no-rehash fish | source
 
 # Keybinds
 bind -k nul accept-autosuggestion # Ctrl+Space
