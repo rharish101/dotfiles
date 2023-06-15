@@ -9,10 +9,9 @@ end
 # Environment variables
 set -Ux EDITOR vim
 set -Ux MANPAGER "less -R --use-color -Dd+r -Dk+r -Du+g -DSky"
-set -Ux PYENV_ROOT $HOME/.pyenv
 
 # Extra locations for path variables
-fish_add_path $PYENV_ROOT/bin $HOME/.local/bin
+fish_add_path $HOME/.local/bin
 
 # Vi mode config
 fish_vi_key_bindings
