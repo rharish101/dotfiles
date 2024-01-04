@@ -14,7 +14,8 @@ I use [GNU Stow](https://www.gnu.org/software/stow/) to manage my dotfiles (for 
 * [Xfce](https://gitlab.xfce.org) - desktop environment
 * [i3](https://github.com/i3/i3) - window manager
     * [picom](https://github.com/yshui/picom) - compositor
-* [Canta-dark](https://github.com/vinceliuice/Canta-theme) - GTK theme
+* [vimix-dark-doder](https://github.com/vinceliuice/vimix-gtk-themes) - GTK theme
+    * [VimixDoderDark](https://github.com/vinceliuice/vimix-kde) - Kvantum theme (for Qt applications)
 * [Papirus-Dark](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) - icon theme
     * [papirus-folders](https://github.com/PapirusDevelopmentTeam/papirus-folders) - tool for setting folder icon colours
 * Breeze Light (from KDE Plasma) - cursor theme
@@ -44,9 +45,9 @@ stow -t ~ config
 ```
 
 ### Papirus Folders
-Run the following command to set the folder colors of the Papirus-Dark theme to match the Canta GTK theme's colorscheme:
+Run the following command to set the folder colors of the Papirus-Dark theme to match the Vimix GTK theme's colorscheme:
 ```sh
-papirus-folders -C yellow --theme Papirus-Dark
+papirus-folders -C blue --theme Papirus-Dark
 ```
 
 ### Lockscreen Script
@@ -75,7 +76,7 @@ To install and configure the fish plugins:
 All screenshots under the [CC-BY-SA-4.0 license](https://creativecommons.org/licenses/by-sa/4.0/legalcode).
 
 ### Current Desktop
-![desktop](https://user-images.githubusercontent.com/25344287/222915919-5e131f4b-3990-4a02-99bf-e923d929247a.png)
+![desktop](https://github.com/rharish101/dotfiles/assets/25344287/5680f3dc-0d06-46a9-a660-49fa7cec6141)
 
 ### i3lock
 ![i3lock](./screenshots/i3lock.png)
