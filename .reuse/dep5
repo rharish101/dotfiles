@@ -9,8 +9,8 @@ License: CC-BY-SA-4.0
 
 Files: fish/.config/fish/fish_plugins
 Copyright: 2023 Harish Rajagopal <harish.rajagopals@gmail.com>
-License: MIT
+License: CC0-1.0
 
 Files: kvantum/.config/Kvantum/*.kvconfig
 Copyright: 2024 Harish Rajagopal <harish.rajagopals@gmail.com>
-License: MIT
+License: CC0-1.0
