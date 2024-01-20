@@ -1,0 +1,50 @@
+/*
+ * SPDX-FileCopyrightText: 2022 Harish Rajagopal <harish.rajagopals@gmail.com>
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+* {
+	background-image: none;
+}
+window {
+	background-color: @theme_bg_color;
+}
+
+button {
+  color: @theme_unfocused_fg_color;
+  margin: 20px;
+	border: 2px solid @unfocused_borders;
+	outline: none;
+	background-color: @theme_unfocused_base_color;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 128px;
+}
+button:focus {
+  color: @theme_selected_fg_color;
+	border-color: @theme_selected_bg_color;
+}
+button:active, button:hover {
+  color: @theme_selected_fg_color;
+	background-color: @theme_selected_bg_color;
+}
+
+#lock {
+  background-image: -gtk-icontheme('system-lock-screen-symbolic');
+}
+#suspend {
+  background-image: -gtk-icontheme('system-suspend-symbolic');
+}
+#hibernate {
+  background-image: -gtk-icontheme('system-hibernate-symbolic');
+}
+#logout {
+  background-image: -gtk-icontheme('system-log-out-symbolic');
+}
+#reboot {
+  background-image: -gtk-icontheme('system-reboot-symbolic');
+}
+#shutdown {
+  background-image: -gtk-icontheme('system-shutdown-symbolic');
+}
