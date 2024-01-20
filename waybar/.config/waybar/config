@@ -1,0 +1,76 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 40,
+    "spacing": 5,
+    "modules-left": ["custom/logo", "custom/separator", "wlr/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray", "custom/separator", "battery", "custom/separator", "idle_inhibitor", "custom/separator", "pulseaudio", "custom/separator", "custom/logout"],
+    "custom/logo": {
+        "on-click": "~/Programs/Shell/wofi-toggle.zsh",
+        "exec": "echo '\nApps'",
+        "interval": "once"
+    },
+    "wlr/workspaces": {
+        "disable-scroll": true,
+        "on-click": "activate"
+    },
+    "idle_inhibitor": {
+        "format": "<span font_family=\"Font Awesome 6 Free\">{icon}</span>",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "icon-size": 22,
+        "spacing": 6
+    },
+    "clock": {
+        "format": "{:%a %H:%M}",
+        "tooltip-format": "{:%c}"
+    },
+    "battery": {
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "format": "{capacity}% <span font_family=\"JetBrainsMono Nerd Font\">{icon}</span>",
+        "format-charging": "{capacity}% <span font_family=\"JetBrainsMono Nerd Font\"></span>",
+        "format-plugged": "{capacity}% <span font_family=\"JetBrainsMono Nerd Font\"></span>",
+        "format-icons": {
+            "critical": "",
+            "default": ["", "", "", "", "", "", "", "", "", "", ""]
+        }
+    },
+    "pulseaudio": {
+        "scroll-step": 3,
+        "format": "{volume}% <span font_family=\"Font Awesome 6 Free\">{icon} {format_source}</span>",
+        "format-bluetooth": "{volume}% <span font_family=\"Font Awesome 6 Free\">{icon} {format_source}</span>",
+        "format-bluetooth-muted": "<span font_family=\"Font Awesome 6 Free\"> {icon} {format_source}</span>",
+        "format-muted": "<span font_family=\"Font Awesome 6 Free\"> {format_source}</span>",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/separator": {
+        "format": "·",
+        "interval": "once",
+        "tooltip": false
+    },
+    "custom/logout": {
+        "on-click": "wlogout",
+        "exec": "echo '\nLogout Menu'",
+        "interval": "once",
+        "format": "<span font_family=\"Font Awesome 6 Free\">{}</span>"
+    }
+}

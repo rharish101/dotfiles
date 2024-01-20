@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: 2022 Harish Rajagopal <harish.rajagopals@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+show=drun
+width=30%
+prompt=Search application
+normal_window=true
+allow_images=true
+insensitive=true
+sort_order=alphabetical
+stylesheet=style.css

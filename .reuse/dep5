@@ -11,6 +11,14 @@ Files: fish/.config/fish/fish_plugins
 Copyright: 2023 Harish Rajagopal <harish.rajagopals@gmail.com>
 License: CC0-1.0
 
+Files: waybar/.config/waybar/config
+Copyright: 2022 Harish Rajagopal <harish.rajagopals@gmail.com>
+License: MIT
+
+Files: wlogout/.config/wlogout/layout
+Copyright: 2022 Harish Rajagopal <harish.rajagopals@gmail.com>
+License: MIT
+
 Files: kvantum/.config/Kvantum/*.kvconfig
 Copyright: 2024 Harish Rajagopal <harish.rajagopals@gmail.com>
 License: CC0-1.0
