@@ -9,6 +9,7 @@ end
 # Environment variables
 set -Ux EDITOR vim
 set -Ux MANPAGER "less -R --use-color -Dd+r -Dk+r -Du+g -DSky"
+set -Ux MANROFFOPT "-P -c"
 
 # Extra locations for path variables
 fish_add_path $HOME/.local/bin
