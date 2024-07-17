@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: MIT
 
-if status is-interactive
+function fish_greeting
     cowsay -f tux -W 72 "$(fortune -as)" | dotacat -p 3.0
 end
 
