@@ -35,7 +35,9 @@ dpms_revert ()
     xset dpms $dpms_unlocked
 }
 
-ARGS=(
+monitor_height=$(xwininfo -root | awk -F '[x+]' '/geometry/{print $2}')
+
+args=(
     --ignore-empty-password
     --pointer=default
     --indicator
@@ -56,19 +58,19 @@ ARGS=(
     --keyhl-color=D3DAE3FF
     --bshl-color=ED0717AA
     --separator-color=1A162800
-    --ind-pos='350:1010'
+    --ind-pos="350:$((monitor_height - 70))"
     --force-clock
     --time-color=D3DAE3FF
     --time-str='%H:%M'
     --time-size=32
     --time-align=1
-    --time-pos='40:1005'
+    --time-pos="40:$((monitor_height - 75))"
     --time-font='roboto'
     --date-color=D3DAE3FF
     --date-str='Type password to unlock'
     --date-size=20
     --date-align=1
-    --date-pos='40:1037'
+    --date-pos="40:$((monitor_height - 43))"
     --date-font='roboto'
 )
 
@@ -100,7 +102,7 @@ trap dpms_revert HUP INT TERM
 dpms_set &
 dpms_pid=$!
 
-i3lock --nofork -i "$image" "${ARGS[@]}"
+i3lock --nofork -i "$image" "${args[@]}"
 
 kill -9 $dpms_pid
 dpms_revert
