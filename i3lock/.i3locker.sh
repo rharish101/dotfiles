@@ -35,7 +35,7 @@ dpms_revert ()
     xset dpms $dpms_unlocked
 }
 
-monitor_height=$(xwininfo -root | awk -F '[x+]' '/geometry/{print $2}')
+monitor_height=$(xrandr | awk -F '[x+]' '/ connected/{print $2}')
 
 args=(
     --ignore-empty-password
