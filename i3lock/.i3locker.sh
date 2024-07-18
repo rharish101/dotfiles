@@ -74,8 +74,7 @@ args=(
     --date-font='roboto'
 )
 
-# dpms_unlocked="$(xset q | awk '/Standby/{print $2, $4, $6}')"
-dpms_unlocked="300 0 0"
+dpms_unlocked="$(xset q | awk '/Standby/{print $2, $4, $6}')"
 
 while [[ -n "$1" ]]; do
     case "$1" in
