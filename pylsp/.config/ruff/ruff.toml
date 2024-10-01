@@ -2,8 +2,10 @@
 #
 # SPDX-License-Identifier: MIT
 
-extend-select = ["C90", "D", "I"]
 line-length = 79
 
-[pydocstyle]
+[lint]
+extend-select = ["C90", "D", "I"]
+
+[lint.pydocstyle]
 convention = "google"
