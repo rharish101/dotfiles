@@ -1,22 +1,16 @@
 version = 1
-SPDX-PackageName = "dotfiles"
-SPDX-PackageSupplier = "Harish Rajagopal <harish.rajagopals@gmail.com>"
-SPDX-PackageDownloadLocation = "https://github.com/rharish101/dotfiles"
 
 [[annotations]]
 path = "screenshots/**"
-precedence = "aggregate"
 SPDX-FileCopyrightText = "2023 Harish Rajagopal <harish.rajagopals@gmail.com>"
 SPDX-License-Identifier = "CC-BY-SA-4.0"
 
 [[annotations]]
 path = "fish/.config/fish/fish_plugins"
-precedence = "aggregate"
 SPDX-FileCopyrightText = "2023 Harish Rajagopal <harish.rajagopals@gmail.com>"
 SPDX-License-Identifier = "CC0-1.0"
 
 [[annotations]]
 path = "kvantum/.config/Kvantum/**.kvconfig"
-precedence = "aggregate"
 SPDX-FileCopyrightText = "2024 Harish Rajagopal <harish.rajagopals@gmail.com>"
 SPDX-License-Identifier = "CC0-1.0"
