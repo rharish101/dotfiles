@@ -3,7 +3,8 @@
 # SPDX-License-Identifier: MIT
 
 [default]
-path = "~/Pictures/Wallpapers/Current"
+path = "~/Pictures/Wallpapers"
+recursive = false
 duration = "10m"
 mode = "center"
 transition-time = 1000
