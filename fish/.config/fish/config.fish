@@ -32,3 +32,27 @@ alias restart=reboot
 # Keybinds
 bind -k nul accept-autosuggestion # Ctrl+Space
 bind -k nul -M insert accept-autosuggestion # Ctrl+Space
+
+# Function to configure the prompt
+# NOTE: This needs to be run only once per system.
+function setup_tide
+    tide configure \
+        --auto \
+        --style=Rainbow \
+        --prompt_colors='True color' \
+        --show_time='24-hour format' \
+        --rainbow_prompt_separators=Angled \
+        --powerline_prompt_heads=Sharp \
+        --powerline_prompt_tails=Round \
+        --powerline_prompt_style='Two lines, character and frame' \
+        --prompt_connection=Solid \
+        --powerline_right_prompt_frame=Yes \
+        --prompt_connection_andor_frame_color=Dark \
+        --prompt_spacing=Sparse \
+        --icons='Many icons' \
+        --transient=Yes
+end
+
+# Set custom colors that match with solarized-dark
+set -U fish_color_autosuggestion 555 brblack
+set -U fish_color_command blue
