@@ -33,16 +33,18 @@ I use [GNU Stow](https://www.gnu.org/software/stow/) to manage my dotfiles (for 
     * [tide](https://github.com/IlanCosman/tide) - plugin for the prompt
 
 ### Optional
-* [Vim](https://github.com/vim/vim/) 8+ (probably should be required :stuck_out_tongue:) - text editor
+* [NeoVim](https://neovim.io/) (probably should be required :stuck_out_tongue:) - text editor
 * [IPython](https://github.com/ipython/ipython) - interactive Python shell
 
 ## Instructions
-Simply use Stow on all the folders in this repository (except for the screenshots and the `vim` folder).
-For my Vim setup, use Stow on the `config` folder inside the `vim` folder as follows:
+Simply use Stow on all the folders in this repository (except for the screenshots and the `nvim` folder).
+For my NeoVim setup, use Stow on the `config` folder inside the `nvim` folder as follows:
 ```sh
-cd vim
+cd nvim
 stow -t ~ config
 ```
+
+Further instructions can be found in the README of that repo: <https://github.com/rharish101/vim-config>.
 
 ### Papirus Folders
 Run the following command to set the folder colors of the Papirus-Dark theme to match the Vimix GTK theme's colorscheme:
@@ -95,10 +97,10 @@ All screenshots under the [CC-BY-SA-4.0 license](https://creativecommons.org/lic
 #### Bash
 ![bash](./screenshots/bash.png)
 
-### Vim
-![vim-1](./screenshots/vim-1.png)
-![vim-2](./screenshots/vim-2.png)
-![vim-3](./screenshots/vim-3.png)
+### NeoVim
+![nvim-1](https://github.com/user-attachments/assets/a5ebdb99-072b-4c32-af4d-b95d41c4eae1)
+![nvim-2](https://github.com/user-attachments/assets/3d615c72-d5df-4ea0-9e34-acc3b3255dcd)
+![nvim-3](https://github.com/user-attachments/assets/613e3363-99e3-4d75-b230-2d5bbd17c088)
 
 ### IPython
 ![ipython](./screenshots/ipython.png)

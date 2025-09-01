@@ -7,7 +7,7 @@ function fish_greeting
 end
 
 # Environment variables
-set -Ux EDITOR vim
+set -Ux EDITOR nvim
 set -Ux MANPAGER "less -R --use-color -Dd+r -Dk+r -Du+g -DSky"
 set -Ux MANROFFOPT "-P -c"
 
@@ -28,6 +28,8 @@ set fish_vi_force_cursor # Needed for tmux
 
 # Aliases
 alias restart=reboot
+alias vim=nvim
+alias vimdiff="nvim -d"
 
 # Keybinds
 bind -k nul accept-autosuggestion # Ctrl+Space

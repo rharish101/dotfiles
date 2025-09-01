@@ -3,5 +3,5 @@
 # SPDX-License-Identifier: MIT
 
 [submodule "vim/.vim"]
-	path = vim
+	path = nvim
 	url = https://github.com/rharish101/vim-config
