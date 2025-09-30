@@ -10,6 +10,7 @@ end
 set -Ux EDITOR nvim
 set -Ux MANPAGER "less -R --use-color -Dd+r -Dk+r -Du+g -DSky"
 set -Ux MANROFFOPT "-P -c"
+set -Ux NNN_PLUG "f:finder"
 
 # Extra locations for path variables
 fish_add_path $HOME/.local/bin
