@@ -32,8 +32,8 @@ alias vim=nvim
 alias vimdiff="nvim -d"
 
 # Keybinds
-bind -k nul accept-autosuggestion # Ctrl+Space
-bind -k nul -M insert accept-autosuggestion # Ctrl+Space
+bind ctrl-space accept-autosuggestion # Ctrl+Space
+bind ctrl-space -M insert accept-autosuggestion # Ctrl+Space
 
 # Function to configure the prompt
 # NOTE: This needs to be run only once per system.
