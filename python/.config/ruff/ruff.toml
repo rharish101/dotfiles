@@ -5,7 +5,8 @@
 line-length = 79
 
 [lint]
-extend-select = ["C90", "D", "I"]
+select = ["ALL"]
+ignore = ["S603", "S607", "S311", "T201"]
 
 [lint.pydocstyle]
 convention = "google"
