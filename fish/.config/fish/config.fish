@@ -7,10 +7,10 @@ function fish_greeting
 end
 
 # Environment variables
-set -Ux EDITOR nvim
-set -Ux MANPAGER "less -R --use-color -Dd+r -Dk+r -Du+g -DSky"
-set -Ux MANROFFOPT "-P -c"
-set -Ux NNN_PLUG "f:finder"
+set -gx EDITOR nvim
+set -gx MANPAGER "less -R --use-color -Dd+r -Dk+r -Du+g -DSky"
+set -gx MANROFFOPT "-P -c"
+set -gx NNN_PLUG "f:finder"
 
 # Extra locations for path variables
 fish_add_path $HOME/.local/bin
@@ -57,5 +57,5 @@ function setup_tide
 end
 
 # Set custom colors that match with solarized-dark
-set -U fish_color_autosuggestion 555 brblack
-set -U fish_color_command blue
+set -g fish_color_autosuggestion 555 brblack
+set -g fish_color_command blue
