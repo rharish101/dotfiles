@@ -56,6 +56,5 @@ function setup_tide
         --transient=Yes
 end
 
-# Set custom colors that match with solarized-dark
-set -g fish_color_autosuggestion 555 brblack
+# Set custom colors
 set -g fish_color_command blue
