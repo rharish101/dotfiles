@@ -14,3 +14,11 @@ SPDX-License-Identifier = "CC0-1.0"
 path = "kvantum/.config/Kvantum/**.kvconfig"
 SPDX-FileCopyrightText = "2024 Harish Rajagopal <harish.rajagopals@gmail.com>"
 SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = "opencode/.config/opencode/themes/*.json"
+SPDX-FileCopyrightText = [
+  "2026 Harish Rajagopal <harish.rajagopals@gmail.com>",
+  "2021 Jan Warchoł <jan.warchol@gmail.com>",
+]
+SPDX-License-Identifier = "MIT"
