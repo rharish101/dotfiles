@@ -56,6 +56,10 @@ hl.bind(APP_MOD .. "L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(MAIN_MOD .. "P", hl.dsp.exec_cmd("monique"))
 hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd("pkill wofi || wofi"), { release = true }) -- Explicitly use SUPER, in case MAIN_MOD is changed
 hl.bind("Print", hl.dsp.exec_cmd("flameshot screen"))
+hl.bind("CTRL + Print", function()
+	local picturesDir = os.getenv("XDG_PICTURES_DIR") or os.getenv("HOME") .. "/Pictures"
+	hl.dispatch(hl.dsp.exec_cmd("flameshot screen --path " .. picturesDir .. "/Screenshots"))
+end)
 hl.bind(MAIN_MOD .. "Print", hl.dsp.exec_cmd("flameshot gui"))
 hl.bind(MAIN_MOD .. "V", hl.dsp.exec_cmd("cursor-clip"))
 
