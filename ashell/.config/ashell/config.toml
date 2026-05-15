@@ -1,0 +1,53 @@
+# SPDX-FileCopyrightText: 2026 Harish Rajagopal <harish.rajagopals@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+position = "Bottom"
+# layer = "Top"
+# enable_esc_key = true
+
+[[CustomModule]]
+name = "AppLauncher"
+icon = " "
+command = "~/Programs/Shell/wofi-toggle.fish"
+
+[[CustomModule]]
+name = "LlamaCpp"
+icon = ""
+icons.'no' = "🦙"
+icons.'yes' = "🤖"
+command = "~/Programs/Shell/unload-llama.cpp.fish"
+listen_cmd = "~/Programs/Shell/listen-llama.cpp.fish"
+
+[modules]
+left = [ "AppLauncher", [ "Workspaces", "KeyboardSubmap" ] ]
+center = [ "Tempo" ]
+right = [ ["Tray", "LlamaCpp"], ["Privacy", "Settings"] ]
+
+[settings]
+lock_cmd = "hyprlock"
+logout_cmd = "hyprshutdown"
+audio_sinks_more_cmd = "pavucontrol --tab=3"
+audio_sources_more_cmd = "pavucontrol --tab=4"
+wifi_more_cmd = "nm-connection-editor"
+vpn_more_cmd = "nm-connection-editor"
+bluetooth_more_cmd = "blueman-manager"
+remove_airplane_btn = true
+
+[appearance]
+scale_factor = 1.2
+style = "Solid"
+primary_color = "#2eb398"
+secondary_color = "#2e3034"
+success_color = "#81c995"
+text_color = "#ffffff"
+workspace_colors = [ "#2eb398" ]
+
+[appearance.background_color]
+base = "#292b2e"
+strong = "#212326"
+weak = "#333539"
+
+[appearance.danger_color]
+base = "#f28b82"
+weak = "#fdd633"
