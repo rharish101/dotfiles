@@ -94,8 +94,6 @@ To install and configure the fish plugins:
 
 ## Screenshots
 
-All screenshots under the [CC-BY-SA-4.0 license](https://creativecommons.org/licenses/by-sa/4.0/legalcode).
-
 ### Current Desktop
 
 ![desktop](./screenshots/desktop.png)
@@ -144,3 +142,4 @@ Each file either has a header containing copyright and license information, or h
 The license files that are used in this project can be found in the [LICENSES](./LICENSES) directory.
 
 The MIT license is placed in [LICENSE](./LICENSE), to signify that it constitutes the majority of the codebase, and for compatibility with GitHub.
+All screenshots are under the [CC-BY-SA-4.0 license](https://creativecommons.org/licenses/by-sa/4.0/legalcode).
