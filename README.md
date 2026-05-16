@@ -98,26 +98,26 @@ All screenshots under the [CC-BY-SA-4.0 license](https://creativecommons.org/lic
 
 ### Current Desktop
 
-![desktop](https://github.com/rharish101/dotfiles/assets/25344287/51dc1b32-2370-4f2f-9052-09363d4970ce)
+![desktop](./screenshots/desktop.png)
 
-### i3lock
+### Lockscreen
 
-![i3lock](./screenshots/i3lock.png)
+![lockscreen](./screenshots/lockscreen.png)
 
 ### Terminal
 
 #### Colourscheme
 
-![colourscheme](https://user-images.githubusercontent.com/25344287/222915927-96398692-42d6-49d3-87b4-d795acae44bb.png)
+![colourscheme](./screenshots/colourscheme.png)
 
 #### Fortune + Cowsay + Dotacat
 
-![cowsay](https://user-images.githubusercontent.com/25344287/222915930-72de3307-a36f-4eed-9707-ce880c7f2a4d.png)
+![cowsay](./screenshots/cowsay.png)
 
 #### Fish
 
-![fish-1](https://user-images.githubusercontent.com/25344287/222915943-3ec85e6c-e3a9-40ae-8fba-430c08ffd114.png)
-![fish-2](https://user-images.githubusercontent.com/25344287/222915946-31735e08-95c0-4d53-9510-36409b1ca9b6.png)
+![fish-1](./screenshots/fish-1.png)
+![fish-2](./screenshots/fish-2.png)
 
 #### Bash
 
@@ -125,9 +125,9 @@ All screenshots under the [CC-BY-SA-4.0 license](https://creativecommons.org/lic
 
 ### NeoVim
 
-![nvim-1](https://github.com/user-attachments/assets/a5ebdb99-072b-4c32-af4d-b95d41c4eae1)
-![nvim-2](https://github.com/user-attachments/assets/3d615c72-d5df-4ea0-9e34-acc3b3255dcd)
-![nvim-3](https://github.com/user-attachments/assets/613e3363-99e3-4d75-b230-2d5bbd17c088)
+![nvim-1](./screenshots/nvim-1.png)
+![nvim-2](./screenshots/nvim-2.png)
+![nvim-3](./screenshots/nvim-3.png)
 
 ### IPython
 
