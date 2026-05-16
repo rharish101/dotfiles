@@ -116,7 +116,10 @@ hl.bind(MAIN_MOD .. "mouse:272", hl.dsp.window.drag(), { mouse = true })
 -- ----------------------------------------
 
 -- Go to the "resize" mode.
-hl.bind(MAIN_MOD .. "R", hl.dsp.submap("resize"))
+hl.bind(MAIN_MOD .. "R", function()
+	local tgtSubmap = hl.get_current_submap() == "resize" and "reset" or "resize"
+	hl.dispatch(hl.dsp.submap(tgtSubmap))
+end, { submap_universal = true })
 
 hl.define_submap("resize", function()
 	-- Shrink/grow the window’s width/height
@@ -128,7 +131,6 @@ hl.define_submap("resize", function()
 	-- Go back to the global ("reset") submap
 	hl.bind("Escape", hl.dsp.submap("reset"))
 	hl.bind("Return", hl.dsp.submap("reset"))
-	hl.bind(MAIN_MOD .. "R", hl.dsp.submap("reset"))
 
 	-- Resize with the mouse's left click
 	hl.bind("mouse:272", hl.dsp.window.resize(), { mouse = true })
