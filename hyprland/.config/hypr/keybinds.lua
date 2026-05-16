@@ -123,10 +123,10 @@ end, { submap_universal = true })
 
 hl.define_submap("resize", function()
 	-- Shrink/grow the window’s width/height
-	hl.bind("H", hl.dsp.window.resize({ x = -10, y = 0 }), { repeating = true })
-	hl.bind("J", hl.dsp.window.resize({ x = 0, y = 10 }), { repeating = true })
-	hl.bind("K", hl.dsp.window.resize({ x = 0, y = -10 }), { repeating = true })
-	hl.bind("L", hl.dsp.window.resize({ x = 10, y = 0 }), { repeating = true })
+	hl.bind("H", hl.dsp.window.resize({ x = -10, y = 0, relative = true }), { repeating = true })
+	hl.bind("J", hl.dsp.window.resize({ x = 0, y = 10, relative = true }), { repeating = true })
+	hl.bind("K", hl.dsp.window.resize({ x = 0, y = -10, relative = true }), { repeating = true })
+	hl.bind("L", hl.dsp.window.resize({ x = 10, y = 0, relative = true }), { repeating = true })
 
 	-- Go back to the global ("reset") submap
 	hl.bind("Escape", hl.dsp.submap("reset"))
