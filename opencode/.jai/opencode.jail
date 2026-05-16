@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: 2026 Harish Rajagopal <harish.rajagopals@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+mode strict
+dir .cache/opencode
+dir .config/opencode
+dir .dotfiles/opencode/.config/opencode
+dir .local/share/opencode
+dir .local/state/opencode
+dir .cargo
+dir .rustup
