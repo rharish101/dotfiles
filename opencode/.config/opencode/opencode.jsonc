@@ -26,12 +26,16 @@
     "webfetch": "allow",
   },
   "lsp": {
+    "ruff": { "command": ["ruff", "server"], "extensions": [".py", ".pyi"] },
+    "ty": { "command": ["ty", "server"], "extensions": [".py", ".pyi"] },
+  },
+  "formatter": {
     "ruff": {
-      "command": ["ruff", "server"],
+      "command": ["ruff", "check", "--fix", "--unfixable", "F401"],
       "extensions": [".py", ".pyi"],
     },
-    "ty": {
-      "command": ["ty", "server"],
+    "ruff_format": {
+      "command": ["ruff", "format"],
       "extensions": [".py", ".pyi"],
     },
   },
