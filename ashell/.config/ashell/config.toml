@@ -3,8 +3,6 @@
 # SPDX-License-Identifier: MIT
 
 position = "Bottom"
-# layer = "Top"
-# enable_esc_key = true
 
 [[CustomModule]]
 name = "AppLauncher"
