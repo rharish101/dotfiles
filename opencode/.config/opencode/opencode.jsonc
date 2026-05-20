@@ -5,6 +5,41 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "share": "disabled",
+  "enabled_providers": ["llama_cpp"],
+  "model": "llama_cpp/Qwen-3.6-27B",
+  "small_model": "llama_cpp/Qwen-3.6-27B",
+  "provider": {
+    "llama_cpp": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "llama.cpp",
+      "options": { "baseURL": "http://localhost:8080" },
+      "models": {
+        "Qwen-3.6-27B": {
+          "name": "Qwen 3.6 (27B)",
+          "options": {
+            "temperature": 0.7,
+            "top_p": 0.8,
+            "top_k": 20,
+            "min_p": 0.0,
+            "presence_penalty": 1.5,
+            "repeat_penalty": 1.0,
+            "thinking_budget_tokens": 0,
+          },
+          "variants": {
+            "thinking": {
+              "temperature": 0.6,
+              "top_p": 0.95,
+              "top_k": 20,
+              "min_p": 0.0,
+              "presence_penalty": 0.0,
+              "repeat_penalty": 1.0,
+              "thinking_budget_tokens": -1,
+            },
+          },
+        },
+      },
+    },
+  },
   "agent": {
     "build": { "color": "secondary", "variant": "" },
     "plan": { "color": "accent", "variant": "thinking" },
