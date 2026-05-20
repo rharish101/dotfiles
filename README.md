@@ -26,6 +26,7 @@ I use [GNU Stow](https://www.gnu.org/software/stow/) to manage my dotfiles (for 
 - [Tmux](https://github.com/tmux/tmux) - terminal multiplexer
 - [Wofi](https://hg.sr.ht/~scoopta/wofi) - GTK-based app launcher
 - [ashell](https://malpenzibo.github.io/ashell/) - status bar
+- [jai](https://jai.scs.stanford.edu/) - lightweight sandbox for LLM agents
 - [latexmk](https://miktex.org/packages/latexmk) - LaTeX build tool
 - [wpaperd](https://github.com/danyspin97/wpaperd) - Wayland wallpaper daemon
 
