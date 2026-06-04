@@ -43,6 +43,7 @@
   "agent": {
     "build": { "color": "secondary", "variant": "" },
     "plan": { "color": "accent", "variant": "thinking" },
+    "explore": { "variant": "", "permission": { "task": "deny" } },
   },
   "permission": {
     "*": "ask",
