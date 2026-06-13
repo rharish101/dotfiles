@@ -7,7 +7,7 @@ position = "Bottom"
 [[CustomModule]]
 name = "AppLauncher"
 icon = " "
-command = "~/Programs/Shell/wofi-toggle.fish"
+command = "pkill wofi || wofi"
 
 [[CustomModule]]
 name = "LlamaCpp"
