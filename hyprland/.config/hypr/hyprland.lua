@@ -42,7 +42,7 @@ hl.config({
 
 	plugin = {
 		dynamic_cursors = { mode = "none" },
-		hyprexpo = { workspace_method = "first 1" },
+		hyprexpo = { workspace_method = "first 1", label_show = "hover+focus" },
 		hy3 = {
 			autotile = { enable = true },
 			tabs = {
