@@ -18,4 +18,5 @@ return {
 	"hypridle", -- Power management for Hyprland
 	"hyprpm reload", -- Enable Hyprland plugins.
 	"wpaperd -d", -- Wallpaper daemon for random wallpapers
+	"systemctl --user start hyprland-session.target"
 }
