@@ -41,9 +41,21 @@
     },
   },
   "agent": {
-    "build": { "color": "secondary", "variant": "" },
-    "plan": { "color": "accent", "variant": "thinking" },
-    "explore": { "variant": "", "permission": { "task": "deny" } },
+    "build": {
+      "color": "secondary",
+      "model": "llama_cpp/Qwen-3.6-27B",
+      "variant": "",
+    },
+    "plan": {
+      "color": "accent",
+      "model": "llama_cpp/Qwen-3.6-27B",
+      "variant": "thinking",
+    },
+    "explore": {
+      "model": "llama_cpp/Qwen-3.6-27B",
+      "variant": "",
+      "permission": { "task": "deny" },
+    },
   },
   "permission": {
     "*": "ask",
