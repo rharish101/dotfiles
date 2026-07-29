@@ -116,5 +116,6 @@
       "command": ["ruff", "format"],
       "extensions": [".py", ".pyi"],
     },
+    "prettier": { "command": ["prettier", "--write", "$FILE"] },
   },
 }
