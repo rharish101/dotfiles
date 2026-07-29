@@ -7,7 +7,10 @@ target-version = "py314"
 
 [lint]
 select = ["ALL"]
-ignore = ["S603", "S607", "S311", "T201"]
+ignore = ["S603", "S607", "S311", "T201", "CPY001"]
 
 [lint.pydocstyle]
 convention = "google"
+
+[lint.flake8-copyright]
+notice-rgx = "(?i)# SPDX-FileCopyrightText:\\s\\d{4}(-(\\d{4}|present))*"
