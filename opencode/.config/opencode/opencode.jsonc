@@ -78,8 +78,13 @@
       "wc *": "allow",
       "which *": "allow",
     },
+    "edit": {
+      "~/.local/share/opencode/repos/**": "deny", // repo references
+    },
     "external_directory": {
       "~/.cargo/src/registry/**": "allow",
+      "~/.config/opencode/skills/**": "allow",
+      "~/.local/share/opencode/repos/**": "allow", // repo references
     },
     "glob": "allow",
     "grep": "allow",
