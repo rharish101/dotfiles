@@ -39,8 +39,8 @@ tutorial,
   dotfiles
 - Hyprland plugins:
   - [hy3](https://github.com/outfoxxed/hy3) - Hyprland plugin for i3-like layout
-  - [hyprexpo](https://github.com/colonelpanic8/hyprexpo) - Hyprland plugin for
-    a workspace overview like Gnome or KDE
+  - [hyprexpo](https://github.com/sandwichfarm/hyprexpo) - Hyprland plugin for a
+    workspace overview like Gnome or KDE
   - [hypr-dynamic-cursors](https://github.com/VirtCode/hypr-dynamic-cursors) -
     Hyprland plugin for cursor shake-to-find
 - Fish plugins:
