@@ -15,5 +15,5 @@ return {
 	"ashell", -- Status bar + tray
 	"hyprpm reload", -- Enable Hyprland plugins.
 	"wpaperd -d", -- Wallpaper daemon for random wallpapers
-	"systemctl --user start hyprland-session.target"
+	"systemctl --user start hyprland-session.target",
 }
