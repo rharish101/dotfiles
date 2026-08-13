@@ -5,7 +5,7 @@
 mode strict
 dir .cache/opencode
 dir .config/opencode
-dir .dotfiles/opencode/.config/opencode
+rdir .dotfiles/opencode/.config/opencode
 dir .local/share/opencode
 dir .local/state/opencode
 dir .cargo
