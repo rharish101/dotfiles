@@ -5,8 +5,9 @@
     "npm:pi-vim",
     "npm:@juicesharp/rpiv-todo",
     "npm:@narumitw/pi-btw",
-    "npm:@nicknisi/pi-spinner"
+    "npm:@robhowley/pi-spinner-verbs"
   ],
   "defaultProvider": "llama.cpp",
-  "defaultModel": "Qwen-3.8-27B"
+  "defaultModel": "Qwen-3.8-27B",
+  "spinnerVerbsFile": "verbs.json"
 }

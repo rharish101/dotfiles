@@ -35,3 +35,8 @@ SPDX-FileCopyrightText = [
   "2021 Jan Warchoł <jan.warchol@gmail.com>",
 ]
 SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "pi/.pi/agent/verbs.json"
+SPDX-FileCopyrightText = "2026 Harish Rajagopal <harish.rajagopals@gmail.com>"
+SPDX-License-Identifier = "CC0-1.0"
