@@ -1,6 +1,6 @@
 {
   "lastChangelogVersion": "0.84.2",
-  "theme": "dark",
+  "theme": "selenized-black",
   "packages": [
     "npm:pi-vim",
     "npm:@juicesharp/rpiv-todo",

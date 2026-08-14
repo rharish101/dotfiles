@@ -27,3 +27,11 @@ SPDX-License-Identifier = "MIT"
 path = "pi/.pi/agent/settings.json"
 SPDX-FileCopyrightText = "2026 Harish Rajagopal <harish.rajagopals@gmail.com>"
 SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = "pi/.pi/agent/themes/*.json"
+SPDX-FileCopyrightText = [
+  "2026 Harish Rajagopal <harish.rajagopals@gmail.com>",
+  "2021 Jan Warchoł <jan.warchol@gmail.com>",
+]
+SPDX-License-Identifier = "MIT"
