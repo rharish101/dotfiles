@@ -1,0 +1,12 @@
+{
+  "lastChangelogVersion": "0.84.2",
+  "theme": "dark",
+  "packages": [
+    "npm:pi-vim",
+    "npm:@juicesharp/rpiv-todo",
+    "npm:@narumitw/pi-btw",
+    "npm:@nicknisi/pi-spinner"
+  ],
+  "defaultProvider": "llama.cpp",
+  "defaultModel": "Qwen-3.8-27B"
+}
