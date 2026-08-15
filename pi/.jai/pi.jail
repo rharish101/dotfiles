@@ -7,3 +7,4 @@ dir .pi
 dir .dotfiles/pi/.pi
 dir .cargo
 dir .rustup
+rdir .local/bin
