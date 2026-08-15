@@ -16,47 +16,22 @@
       "models": {
         "Qwen-3.8-27B": {
           "name": "Qwen 3.8 (27B)",
-          "options": {
-            "temperature": 0.7,
-            "top_p": 0.8,
-            "top_k": 20,
-            "min_p": 0.0,
-            "presence_penalty": 1.5,
-            "repeat_penalty": 1.0,
-            "chat_template_kwargs": { "enable_thinking": false },
-          },
           "variants": {
-            "thinking": {
-              "temperature": 1.0,
-              "top_p": 0.95,
-              "top_k": 20,
-              "min_p": 0.0,
-              "presence_penalty": 0.0,
-              "repeat_penalty": 1.0,
-              "chat_template_kwargs": { "enable_thinking": true },
-              "thinking_budget_tokens": -1,
+            "none": {
+              "reasoning_effort": "none",
+              "chat_template_kwargs": { "enable_thinking": false },
             },
+            "low": { "reasoning_effort": "low" },
+            "medium": { "reasoning_effort": "medium" },
+            "xhigh": { "reasoning_effort": "xhigh" },
           },
         },
       },
     },
   },
   "agent": {
-    "build": {
-      "color": "secondary",
-      "model": "llama_cpp/Qwen-3.8-27B",
-      "variant": "",
-    },
-    "plan": {
-      "color": "accent",
-      "model": "llama_cpp/Qwen-3.8-27B",
-      "variant": "thinking",
-    },
-    "explore": {
-      "model": "llama_cpp/Qwen-3.8-27B",
-      "variant": "",
-      "permission": { "task": "deny" },
-    },
+    "build": { "color": "secondary" },
+    "plan": { "color": "accent" },
   },
   "permission": {
     "*": "ask",
