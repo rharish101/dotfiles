@@ -6,7 +6,8 @@
     "npm:@juicesharp/rpiv-todo",
     "npm:@narumitw/pi-btw",
     "npm:@robhowley/pi-spinner-verbs",
-    "npm:@narumitw/pi-lsp"
+    "npm:@narumitw/pi-lsp",
+    "npm:@99percentpeople/pi-background-tasks"
   ],
   "defaultProvider": "llama.cpp",
   "defaultModel": "Qwen-3.8-27B",
