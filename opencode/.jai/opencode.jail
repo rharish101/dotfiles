@@ -10,3 +10,4 @@ dir .local/share/opencode
 dir .local/state/opencode
 dir .cargo
 dir .rustup
+rdir .local/bin
