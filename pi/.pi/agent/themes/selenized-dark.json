@@ -34,7 +34,7 @@
     "error": "brRed",
     "warning": "brYellow",
     "muted": "dim0",
-    "dim": "bg2",
+    "dim": "dim0",
     "text": "fg0",
     "thinkingText": "dim0",
 
