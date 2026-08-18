@@ -11,5 +11,6 @@
   ],
   "defaultProvider": "llama.cpp",
   "defaultModel": "Qwen-3.8-27B",
-  "spinnerVerbsFile": "verbs.json"
+  "spinnerVerbsFile": "verbs.json",
+  "enableInstallTelemetry": false
 }
