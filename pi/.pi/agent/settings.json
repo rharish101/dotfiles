@@ -7,7 +7,8 @@
     "npm:@narumitw/pi-btw",
     "npm:@robhowley/pi-spinner-verbs",
     "npm:@narumitw/pi-lsp",
-    "npm:@99percentpeople/pi-background-tasks"
+    "npm:@99percentpeople/pi-background-tasks",
+    "npm:@juicesharp/rpiv-ask-user-question"
   ],
   "defaultProvider": "llama.cpp",
   "defaultModel": "Qwen-3.8-27B",
