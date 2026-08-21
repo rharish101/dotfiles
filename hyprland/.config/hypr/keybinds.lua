@@ -55,12 +55,15 @@ hl.bind(APP_MOD .. "R", hl.dsp.exec_cmd("lollypop"))
 hl.bind(APP_MOD .. "L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(MAIN_MOD .. "P", hl.dsp.exec_cmd("monique"))
 hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd("pkill wofi || wofi"), { release = true }) -- Explicitly use SUPER, in case MAIN_MOD is changed
-hl.bind("Print", hl.dsp.exec_cmd("flameshot screen"))
+hl.bind("Print", function()
+	local picturesDir = os.getenv("XDG_PICTURES_DIR") or os.getenv("HOME") .. "/Pictures"
+	hl.dispatch(hl.dsp.exec_cmd("xfce4-screenshooter --fullscreen --save " .. picturesDir .. "/Screenshots"))
+end)
 hl.bind("CTRL + Print", function()
 	local picturesDir = os.getenv("XDG_PICTURES_DIR") or os.getenv("HOME") .. "/Pictures"
-	hl.dispatch(hl.dsp.exec_cmd("flameshot screen --path " .. picturesDir .. "/Screenshots"))
+	hl.dispatch(hl.dsp.exec_cmd("xfce4-screenshooter --fullscreen --save " .. picturesDir .. "/Screenshots/Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"))
 end)
-hl.bind(MAIN_MOD .. "Print", hl.dsp.exec_cmd("flameshot gui"))
+hl.bind(MAIN_MOD .. "Print", hl.dsp.exec_cmd("xfce4-screenshooter"))
 hl.bind(MAIN_MOD .. "V", hl.dsp.exec_cmd("cursor-clip"))
 
 -- ----------------------------------------

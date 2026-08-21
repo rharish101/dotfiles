@@ -15,8 +15,6 @@ tutorial,
 
 - [Bash](https://www.gnu.org/software/bash/) - backup shell
 - [Fish](https://fishshell.com) - main shell
-- [Flameshot](https://github.com/flameshot-org/flameshot) - powerful screenshot
-  tool
 - [Hyprland](https://hypr.land/) - Wayland compositor
   - [hypridle](https://github.com/hyprwm/hypridle) - idle daemon
   - [hyprlock](https://github.com/hyprwm/hyprlock) - lockscreen
