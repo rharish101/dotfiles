@@ -55,16 +55,36 @@ hl.bind(APP_MOD .. "R", hl.dsp.exec_cmd("lollypop"))
 hl.bind(APP_MOD .. "L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(MAIN_MOD .. "P", hl.dsp.exec_cmd("monique"))
 hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd("pkill wofi || wofi"), { release = true }) -- Explicitly use SUPER, in case MAIN_MOD is changed
+hl.bind(MAIN_MOD .. "V", hl.dsp.exec_cmd("cursor-clip"))
+
+function getScreenshotPath(args)
+	local onlyDir = (args or {}).onlyDir or false
+	local picturesDir = os.getenv("XDG_PICTURES_DIR") or os.getenv("HOME") .. "/Pictures"
+	local screenshotPath = picturesDir .. "/Screenshots"
+	if not onlyDir then
+		screenshotPath = screenshotPath .. "/Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
+	end
+	return screenshotPath
+end
+
 hl.bind("Print", function()
 	local picturesDir = os.getenv("XDG_PICTURES_DIR") or os.getenv("HOME") .. "/Pictures"
-	hl.dispatch(hl.dsp.exec_cmd("xfce4-screenshooter --fullscreen --save " .. picturesDir .. "/Screenshots"))
+	hl.dispatch(hl.dsp.exec_cmd("xfce4-screenshooter --fullscreen --save " .. getScreenshotPath({ onlyDir = true })))
 end)
 hl.bind("CTRL + Print", function()
 	local picturesDir = os.getenv("XDG_PICTURES_DIR") or os.getenv("HOME") .. "/Pictures"
-	hl.dispatch(hl.dsp.exec_cmd("xfce4-screenshooter --fullscreen --save " .. picturesDir .. "/Screenshots/Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"))
+	hl.dispatch(hl.dsp.exec_cmd("xfce4-screenshooter --fullscreen --save " .. getScreenshotPath()))
 end)
-hl.bind(MAIN_MOD .. "Print", hl.dsp.exec_cmd("xfce4-screenshooter"))
-hl.bind(MAIN_MOD .. "V", hl.dsp.exec_cmd("cursor-clip"))
+hl.bind(MAIN_MOD .. "Print", function()
+	local picturesDir = os.getenv("XDG_PICTURES_DIR") or os.getenv("HOME") .. "/Pictures"
+	hl.dispatch(
+		hl.dsp.exec_cmd(
+			'xfce4-screenshooter --region --open "satty --floating-hack --output-filename \\"'
+				.. getScreenshotPath()
+				.. '\\" --filename"'
+		)
+	)
+end)
 
 -- ----------------------------------------
 -- Layouts
