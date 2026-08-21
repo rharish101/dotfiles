@@ -32,7 +32,7 @@ alias restart=reboot
 alias vim=nvim
 alias vimdiff="nvim -d"
 alias opencode="jai -j opencode -- opencode"
-alias pi="jai -j pi -- pi"
+alias pi="PI_SKIP_VERSION_CHECK=1 jai -j pi -- pi"
 
 # Keybinds
 bind ctrl-space accept-autosuggestion # Ctrl+Space
