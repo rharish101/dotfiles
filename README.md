@@ -150,6 +150,11 @@ To install and configure the fish plugins:
 
 ![tmux](./screenshots/tmux.png)
 
+### Pi
+
+![pi-1](./screenshots/pi-1.png) ![pi-2](./screenshots/pi-2.png)
+![pi-3](./screenshots/pi-3.png)
+
 ## Licenses
 
 This repository uses [REUSE](https://reuse.software/) to document licenses. Each
