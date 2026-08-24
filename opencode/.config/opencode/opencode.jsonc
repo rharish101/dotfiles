@@ -12,7 +12,7 @@
     "llama_cpp": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "llama.cpp",
-      "options": { "baseURL": "http://localhost:8080" },
+      "options": { "baseURL": "http://localhost:11560" },
       "models": {
         "Qwen-3.8-27B": {
           "name": "Qwen 3.8 (27B)",
