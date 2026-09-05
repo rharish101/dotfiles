@@ -34,9 +34,7 @@ remove_airplane_btn = true
 
 [appearance]
 scale_factor = 1.2
-style = "Solid"
 primary_color = "#2eb398"
-secondary_color = "#2e3034"
 success_color = "#81c995"
 text_color = "#ffffff"
 workspace_colors = [ "#2eb398" ]
@@ -45,6 +43,9 @@ workspace_colors = [ "#2eb398" ]
 base = "#292b2e"
 strong = "#212326"
 weak = "#333539"
+
+[appearance.bar]
+surface = "solid"
 
 [appearance.danger_color]
 base = "#f28b82"
