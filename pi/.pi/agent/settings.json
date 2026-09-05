@@ -1,8 +1,8 @@
 {
-  "lastChangelogVersion": "0.84.3",
+  "lastChangelogVersion": "0.85.0",
   "theme": "selenized-black",
   "packages": [
-    "npm:pi-vim",
+    "npm:pi-vimmode",
     "npm:@juicesharp/rpiv-todo",
     "npm:@narumitw/pi-btw",
     "npm:@robhowley/pi-spinner-verbs",
