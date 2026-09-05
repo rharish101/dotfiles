@@ -8,7 +8,8 @@
     "npm:@robhowley/pi-spinner-verbs",
     "npm:@narumitw/pi-lsp",
     "npm:@99percentpeople/pi-background-tasks",
-    "npm:@juicesharp/rpiv-ask-user-question"
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:@gotgenes/pi-subagents"
   ],
   "defaultProvider": "llama.cpp",
   "defaultModel": "Qwen-3.8-27B",
