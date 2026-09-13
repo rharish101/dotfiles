@@ -95,34 +95,38 @@ local hy3 = hl.plugin.hy3
 -- Enter fullscreen mode for the focused container.
 hl.bind(MAIN_MOD .. "F", hl.dsp.window.fullscreen())
 
--- Toggle focused window into a group a.k.a. "tabbed mode".
-hl.bind(MAIN_MOD .. "W", hy3.make_group("tab", { toggle = true }))
+if hy3 ~= nil then
+	-- Toggle focused window into a group a.k.a. "tabbed mode".
+	hl.bind(MAIN_MOD .. "W", hy3.make_group("tab", { toggle = true }))
 
--- Toggle the window split direction.
-hl.bind(MAIN_MOD .. "E", hy3.change_group("opposite"))
+	-- Toggle the window split direction.
+	hl.bind(MAIN_MOD .. "E", hy3.change_group("opposite"))
+end
 
 -- ----------------------------------------
 -- Focus
 -- ----------------------------------------
 
--- Change focus (within tiled/floating only; exclude tab windows).
-hl.bind(MAIN_MOD .. "H", hy3.move_focus("l", { visible = true }))
-hl.bind(MAIN_MOD .. "J", hy3.move_focus("d", { visible = true }))
-hl.bind(MAIN_MOD .. "K", hy3.move_focus("u", { visible = true }))
-hl.bind(MAIN_MOD .. "L", hy3.move_focus("r", { visible = true }))
+if hy3 ~= nil then
+	-- Change focus (within tiled/floating only; exclude tab windows).
+	hl.bind(MAIN_MOD .. "H", hy3.move_focus("l", { visible = true }))
+	hl.bind(MAIN_MOD .. "J", hy3.move_focus("d", { visible = true }))
+	hl.bind(MAIN_MOD .. "K", hy3.move_focus("u", { visible = true }))
+	hl.bind(MAIN_MOD .. "L", hy3.move_focus("r", { visible = true }))
 
--- Change focus within tabs.
-hl.bind(MAIN_MOD .. "CTRL + H", hy3.focus_tab({ direction = "l" }))
-hl.bind(MAIN_MOD .. "CTRL + L", hy3.focus_tab({ direction = "r" }))
+	-- Change focus within tabs.
+	hl.bind(MAIN_MOD .. "CTRL + H", hy3.focus_tab({ direction = "l" }))
+	hl.bind(MAIN_MOD .. "CTRL + L", hy3.focus_tab({ direction = "r" }))
 
--- Move focused window.
-hl.bind(MAIN_MOD .. "SHIFT + H", hy3.move_window("l"))
-hl.bind(MAIN_MOD .. "SHIFT + J", hy3.move_window("d"))
-hl.bind(MAIN_MOD .. "SHIFT + K", hy3.move_window("u"))
-hl.bind(MAIN_MOD .. "SHIFT + L", hy3.move_window("r"))
+	-- Move focused window.
+	hl.bind(MAIN_MOD .. "SHIFT + H", hy3.move_window("l"))
+	hl.bind(MAIN_MOD .. "SHIFT + J", hy3.move_window("d"))
+	hl.bind(MAIN_MOD .. "SHIFT + K", hy3.move_window("u"))
+	hl.bind(MAIN_MOD .. "SHIFT + L", hy3.move_window("r"))
 
--- Change focus between tiling / floating windows.
-hl.bind(MAIN_MOD .. "space", hy3.toggle_focus_layer())
+	-- Change focus between tiling / floating windows.
+	hl.bind(MAIN_MOD .. "space", hy3.toggle_focus_layer())
+end
 
 -- ----------------------------------------
 -- Floating
@@ -175,25 +179,29 @@ hl.bind(MAIN_MOD .. "8", hl.dsp.focus({ workspace = "8" }))
 hl.bind(MAIN_MOD .. "9", hl.dsp.focus({ workspace = "9" }))
 hl.bind(MAIN_MOD .. "0", hl.dsp.focus({ workspace = "10" }))
 
--- Move the focused window to a workspace.
-hl.bind(MAIN_MOD .. "SHIFT + 1", hy3.move_to_workspace("1"))
-hl.bind(MAIN_MOD .. "SHIFT + 2", hy3.move_to_workspace("2"))
-hl.bind(MAIN_MOD .. "SHIFT + 3", hy3.move_to_workspace("3"))
-hl.bind(MAIN_MOD .. "SHIFT + 4", hy3.move_to_workspace("4"))
-hl.bind(MAIN_MOD .. "SHIFT + 5", hy3.move_to_workspace("5"))
-hl.bind(MAIN_MOD .. "SHIFT + 6", hy3.move_to_workspace("6"))
-hl.bind(MAIN_MOD .. "SHIFT + 7", hy3.move_to_workspace("7"))
-hl.bind(MAIN_MOD .. "SHIFT + 8", hy3.move_to_workspace("8"))
-hl.bind(MAIN_MOD .. "SHIFT + 9", hy3.move_to_workspace("9"))
-hl.bind(MAIN_MOD .. "SHIFT + 0", hy3.move_to_workspace("10"))
+if hy3 ~= nil then
+	-- Move the focused window to a workspace.
+	hl.bind(MAIN_MOD .. "SHIFT + 1", hy3.move_to_workspace("1"))
+	hl.bind(MAIN_MOD .. "SHIFT + 2", hy3.move_to_workspace("2"))
+	hl.bind(MAIN_MOD .. "SHIFT + 3", hy3.move_to_workspace("3"))
+	hl.bind(MAIN_MOD .. "SHIFT + 4", hy3.move_to_workspace("4"))
+	hl.bind(MAIN_MOD .. "SHIFT + 5", hy3.move_to_workspace("5"))
+	hl.bind(MAIN_MOD .. "SHIFT + 6", hy3.move_to_workspace("6"))
+	hl.bind(MAIN_MOD .. "SHIFT + 7", hy3.move_to_workspace("7"))
+	hl.bind(MAIN_MOD .. "SHIFT + 8", hy3.move_to_workspace("8"))
+	hl.bind(MAIN_MOD .. "SHIFT + 9", hy3.move_to_workspace("9"))
+	hl.bind(MAIN_MOD .. "SHIFT + 0", hy3.move_to_workspace("10"))
 
--- Move the focused window to the scratchpad (a hidden workspace).
-hl.bind(MAIN_MOD .. "SHIFT + minus", hy3.move_to_workspace("special:scratchpad"))
+	-- Move the focused window to the scratchpad (a hidden workspace).
+	hl.bind(MAIN_MOD .. "SHIFT + minus", hy3.move_to_workspace("special:scratchpad"))
+end
 
 -- Display all scratchpad windows.
 hl.bind(MAIN_MOD .. "minus", hl.dsp.workspace.toggle_special("scratchpad"))
 
 -- Show workspace overview.
-hl.bind(MAIN_MOD .. "O", function()
-	hl.plugin.hyprexpo.expo("toggle")
-end)
+if hl.plugin.hyprexpo ~= nil then
+	hl.bind(MAIN_MOD .. "O", function()
+		hl.plugin.hyprexpo.expo("toggle")
+	end)
+end

@@ -7,7 +7,6 @@ hl.config({
 		gaps_in = 5,
 		gaps_out = 10,
 		border_size = 0,
-		layout = "hy3",
 	},
 
 	decoration = {
@@ -39,24 +38,6 @@ hl.config({
 	render = { cm_auto_hdr = 2 }, -- Use EDID.
 
 	cursor = { no_warps = true },
-
-	plugin = {
-		dynamic_cursors = { mode = "none" },
-		hyprexpo = { workspace_method = "first 1", label_show = "hover+focus" },
-		hy3 = {
-			autotile = { enable = true },
-			tabs = {
-				height = 30,
-				text_height = 12,
-				border_width = 0,
-				colors = {
-					active = "rgba(464b51ff)",
-					focused = "rgba(212326ff)",
-					inactive = "rgba(212326ff)",
-				},
-			},
-		},
-	},
 })
 
 hl.monitor({
@@ -65,6 +46,41 @@ hl.monitor({
 	bitdepth = 10,
 	icc = os.getenv("HOME") .. "/Documents/Misc/rtings-icc-profile-asus-vg34vql1b.icm",
 })
+
+-- Plugins
+hl.on("hyprland.start", function()
+	hl.exec_cmd("hyprpm reload") -- Enable Hyprland plugins.
+	hl.exec_cmd("hyprctl reload config-only") -- Reload entire config to load plugin-related config.
+end)
+
+if hl.plugin.dynamic_cursors ~= nil then
+	hl.config({ plugin = { dynamic_cursors = { mode = "none" } } })
+end
+
+if hl.plugin.hyprexpo ~= nil then
+	hl.config({ plugin = { hyprexpo = { workspace_method = "first 1", label_show = "hover+focus" } } })
+end
+
+if hl.plugin.hy3 ~= nil then
+	hl.config({
+		general = { layout = "hy3" },
+		plugin = {
+			hy3 = {
+				autotile = { enable = true },
+				tabs = {
+					height = 30,
+					text_height = 12,
+					border_width = 0,
+					colors = {
+						active = "rgba(464b51ff)",
+						focused = "rgba(212326ff)",
+						inactive = "rgba(212326ff)",
+					},
+				},
+			},
+		},
+	})
+end
 
 -- Set the cursor theme
 hl.env("XCURSOR_THEME", "Breeze_Light")
