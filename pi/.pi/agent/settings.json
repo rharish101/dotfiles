@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.85.0",
+  "lastChangelogVersion": "0.86.1",
   "theme": "selenized-black",
   "packages": [
     "npm:pi-vimmode",
@@ -15,5 +15,6 @@
   "defaultModel": "Qwen-3.8-27B",
   "spinnerVerbsFile": "verbs.json",
   "enableInstallTelemetry": false,
-  "quietStartup": true
+  "quietStartup": true,
+  "collapseChangelog": true
 }
