@@ -31,7 +31,6 @@ set fish_vi_force_cursor # Needed for tmux
 alias restart=reboot
 alias vim=nvim
 alias vimdiff="nvim -d"
-alias opencode="jai -j opencode -- opencode"
 alias pi="PI_SKIP_VERSION_CHECK=1 jai -j pi -- pi"
 
 # Keybinds

@@ -22,7 +22,6 @@ tutorial,
 - [Kitty](https://sw.kovidgoyal.net/kitty/) - terminal emulator
 - [Kvantum](https://github.com/tsujan/Kvantum) - QT theme engine
 - [NeoVim](https://neovim.io/) - text editor
-- [OpenCode](https://opencode.ai/) - LLM harness
 - [Pi](https://pi.dev/) - LLM harness
 - [Ruff](https://docs.astral.sh/ruff/) - Python linter, formatter and LSP
 - [Wofi](https://hg.sr.ht/~scoopta/wofi) - GTK-based app launcher
