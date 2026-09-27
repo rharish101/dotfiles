@@ -139,5 +139,6 @@ hl.window_rule({
 })
 
 -- Misc
+hl.window_rule({ match = { class = "kitty" }, fullscreen_state = 0 })
 hl.window_rule({ match = { class = "Matplotlib", float = true } })
 hl.window_rule({ match = { title = "Password Required - Mozilla Thunderbird", float = true } })
