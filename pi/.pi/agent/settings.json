@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.86.1",
+  "lastChangelogVersion": "1.0.0",
   "theme": "selenized-black",
   "packages": [
     "npm:pi-vimmode",
@@ -16,5 +16,6 @@
   "spinnerVerbsFile": "verbs.json",
   "enableInstallTelemetry": false,
   "quietStartup": true,
-  "collapseChangelog": true
+  "collapseChangelog": true,
+  "tuiMode": "regular"
 }
