@@ -83,8 +83,8 @@ if hl.plugin.hy3 ~= nil then
 end
 
 -- Set the cursor theme
-hl.env("XCURSOR_THEME", "Breeze_Light")
-hl.env("XCURSOR_SIZE", "24")
+hl.env("XCURSOR_THEME", "BreezeX-Light")
+hl.env("XCURSOR_SIZE", "28")
 
 -- Startup scripts
 local STARTUP_CMDS <const> = require("startup")

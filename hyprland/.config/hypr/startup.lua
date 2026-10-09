@@ -9,7 +9,7 @@ return {
 	"kdeconnect-indicator",
 	"system-config-printer-applet", -- Printer status
 	"systemctl --user start xfce4-notifyd.service",
-	"hyprctl setcursor Breeze_Light 24", -- Set the cursor theme.
+	"hyprctl setcursor BreezeX-Light 24", -- Set the cursor theme.
 	"Thunar --daemon",
 	"cursor-clip --daemon", -- Clipboard manager
 	"ashell", -- Status bar + tray
