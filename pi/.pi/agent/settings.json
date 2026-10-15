@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.1.0",
+  "lastChangelogVersion": "1.2.0",
   "theme": "selenized-black",
   "packages": [
     "npm:pi-vimmode",
@@ -20,5 +20,8 @@
   "defaultTools": [
     "+codemode"
   ],
-  "tuiMode": "regular"
+  "tuiMode": "regular",
+  "terminal": {
+    "showTerminalProgress": true
+  }
 }
