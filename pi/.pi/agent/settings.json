@@ -1,6 +1,6 @@
 {
   "$schema": "https://pi.dev/schemas/settings.schema.json",
-  "lastChangelogVersion": "1.3.0",
+  "lastChangelogVersion": "1.4.0",
   "theme": "selenized-black",
   "packages": [
     "npm:pi-vimmode",
@@ -10,7 +10,8 @@
     "npm:@narumitw/pi-lsp",
     "npm:@99percentpeople/pi-background-tasks",
     "npm:@juicesharp/rpiv-ask-user-question",
-    "npm:@gotgenes/pi-subagents"
+    "npm:@gotgenes/pi-subagents",
+    "npm:pi-minimalist"
   ],
   "defaultProvider": "llama.cpp",
   "defaultModel": "Qwen-3.8-27B",
@@ -24,5 +25,11 @@
   "tuiMode": "regular",
   "terminal": {
     "showTerminalProgress": true
-  }
+  },
+  "minimalist": {
+    "preset": "full",
+    "gutter": false,
+    "keepActiveThinkingExpanded": true
+  },
+  "hideThinkingBlock": true
 }
