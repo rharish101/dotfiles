@@ -50,7 +50,7 @@ hl.monitor({
 -- Plugins
 hl.on("hyprland.start", function()
 	hl.exec_cmd("hyprpm reload") -- Enable Hyprland plugins.
-	hl.exec_cmd("hyprctl reload config-only") -- Reload entire config to load plugin-related config.
+	hl.dispatch(hl.dsp.reload_config()) -- Reload entire config to load plugin-related config.
 end)
 
 if hl.plugin.dynamic_cursors ~= nil then

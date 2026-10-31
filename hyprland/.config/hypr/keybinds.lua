@@ -14,7 +14,7 @@ hl.bind(MAIN_MOD .. "Q", hl.dsp.window.close())
 hl.bind(MAIN_MOD .. "SHIFT + Q", hl.dsp.window.kill())
 
 -- Reload the configuration file.
-hl.bind(MAIN_MOD .. "SHIFT + C", hl.dsp.exec_cmd("hyprctl reload config-only"))
+hl.bind(MAIN_MOD .. "SHIFT + C", hl.dsp.reload_config())
 
 -- Reload all renderer resources and outputs.
 hl.bind(MAIN_MOD .. "SHIFT + R", hl.dsp.exec_cmd("hyprctl reload"))
