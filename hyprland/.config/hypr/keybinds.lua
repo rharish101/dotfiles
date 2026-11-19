@@ -17,7 +17,7 @@ hl.bind(MAIN_MOD .. "SHIFT + Q", hl.dsp.window.kill())
 hl.bind(MAIN_MOD .. "SHIFT + C", hl.dsp.reload_config())
 
 -- Reload all renderer resources and outputs.
-hl.bind(MAIN_MOD .. "SHIFT + R", hl.dsp.exec_cmd("hyprctl reload"))
+hl.bind(MAIN_MOD .. "SHIFT + R", hl.dsp.force_renderer_reload())
 
 -- Exit Hyprland (logs you out of your Wayland session).
 hl.bind(MAIN_MOD .. "SHIFT + E", hl.dsp.exec_cmd("hyprshutdown"))
