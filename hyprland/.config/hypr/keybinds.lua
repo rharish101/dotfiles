@@ -49,7 +49,7 @@ hl.bind(APP_MOD .. "M", hl.dsp.exec_cmd("exo-open --launch MailReader"))
 hl.bind(APP_MOD .. "T", hl.dsp.exec_cmd("exo-open --launch TerminalEmulator"))
 hl.bind(APP_MOD .. "B", hl.dsp.exec_cmd("exo-open --launch WebBrowser"))
 hl.bind(APP_MOD .. "P", hl.dsp.exec_cmd("firefox --private-window"))
-hl.bind(APP_MOD .. "R", hl.dsp.exec_cmd("lollypop"))
+hl.bind(APP_MOD .. "R", hl.dsp.exec_cmd("feishin"))
 
 -- Desktop utils
 hl.bind(APP_MOD .. "L", hl.dsp.exec_cmd("hyprlock"))
