@@ -29,7 +29,8 @@
   "minimalist": {
     "preset": "full",
     "gutter": false,
-    "keepActiveThinkingExpanded": true
+    "keepActiveThinkingExpanded": true,
+    "keepActiveToolsExpanded": true
   },
   "hideThinkingBlock": true
 }
