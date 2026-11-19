@@ -30,6 +30,9 @@ hl.bind("XF86PowerOff", hl.dsp.exec_cmd("hyprshutdown"))
 -- App-specific mod
 local APP_MOD <const> = "CTRL + ALT + SUPER + "
 
+-- Allow launching local scripts
+hl.env("PATH", os.getenv("HOME") .. "/.local/bin:" .. os.getenv("PATH"))
+
 -- Brightness adjustments
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("ddcutil setvcp 10 + 5"), { repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("ddcutil setvcp 10 - 5"), { repeating = true })
