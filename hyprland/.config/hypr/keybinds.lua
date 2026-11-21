@@ -58,7 +58,7 @@ hl.bind(APP_MOD .. "R", hl.dsp.exec_cmd("feishin"))
 hl.bind(APP_MOD .. "L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(MAIN_MOD .. "P", hl.dsp.exec_cmd("monique"))
 hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd("pkill wofi || wofi"), { release = true }) -- Explicitly use SUPER, in case MAIN_MOD is changed
-hl.bind(MAIN_MOD .. "V", hl.dsp.exec_cmd("cursor-clip"))
+hl.bind(MAIN_MOD .. "V", hl.dsp.exec_cmd("cursor-clip-toggle"))
 
 function getScreenshotPath(args)
 	local onlyDir = (args or {}).onlyDir or false

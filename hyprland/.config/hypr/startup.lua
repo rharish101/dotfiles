@@ -11,7 +11,7 @@ return {
 	"systemctl --user start xfce4-notifyd.service",
 	"hyprctl setcursor BreezeX-Light 24", -- Set the cursor theme.
 	"Thunar --daemon",
-	"cursor-clip --daemon", -- Clipboard manager
+	"cursor-clip-daemon", -- Clipboard manager
 	"ashell", -- Status bar + tray
 	"wpaperd -d", -- Wallpaper daemon for random wallpapers
 	"systemctl --user start hyprland-session.target",
