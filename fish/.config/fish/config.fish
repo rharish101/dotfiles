@@ -31,6 +31,7 @@ set fish_vi_force_cursor # Needed for tmux
 alias restart=reboot
 alias vim=nvim
 alias vimdiff="nvim -d"
+alias ssh="kitten ssh"
 
 # Keybinds
 bind ctrl-space accept-autosuggestion # Ctrl+Space
