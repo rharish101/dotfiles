@@ -3,6 +3,11 @@
 # SPDX-License-Identifier: MIT
 
 function bws --wraps bw --description 'bw wrapper with session'
+    if ! type --query bw
+        echo 'BitWarden CLI not installed' >&2
+        return 127
+    end
+
     set --local bw_dir /tmp/bw
     set --local bw_session $bw_dir/session
 

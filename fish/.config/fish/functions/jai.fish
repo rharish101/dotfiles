@@ -4,7 +4,8 @@
 
 function jai --wraps jai --description 'jai wrapper to include git roots'
     if ! type --query jai
-        return 1
+        echo 'jai not installed' >&2
+        return 127
     end
 
     set args
